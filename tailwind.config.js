@@ -4,9 +4,20 @@ export default {
   content: ['./src/**/*.tsx', './index.html'],
   theme: {
     extend: {
+      screens: {
+        sm: '480px',
+        md: '768px',
+        lg: '976px',
+        xl: '1440px',
+      },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
         int: ['Inter', 'sans-serif'],
+      },
+      fontSize: {
+        '3xs': '0.863rem',
+        '2sm': '0.9375rem',
+        '4.5xl': '2.5rem',
       },
       colors: {
         gray: {
@@ -43,6 +54,19 @@ export default {
           yellow: '#EE9329',
           green: '#29EE9B',
         },
+      },
+      spacing: {
+        0.75: '0.1875rem',
+        2.25: '0.5625rem',
+        4.5: '1.125rem',
+      },
+      ringWidth: {
+        1.5: '1.5px',
+      },
+      transitionDuration: {
+        10: '10ms',
+        40: '40ms',
+        600: '600ms',
       },
     },
   },

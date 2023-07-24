@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 
-import AuthPage from '../pages/Auth/Auth';
+import Auth from '../pages/Auth/Auth';
 // import AuthPageTest from '../pages/_AuthPage/AuthPageTest';
 import Resume from '../pages/Welcome/Welcome';
 import TaskList from '../pages/TaskList/TaskList';
@@ -9,7 +9,7 @@ import TaskList from '../pages/TaskList/TaskList';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<AuthPage />} />
+      <Route path="/" element={<Auth />} />
       {/* <Route path="/alt" element={<AuthPageTest />} /> */}
 
       <Route
