@@ -1,22 +1,33 @@
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 
+import AppLayout from '../layouts/AppLayout';
+
 import Auth from '../pages/Auth/Auth';
-// import AuthPageTest from '../pages/_AuthPage/AuthPageTest';
-import Resume from '../pages/Welcome/Welcome';
+import Welcome from '../pages/Welcome/Welcome';
 import TaskList from '../pages/TaskList/TaskList';
+import Notes from '../pages/Notes/Notes';
+import AuthLayout from '../layouts/AuthLayout';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Auth />} />
-      {/* <Route path="/alt" element={<AuthPageTest />} /> */}
+      <Route
+        path="/"
+        element={
+          <AuthLayout>
+            <Auth />
+          </AuthLayout>
+        }
+      />
 
       <Route
         path="/welcome"
         element={
           <PrivateRoute redirectTo="/">
-            <Resume />
+            <AppLayout>
+              <Welcome />
+            </AppLayout>
           </PrivateRoute>
         }
       />
@@ -24,7 +35,9 @@ const AppRoutes = () => {
         path="/tasklist/:id"
         element={
           <PrivateRoute redirectTo="/">
-            <TaskList />
+            <AppLayout>
+              <TaskList />
+            </AppLayout>
           </PrivateRoute>
         }
       />
@@ -32,7 +45,9 @@ const AppRoutes = () => {
         path="/notes/:id"
         element={
           <PrivateRoute redirectTo="/">
-            <TaskList />
+            <AppLayout>
+              <Notes />
+            </AppLayout>
           </PrivateRoute>
         }
       />
