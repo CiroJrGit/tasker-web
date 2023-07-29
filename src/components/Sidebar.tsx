@@ -1,14 +1,14 @@
-import NavItems from './NavItems';
-import NavMenu from './NavMenu';
+import NavList from './NavList';
+import Menu from './Menu';
 
 const Sidebar = () => {
   return (
-    <header className="flex flex-col gap-11 min-h-full px-5 pt-8">
-      <NavMenu />
+    <header className="flex flex-col gap-11 min-h-full px-4 pt-8">
+      <Menu />
 
-      <NavItems />
+      <NavList />
 
-      <div>New page</div>
+      <div></div>
     </header>
   );
 };

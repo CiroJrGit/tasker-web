@@ -6,22 +6,22 @@ import User from './User';
 import IconSearch from '../assets/icons/IconSearch';
 import IconSettings from '../assets/icons/IconSettings';
 import IconTrash from '../assets/icons/IconTrash';
-import { IoEllipsisHorizontal } from 'react-icons/io5';
+import { PiCaretDownBold } from 'react-icons/pi';
 // import Trash from './Trash';
 
-const NavMenu = () => {
+const Menu = () => {
   return (
-    <nav className="flex flex-col gap-3">
+    <nav className="flex flex-col gap-2.5">
       <Popover.Root>
         <Popover.Trigger
           className="
-            flex justify-between items-center px-2 py-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
+            flex justify-between items-center px-2.5 py-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
           "
         >
           <User variant="sm" />
           <div className="flex items-center">
-            <IoEllipsisHorizontal className="text-2xl dark:text-gray-400 text-white-300" />
+            <PiCaretDownBold className="text-base dark:text-gray-400 text-white-300" />
           </div>
         </Popover.Trigger>
         <Popover.Portal>
@@ -40,7 +40,7 @@ const NavMenu = () => {
         >
           <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75">
             <div className="flex justify-center items-center w-6">
-              <IconSearch width="17" height="17" />
+              <IconSearch width="16" height="16" />
             </div>
             <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
               Pesquisar
@@ -54,7 +54,7 @@ const NavMenu = () => {
         >
           <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75">
             <div className="flex justify-center items-center w-6">
-              <IconSettings width="19" height="19" />
+              <IconSettings width="18" height="18" />
             </div>
             <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
               Configurações
@@ -70,7 +70,7 @@ const NavMenu = () => {
             "
           >
             <div className="flex justify-center items-center w-6">
-              <IconTrash width="17" height="17" />
+              <IconTrash width="16" height="16" />
             </div>
             <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
               Lixeira
@@ -89,4 +89,4 @@ const NavMenu = () => {
   );
 };
 
-export default NavMenu;
+export default Menu;

@@ -1,6 +1,6 @@
 import { IconProps } from '../../types/iconProps';
 
-const IconCheck = ({ width, height, stroke }: IconProps) => {
+const IconCheckColor = ({ width, height, stroke }: IconProps) => {
   return (
     <svg
       width={width}
@@ -15,12 +15,13 @@ const IconCheck = ({ width, height, stroke }: IconProps) => {
         width="20.5"
         height="20.5"
         rx="5.25"
-        className="dark:stroke-gray-400 stroke-white-400"
+        fill={stroke}
+        stroke={stroke}
         strokeWidth="1.5"
       />
       <path
         d="M16 7.5L9.125 14.375L6 11.25"
-        className="dark:stroke-gray-400 stroke-white-400"
+        stroke="#E3E3E3"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -29,4 +30,4 @@ const IconCheck = ({ width, height, stroke }: IconProps) => {
   );
 };
 
-export default IconCheck;
+export default IconCheckColor;
