@@ -5,7 +5,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import ModalWrap from '../../components/ModalWrap';
 import ModalNewPage from '../../components/ModalNewPage';
 
-import IconList from '../../assets/icons/IconList';
+import IconNote from '../../assets/icons/IconNote';
 import IconCheck from '../../assets/icons/IconCheck';
 
 const Welcome = () => {
@@ -57,7 +57,7 @@ const Welcome = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconList width="23" height="23" />
+              <IconNote width="22" height="22" />
             </div>
             <span className="pt-px font-medium duration-10">
               Página de anotações

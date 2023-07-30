@@ -1,6 +1,7 @@
 import { IconProps } from '../../types/iconProps';
+import clsx from 'clsx';
 
-const IconList = ({ width, height }: IconProps) => {
+const IconNote = ({ width, height, stroke }: IconProps) => {
   return (
     <svg
       width={width}
@@ -11,28 +12,40 @@ const IconList = ({ width, height }: IconProps) => {
     >
       <path
         d="M21.3 9.84667V15.23C21.3 20.8335 19.5 22.7667 14.16 22.7667H8.04002C2.74392 22.7667 0.900024 21 0.900024 15.23V8.77C0.900024 3 2.74392 1.23334 8.04002 1.23334H13.14"
-        className="dark:stroke-gray-400 stroke-white-400 group-hover:stroke-gray-100 group-hover:text-gray-300"
+        className={clsx({
+          'dark:stroke-gray-400 stroke-white-400': stroke !== 'notes',
+          'dark:stroke-gray-100 stroke-gray-400': stroke === 'notes',
+        })}
         strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M21.3 9.84667H17.22C14.16 9.84667 13.14 8.77 13.14 5.54V1.23334L21.3 9.84667Z"
-        className="dark:stroke-gray-400 stroke-white-400 group-hover:stroke-gray-100 group-hover:text-gray-300"
+        className={clsx({
+          'dark:stroke-gray-400 stroke-white-400': stroke !== 'notes',
+          'dark:stroke-gray-100 stroke-gray-400': stroke === 'notes',
+        })}
         strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M6 13.0766H12.12"
-        className="dark:stroke-gray-400 stroke-white-400 group-hover:stroke-gray-100 group-hover:text-gray-300"
+        className={clsx({
+          'dark:stroke-gray-400 stroke-white-400': stroke !== 'notes',
+          'dark:stroke-gray-100 stroke-gray-400': stroke === 'notes',
+        })}
         strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M6 17.3832H10.08"
-        className="dark:stroke-gray-400 stroke-white-400 group-hover:stroke-gray-100 group-hover:text-gray-300"
+        className={clsx({
+          'dark:stroke-gray-400 stroke-white-400': stroke !== 'notes',
+          'dark:stroke-gray-100 stroke-gray-400': stroke === 'notes',
+        })}
         strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -41,4 +54,4 @@ const IconList = ({ width, height }: IconProps) => {
   );
 };
 
-export default IconList;
+export default IconNote;
