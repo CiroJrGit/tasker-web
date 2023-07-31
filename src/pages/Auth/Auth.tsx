@@ -87,7 +87,7 @@ const Auth = () => {
             <div className="flex flex-col justify-center w-[672px] px-28">
               <div className="flex flex-col gap-8">
                 <div className="flex justify-center">
-                  <span className="text-lg font-normal dark:text-gray-50 text-gray-500">
+                  <span className="text-lg font-normal dark:text-gray-50 text-gray-400">
                     Entre no Tasker
                   </span>
                 </div>
@@ -116,7 +116,7 @@ const Auth = () => {
             <div className="flex flex-col justify-center w-[672px] min-h-[583px] px-28">
               <div className="flex flex-col gap-8">
                 <div className="flex justify-center">
-                  <span className="text-lg font-normal dark:text-gray-50 text-gray-500">
+                  <span className="text-lg font-normal dark:text-gray-50 text-gray-400">
                     Crie uma nova conta
                   </span>
                 </div>

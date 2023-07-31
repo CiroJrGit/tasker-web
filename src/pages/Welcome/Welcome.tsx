@@ -35,14 +35,18 @@ const Welcome = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconCheck width="21" height="21" />
+              <IconCheck
+                width="20"
+                height="20"
+                color="dark:stroke-gray-400 stroke-white-400"
+              />
             </div>
             <span className="pt-px font-medium duration-10">
               Lista de tarefas
             </span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Nova página de lista">
+          <ModalWrap title="Nova página">
             <ModalNewPage />
           </ModalWrap>
         </Dialog.Root>
@@ -57,14 +61,18 @@ const Welcome = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconNote width="22" height="22" />
+              <IconNote
+                width="22"
+                height="22"
+                color="dark:stroke-gray-400 stroke-white-400"
+              />
             </div>
             <span className="pt-px font-medium duration-10">
               Página de anotações
             </span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Nova página de anotações">
+          <ModalWrap title="Nova página">
             <ModalNewPage />
           </ModalWrap>
         </Dialog.Root>

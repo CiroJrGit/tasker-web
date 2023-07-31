@@ -1,6 +1,6 @@
 import { IconProps } from '../../types/iconProps';
 
-const IconClose = ({ width, height, stroke }: IconProps) => {
+const IconClose = ({ width, height }: IconProps) => {
   return (
     <svg
       width={width}
@@ -12,14 +12,14 @@ const IconClose = ({ width, height, stroke }: IconProps) => {
       <path
         d="M15 2L2 15"
         className="dark:stroke-gray-300 stroke-white-400"
-        strokeWidth={stroke}
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M2 2L15 15"
         className="dark:stroke-gray-300 stroke-white-400"
-        strokeWidth={stroke}
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -1,6 +1,6 @@
 import { IconProps } from '../../types/iconProps';
 
-const IconBack = ({ width, height, stroke }: IconProps) => {
+const IconBack = ({ width, height }: IconProps) => {
   return (
     <svg
       width={width}
@@ -11,15 +11,15 @@ const IconBack = ({ width, height, stroke }: IconProps) => {
     >
       <path
         d="M4.61111 1.22223L1 4.83334L4.61111 8.44445"
-        className="dark:stroke-gray-200 stroke-gray-300"
-        strokeWidth={stroke}
+        className="dark:stroke-gray-100 stroke-gray-300"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M1 4.83334H6.77778C10.7665 4.83334 14 8.06688 14 12.0556V12.7778"
-        className="dark:stroke-gray-200 stroke-gray-300"
-        strokeWidth={stroke}
+        className="dark:stroke-gray-100 stroke-gray-300"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

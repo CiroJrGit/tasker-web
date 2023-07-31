@@ -6,7 +6,7 @@ import User from './User';
 import IconSearch from '../assets/icons/IconSearch';
 import IconSettings from '../assets/icons/IconSettings';
 import IconTrash from '../assets/icons/IconTrash';
-import { PiCaretDownBold } from 'react-icons/pi';
+import IconCaret from '../assets/icons/IconCaret';
 // import Trash from './Trash';
 
 const Menu = () => {
@@ -21,7 +21,11 @@ const Menu = () => {
         >
           <User variant="sm" />
           <div className="flex items-center">
-            <PiCaretDownBold className="text-base dark:text-gray-400 text-white-300" />
+            <IconCaret
+              width="11"
+              height="11"
+              color="dark:stroke-gray-400 stroke-white-300"
+            />
           </div>
         </Popover.Trigger>
         <Popover.Portal>
