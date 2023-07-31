@@ -12,13 +12,14 @@ import IconNote from '../assets/icons/IconNote';
 import IconCaret from '../assets/icons/IconCaret';
 import { TbCheck } from 'react-icons/tb';
 
-interface ModalProps {
+interface ModalNewPageProps {
   list?: ListProps;
   type?: string;
+  page?: string;
 }
 
-const ModalNewPage = ({ type, list }: ModalProps) => {
-  const selectedColor = '#265EED';
+const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
+  const [selectedColor, setSelectedColor] = useState('#265EED');
   const colors = [
     '#265EED',
     '#8029EE',
@@ -28,13 +29,17 @@ const ModalNewPage = ({ type, list }: ModalProps) => {
     '#29EE9B',
   ];
 
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<string>(page || '');
   const [title, setTitle] = useState('');
 
   return (
     <div className="mt-8 space-y-8">
       <div className="flex flex-col gap-5">
-        <RadioGroup.Root className="flex gap-3" aria-label="Page type">
+        <RadioGroup.Root
+          className="flex gap-3"
+          defaultValue={page}
+          aria-label="Page type"
+        >
           <div className="flex items-center">
             <RadioGroup.Item
               className="hidden peer"
@@ -106,28 +111,30 @@ const ModalNewPage = ({ type, list }: ModalProps) => {
             </Popover.Trigger>
             <Popover.Portal>
               <Popover.Content className="focus:outline-none">
-                <div className="relative left-[100px] flex gap-5 mt-4 px-4 py-3 rounded-lg dark:bg-gray-800 bg-white-700 drop-shadow-md">
+                <div className="relative left-[95px] flex gap-5 mt-4 px-4 py-3 rounded-lg dark:bg-gray-800 bg-white-700 drop-shadow-md">
                   {colors.map((color, index) => (
                     <button
                       key={index}
                       className={clsx(
                         'flex justify-center items-center w-5 h-5 rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
                         'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
+                        /* eslint-disable prettier/prettier */
                         {
-                          'bg-main-blue': color === '#265EED',
-                          'bg-main-purple': color === '#8029EE',
-                          'bg-main-pink': color === '#EE29B7',
-                          'bg-main-red': color === '#F4385A',
-                          'bg-main-yellow': color === '#EE9329',
-                          'bg-main-green': color === '#29EE9B',
+                          'bg-main-blue ring-gray-200': color === '#265EED',
+                          'bg-main-purple ring-main-purple': color === '#8029EE',
+                          'bg-main-pink ring-main-pink': color === '#EE29B7',
+                          'bg-main-red ring-main-red': color === '#F4385A',
+                          'bg-main-yellow ring-main-yellow': color === '#EE9329',
+                          'bg-main-green ring-main-green': color === '#29EE9B',
 
-                          'ring-1 dark:ring-gray-100 ring-gray-400 ring-offset-2':
-                            color === selectedColor,
+                          'ring-1 ring-offset-2': color === selectedColor,
+                          // dark:ring-gray-100 ring-gray-400
                         },
                       )}
+                      onClick={() => setSelectedColor(color)}
                     >
-                      {selectedColor === color && (
-                        <TbCheck className="text-lg dark:text-gray-50 text-gray-900" />
+                      {color === selectedColor && (
+                        <TbCheck className="text-md dark:text-gray-50 text-gray-900" />
                       )}
                     </button>
                   ))}

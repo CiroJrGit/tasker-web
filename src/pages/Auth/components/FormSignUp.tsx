@@ -170,7 +170,7 @@ const FormSignUp = () => {
           <Button
             variant="primary"
             size="lg"
-            title={
+            label={
               loadingAuth ? (
                 <CgSpinner className="animate-spin text-4.5xl" />
               ) : (

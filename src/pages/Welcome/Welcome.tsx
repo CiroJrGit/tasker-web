@@ -47,7 +47,7 @@ const Welcome = () => {
           </Dialog.Trigger>
 
           <ModalWrap title="Nova página">
-            <ModalNewPage />
+            <ModalNewPage page="tasklist" />
           </ModalWrap>
         </Dialog.Root>
 
@@ -73,7 +73,7 @@ const Welcome = () => {
           </Dialog.Trigger>
 
           <ModalWrap title="Nova página">
-            <ModalNewPage />
+            <ModalNewPage page="notes" />
           </ModalWrap>
         </Dialog.Root>
       </div>
