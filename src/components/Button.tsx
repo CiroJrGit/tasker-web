@@ -1,15 +1,10 @@
-import { ButtonProps } from '../types/buttonProps';
+import { ButtonProps, button } from '../types/buttonProps';
 
 // import * as Dialog from '@radix-ui/react-dialog';
-// import Modal from './Modal';
-import { HiOutlinePlus } from 'react-icons/hi';
 
-function Button({ variant, label, size, ...props }: ButtonProps) {
+function Button({ label, variant, size, ...props }: ButtonProps) {
   return (
-    <button
-      {...props}
-      className="primary max-h-[64px] px-5 py-4.5 rounded-lg font-bold text-lg focus-visible:ring-2"
-    >
+    <button {...props} className={button({ variant, size })}>
       {label}
     </button>
   );

@@ -6,6 +6,7 @@ import { ListProps } from '../types/tasklistProps';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 import * as Popover from '@radix-ui/react-popover';
+import Button from './Button';
 
 import IconCheck from '../assets/icons/IconCheck';
 import IconNote from '../assets/icons/IconNote';
@@ -156,18 +157,25 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
         </div>
       </div>
 
-      <div className="flex justify-end gap-2">
+      <div className="flex justify-end gap-3">
         <Dialog.Close asChild>
-          <button
+          <Button
+            variant='primary'
+            size='md'
+            label="Criar"
             onClick={() => {
               console.log(selectedOption);
             }}
-          >
-            Criar
-          </button>
+          />
         </Dialog.Close>
 
-        <Dialog.Close className="secondary">Voltar</Dialog.Close>
+        <Dialog.Close asChild>
+          <Button
+            variant='secondary'
+            size='md'
+            label="Cancelar"
+          />
+        </Dialog.Close>
       </div>
     </div>
   );
