@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  // darkMode: 'class',
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -43,10 +43,10 @@ export default {
           400: '#9494A4',
           300: '#888899',
         },
-        slate: {
-          800: '#353945',
-          700: '#404653',
-          600: '#4E5360',
+        navy: {
+          900: '#141A28',
+          700: '#2D3646',
+          500: '#4D5462',
         },
         blue: {
           600: '#265EED',

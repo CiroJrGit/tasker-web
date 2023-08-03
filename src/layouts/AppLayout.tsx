@@ -16,9 +16,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   return (
     <div
       className="
-        flex justify-center items-center min-h-screen dark:bg-gradient-to-t dark:from-slate-800 dark:via-slate-700 dark:to-slate-600
-        bg-gradient-to-t from-white-500 via-white-600 to-white-800
-      "
+        flex justify-center items-center min-h-screen dark:bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-navy-500 dark:via-navy-700 dark:to-navy-900
+        "
+    // bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-white-900 via-white-700 to-gray-50
     >
       <div
         className={clsx(
