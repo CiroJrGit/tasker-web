@@ -9,7 +9,7 @@ import { HiOutlinePlus } from 'react-icons/hi';
 
 const Sidebar = () => {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] gap-11 min-h-full px-3 pt-7 p-4">
+    <div className="grid grid-rows-[auto_1fr_auto] gap-11 w-[320px] min-h-full px-3 pt-7 p-4">
       <Menu />
 
       <NavList />
@@ -17,10 +17,10 @@ const Sidebar = () => {
       <Dialog.Root>
         <Dialog.Trigger
           className="
-              flex flex-row items-center gap-2 h-[52px] px-4 rounded-md dark:text-gray-100 text-white-400
-              dark:hover:bg-gray-700/80 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
-            "
+            flex flex-row items-center gap-2 h-[52px] px-4 rounded-md dark:text-gray-100 text-gray-300
+            dark:hover:bg-gray-700/80 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
+            focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
+          "
           type="button"
         >
           <div className="flex justify-center items-center w-6">

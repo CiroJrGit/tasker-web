@@ -145,7 +145,7 @@ const FormSignUp = () => {
               </motion.span>
             </Form.Message>
           </div>
-          <div className="relative flex items-center mb-6 ">
+          <div className="relative flex items-center mb-6">
             <Form.Control asChild>
               <input
                 className="

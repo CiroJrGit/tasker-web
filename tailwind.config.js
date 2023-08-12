@@ -19,6 +19,14 @@ export default {
         '2sm': '0.9375rem',
         '4.5xl': '2.5rem',
       },
+      spacing: {
+        0.75: '0.1875rem',
+        2.25: '0.5625rem',
+        4.5: '1.125rem',
+      },
+      ringWidth: {
+        1.5: '1.5px',
+      },
       colors: {
         gray: {
           950: '#1B1C1E',
@@ -43,10 +51,15 @@ export default {
           400: '#9494A4',
           300: '#888899',
         },
+        slate: {
+          500: '#A5A7B4',
+          300: '#ADAFBE',
+          100: '#D9D9E4',
+        },
         navy: {
-          900: '#141A28',
-          700: '#2D3646',
-          500: '#4D5462',
+          900: '#282e3b',
+          700: '#4c5666',
+          500: '#7a859b',
         },
         blue: {
           600: '#265EED',
@@ -59,14 +72,6 @@ export default {
           yellow: '#EE9329',
           green: '#29EE9B',
         },
-      },
-      spacing: {
-        0.75: '0.1875rem',
-        2.25: '0.5625rem',
-        4.5: '1.125rem',
-      },
-      ringWidth: {
-        1.5: '1.5px',
       },
       transitionDuration: {
         10: '10ms',

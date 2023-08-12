@@ -35,8 +35,8 @@ const User = ({ variant }: UserProps) => {
               <div className="flex gap-3">
                 <div
                   className="
-                  flex items-center px-2.5 rounded-lg text-3xl font-medium dark:text-gray-100 text-gray-300 border dark:border-gray-500 border-white-500/40 dark:bg-gray-500 bg-white-600
-                  dark:group-hover:bg-gray-500 dark:group-hover:border-gray-500 group-hover:bg-white-500 group-hover:border-white-400/10
+                    flex items-center px-2.5 rounded-lg text-3xl font-medium dark:text-gray-100 text-gray-300 border dark:border-gray-500 border-white-500/40 dark:bg-gray-500 bg-white-600
+                    dark:group-hover:bg-gray-500 dark:group-hover:border-gray-500 group-hover:bg-white-500 group-hover:border-white-400/10
                   "
                 >
                   <span className="duration-40">{user.name?.charAt(0)}</span>
