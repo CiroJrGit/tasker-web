@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  // darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -15,7 +15,7 @@ export default {
         int: ['Inter', 'sans-serif'],
       },
       fontSize: {
-        '3xs': '0.863rem',
+        '2xs': '0.8125rem',
         '2sm': '0.9375rem',
         '4.5xl': '2.5rem',
       },
@@ -57,9 +57,9 @@ export default {
           100: '#D9D9E4',
         },
         navy: {
-          900: '#282e3b',
-          700: '#4c5666',
-          500: '#7a859b',
+          900: '#333c49',
+          700: '#394251',
+          500: '#57657a',
         },
         blue: {
           600: '#265EED',

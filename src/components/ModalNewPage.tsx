@@ -121,15 +121,14 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
                         'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
                         /* eslint-disable prettier/prettier */
                         {
-                          'bg-main-blue ring-gray-200': color === '#265EED',
-                          'bg-main-purple ring-main-purple': color === '#8029EE',
-                          'bg-main-pink ring-main-pink': color === '#EE29B7',
-                          'bg-main-red ring-main-red': color === '#F4385A',
-                          'bg-main-yellow ring-main-yellow': color === '#EE9329',
-                          'bg-main-green ring-main-green': color === '#29EE9B',
+                          'bg-main-blue': color === '#265EED',
+                          'bg-main-purple': color === '#8029EE',
+                          'bg-main-pink': color === '#EE29B7',
+                          'bg-main-red': color === '#F4385A',
+                          'bg-main-yellow': color === '#EE9329',
+                          'bg-main-green': color === '#29EE9B',
 
-                          'ring-1 ring-offset-2': color === selectedColor,
-                          // dark:ring-gray-100 ring-gray-400
+                          'ring-1 ring-gray-200 ring-offset-2': color === selectedColor,
                         },
                       )}
                       onClick={() => setSelectedColor(color)}
@@ -164,7 +163,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
             size='md'
             label="Criar"
             onClick={() => {
-              console.log(selectedOption);
+              console.log(`${title} - ${selectedOption}`);
             }}
           />
         </Dialog.Close>

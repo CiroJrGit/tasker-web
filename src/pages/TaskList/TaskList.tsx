@@ -1,5 +1,9 @@
+import { useParams } from 'react-router';
+
 const TaskList = () => {
-  return <div>Lista de Tarefas</div>;
+  const { id } = useParams();
+
+  return <div>Lista de Tarefas: {id}</div>;
 };
 
 export default TaskList;
