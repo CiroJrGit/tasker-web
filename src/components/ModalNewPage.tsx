@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { PagesContext } from '../contexts/pagesContext';
 import clsx from 'clsx';
 
-import { ListProps } from '../types/tasklistProps';
+import { TaskListProps } from '../types/pagesProps';
 
 import * as Dialog from '@radix-ui/react-dialog';
 import * as RadioGroup from '@radix-ui/react-radio-group';
@@ -14,12 +15,17 @@ import IconCaret from '../assets/icons/IconCaret';
 import { TbCheck } from 'react-icons/tb';
 
 interface ModalNewPageProps {
-  list?: ListProps;
+  list?: TaskListProps;
   type?: string;
   page?: string;
 }
 
 const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
+  const { handleCreateTaskList } = useContext(PagesContext);
+
+  const [title, setTitle] = useState('');
+  const [selectedOption, setSelectedOption] = useState<string>(page || '');
+
   const [selectedColor, setSelectedColor] = useState('#265EED');
   const colors = [
     '#265EED',
@@ -29,9 +35,6 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
     '#EE9329',
     '#29EE9B',
   ];
-
-  const [selectedOption, setSelectedOption] = useState<string>(page || '');
-  const [title, setTitle] = useState('');
 
   return (
     <div className="mt-8 space-y-8">
@@ -103,7 +106,16 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
             >
-              <div className="w-5 h-5 rounded-md bg-main-blue" />
+              <div
+                className={clsx('w-5 h-5 rounded-md', {
+                  'bg-main-blue': selectedColor === '#265EED',
+                  'bg-main-purple': selectedColor === '#8029EE',
+                  'bg-main-pink': selectedColor === '#EE29B7',
+                  'bg-main-red': selectedColor === '#F4385A',
+                  'bg-main-yellow': selectedColor === '#EE9329',
+                  'bg-main-green': selectedColor === '#29EE9B',
+                })}
+              />
               <IconCaret
                 width="11"
                 height="11"
@@ -162,9 +174,8 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
             variant='primary'
             size='md'
             label="Criar"
-            onClick={() => {
-              console.log(`${title} - ${selectedOption}`);
-            }}
+            onClick={() => handleCreateTaskList(title, selectedColor)}
+            disabled={!title.trim() || selectedOption === ''}
           />
         </Dialog.Close>
 

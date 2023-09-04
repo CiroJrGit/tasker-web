@@ -66,7 +66,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </header>
 
         <main className="flex justify-center min-h-full pt-40">
-          <div className="w-[832px]">{children}</div>
+          <div className="w-[732px]">{children}</div>
         </main>
       </div>
     </div>

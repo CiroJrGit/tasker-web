@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes';
 
 import AuthProvider from './contexts/authContext';
-// import TaskListProvider from './contexts/tasklistsContext';
+import PagesProvider from './contexts/pagesContext';
 // import ThemeProvider from './contexts/themeContext';
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
     <div className="min-h-screen">
       <BrowserRouter>
         {/* <ThemeProvider> */}
-        {/* <TaskListContext> */}
-        <AuthProvider>
-          <AppRoutes />
-        </AuthProvider>
-        {/* </TaskListContext> */}
+        <PagesProvider>
+          <AuthProvider>
+            <AppRoutes />
+          </AuthProvider>
+        </PagesProvider>
         {/* </ThemeProvider> */}
       </BrowserRouter>
     </div>

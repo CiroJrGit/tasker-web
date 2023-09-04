@@ -1,0 +1,127 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PagesContext } from '../contexts/pagesContext';
+import { TaskListProps } from '../types/pagesProps';
+import clsx from 'clsx';
+
+import * as Dialog from '@radix-ui/react-dialog';
+import * as Separator from '@radix-ui/react-separator';
+
+import IconEdit from '../assets/icons/IconEdit';
+import IconTrash from '../assets/icons/IconTrash';
+import { TbCheck } from 'react-icons/tb';
+
+interface EditPageProps {
+  page: TaskListProps;
+}
+
+const EditPage = ({ page }: EditPageProps) => {
+  // const { handleEditTaskList } = useContext(PagesContext);
+
+  const navigate = useNavigate();
+  const colors = [
+    '#265EED',
+    '#8029EE',
+    '#EE29B7',
+    '#F4385A',
+    '#EE9329',
+    '#29EE9B',
+  ];
+
+  function handleDeleteFromPage() {
+    // handleEditTaskList(list.id, list.title, list.color, true);
+    navigate('/welcome');
+  }
+
+  return (
+    <>
+      <div
+        className="
+          absolute -right-8 flex flex-col gap-4 mt-1 px-1 font-int rounded-lg
+          dark:bg-gray-800 bg-white-800 drop-shadow-md
+        "
+      >
+        <div className="pt-2">
+          <span className="px-2.5 font-medium text-3xs dark:text-gray-300 text-white-300">
+            Configs. da página
+          </span>
+          <Separator.Root
+            className="mt-2 dark:bg-gray-500 bg-gray-100 opacity-70 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full"
+            decorative
+          />
+        </div>
+
+        <div className="space-y-5 pb-3.5 dark:text-gray-100 text-gray-300">
+          <div className="px-2.5 font-medium text-sm">
+            <span>Cor de destaque</span>
+            <div className="flex gap-1.5 mt-4">
+              {colors.map((color, index) => (
+                <button
+                  key={index}
+                  className={clsx(
+                    'flex justify-center items-center w-[22px] h-[22px] rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
+                    'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
+                    /* eslint-disable prettier/prettier */
+                    {
+                      'bg-main-blue': color === '#265EED',
+                      'bg-main-purple': color === '#8029EE',
+                      'bg-main-pink': color === '#EE29B7',
+                      'bg-main-red': color === '#F4385A',
+                      'bg-main-yellow': color === '#EE9329',
+                      'bg-main-green': color === '#29EE9B',
+
+                      'ring-1 ring-gray-200 ring-offset-2': color === page.color,
+                    },
+                  )}
+                // onClick={() =>
+                //   handleEditTaskList(page.id, page.title, color, page.deleted)
+                // }
+                >
+                  {color === page.color && (
+                    <TbCheck className="text-lg dark:text-gray-50 text-gray-900" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1.5 px-1">
+            <Dialog.Root>
+              <Dialog.Trigger
+                className="
+                  flex items-center gap-2 h-8 px-2.5 rounded-md dark:hover:bg-gray-600/95 hover:bg-white-600 dark:active:bg-gray-600/60 active:bg-white-600
+                  focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
+                "
+                type="button"
+              >
+                <div className="flex items-center w-6 h-6">
+                  <IconEdit width="19" height="19" />
+                </div>
+
+                <span className='pt-px font-medium text-sm'>Renomear</span>
+              </Dialog.Trigger>
+
+              {/* <Modal type="edit" list={list} /> */}
+            </Dialog.Root>
+
+            <button
+              className="
+                flex items-center gap-2 h-8 px-2.5 rounded-md dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60
+                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
+                dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
+              "
+              onClick={handleDeleteFromPage}
+            >
+              <div className="flex items-center w-6">
+                <IconTrash width="16.5" height="17" />
+              </div>
+              <span className='pt-px font-medium text-sm'>Excluir</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default EditPage;
