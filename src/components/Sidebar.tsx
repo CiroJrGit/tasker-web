@@ -18,7 +18,7 @@ const Sidebar = () => {
         <Dialog.Trigger
           className="
             flex flex-row items-center gap-2 h-[52px] px-4 rounded-md dark:text-gray-100 text-gray-300
-            dark:hover:bg-gray-700/80 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
+            dark:hover:bg-gray-700/80 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
           "
           type="button"

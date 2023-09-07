@@ -25,8 +25,8 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
 
   const [title, setTitle] = useState('');
   const [selectedOption, setSelectedOption] = useState<string>(page || '');
-
   const [selectedColor, setSelectedColor] = useState('#265EED');
+
   const colors = [
     '#265EED',
     '#8029EE',

@@ -35,12 +35,7 @@ const EditPage = ({ page }: EditPageProps) => {
 
   return (
     <>
-      <div
-        className="
-          absolute -right-8 flex flex-col gap-4 mt-1 px-1 font-int rounded-lg
-          dark:bg-gray-800 bg-white-800 drop-shadow-md
-        "
-      >
+      <div className="flex flex-col gap-4 mt-1 px-1 rounded-lg font-int dark:bg-gray-800 bg-white-800">
         <div className="pt-2">
           <span className="px-2.5 font-medium text-3xs dark:text-gray-300 text-white-300">
             Configs. da página

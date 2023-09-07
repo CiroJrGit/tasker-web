@@ -7,7 +7,7 @@ import IconSearch from '../assets/icons/IconSearch';
 import IconSettings from '../assets/icons/IconSettings';
 import IconTrash from '../assets/icons/IconTrash';
 import IconCaret from '../assets/icons/IconCaret';
-// import Trash from './Trash';
+import Trash from './Trash';
 
 const Menu = () => {
   return (
@@ -15,7 +15,7 @@ const Menu = () => {
       <Popover.Root>
         <Popover.Trigger
           className="
-            flex justify-between items-center px-2.5 py-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
+            flex justify-between items-center px-2.5 py-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
           "
         >
@@ -42,7 +42,7 @@ const Menu = () => {
           to="/"
           className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
         >
-          <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75">
+          <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
             <div className="flex justify-center items-center w-6">
               <IconSearch width="16" height="16" />
             </div>
@@ -56,7 +56,7 @@ const Menu = () => {
           to="/"
           className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
         >
-          <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75">
+          <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
             <div className="flex justify-center items-center w-6">
               <IconSettings width="18" height="18" />
             </div>
@@ -69,7 +69,7 @@ const Menu = () => {
         <Popover.Root>
           <Popover.Trigger
             className="
-              flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/70 dark:active:bg-gray-800/80 active:bg-white-600/75
+              flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
             "
           >
@@ -82,8 +82,8 @@ const Menu = () => {
           </Popover.Trigger>
           <Popover.Portal>
             <Popover.Content className="focus:outline-none">
-              <div className="relative left-4 min-w-[306px] mt-1.5 px-1 py-2 rounded-md dark:bg-gray-800 bg-white-700 drop-shadow-md">
-                {/* <Trash /> */}
+              <div className="relative left-4 min-w-[306px] drop-shadow-md">
+                <Trash />
               </div>
             </Popover.Content>
           </Popover.Portal>
