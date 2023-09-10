@@ -45,7 +45,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               to="/welcome"
               className="
                 p-1.5 rounded-md font-int font-medium dark:text-gray-200 text-white-300
-                dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+                dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
             >
@@ -55,7 +55,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             <button
               className="
                 p-1.5 rounded-md font-int font-medium dark:text-gray-200 text-white-300
-                dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+                dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
               onClick={() => setFullScreen(!fullScreen)}

@@ -8,16 +8,13 @@ import { TaskListProps } from '../../types/pagesProps';
 import * as Popover from '@radix-ui/react-popover';
 import EditPage from '../../components/EditPage';
 import NewTask from './components/NewTask';
+import Tasks from './components/Tasks';
 
 import { IoEllipsisHorizontal } from 'react-icons/io5';
 
 const TaskList = () => {
-  const {
-    taskLists,
-    handleGetTaskList,
-    // tasks,
-    // loadingTasks, loadTasks,
-  } = useContext(PagesContext);
+  const { taskLists, handleGetTaskList, tasks, loadingTasks, loadTasks } =
+    useContext(PagesContext);
 
   const { id } = useParams();
   const [taskList, setTaskList] = useState<TaskListProps | any>();
@@ -25,9 +22,9 @@ const TaskList = () => {
   useEffect(() => {
     getTaskList();
 
-    // if (taskList) {
-    //   loadTasks(taskList.id);
-    // }
+    if (taskList) {
+      loadTasks(taskList.id);
+    }
   }, [id, taskLists]);
 
   async function getTaskList() {
@@ -62,7 +59,7 @@ const TaskList = () => {
           <Popover.Root>
             <Popover.Trigger
               className="
-                h-[34px] px-0.5 rounded-md text-3xl dark:text-gray-300 text-white-400 dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+                h-[34px] px-0.5 rounded-md text-3xl dark:text-gray-300 text-white-400 dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
               "
             >
@@ -79,18 +76,23 @@ const TaskList = () => {
         </div>
 
         <div className="flex flex-row-reverse items-center gap-2">
-          <NewTask />
-
-          {/* <span className="font-light leading-none text-4xl dark:text-gray-300">
-            +
-          </span>
-          <span className="pt-0.5 text-lg dark:text-gray-300">
-            Adicione uma tarefa
-          </span> */}
+          <NewTask listId={taskList?.id} />
         </div>
       </div>
 
-      <div></div>
+      <div className="flex flex-col gap-4 px-4 ">
+        {loadingTasks && <span>Carregando tarefas...</span>}
+
+        {tasks.length === 0 && !loadingTasks && <span>Sem tarefas.</span>}
+
+        {!loadingTasks && (
+          <Tasks
+            tasks={tasks}
+            listColor={taskList?.color}
+            listId={taskList?.id}
+          />
+        )}
+      </div>
     </div>
   );
 };

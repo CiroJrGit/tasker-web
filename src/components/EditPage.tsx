@@ -16,7 +16,7 @@ interface EditPageProps {
 }
 
 const EditPage = ({ page }: EditPageProps) => {
-  // const { handleEditTaskList } = useContext(PagesContext);
+  const { handleEditTaskList } = useContext(PagesContext);
 
   const navigate = useNavigate();
   const colors = [
@@ -28,8 +28,13 @@ const EditPage = ({ page }: EditPageProps) => {
     '#29EE9B',
   ];
 
-  function handleDeleteFromPage() {
-    // handleEditTaskList(list.id, list.title, list.color, true);
+  function handleDeleteFromPage(
+    id: string,
+    title: string,
+    color: string,
+    status: boolean,
+  ) {
+    handleEditTaskList(id, title, color, status);
     navigate('/welcome');
   }
 
@@ -56,7 +61,6 @@ const EditPage = ({ page }: EditPageProps) => {
                   className={clsx(
                     'flex justify-center items-center w-[22px] h-[22px] rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
                     'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
-                    /* eslint-disable prettier/prettier */
                     {
                       'bg-main-blue': color === '#265EED',
                       'bg-main-purple': color === '#8029EE',
@@ -65,12 +69,13 @@ const EditPage = ({ page }: EditPageProps) => {
                       'bg-main-yellow': color === '#EE9329',
                       'bg-main-green': color === '#29EE9B',
 
-                      'ring-1 ring-gray-200 ring-offset-2': color === page.color,
+                      'ring-1 ring-gray-200 ring-offset-2':
+                        color === page.color,
                     },
                   )}
-                // onClick={() =>
-                //   handleEditTaskList(page.id, page.title, color, page.deleted)
-                // }
+                  onClick={() =>
+                    handleEditTaskList(page.id, page.title, color, page.deleted)
+                  }
                 >
                   {color === page.color && (
                     <TbCheck className="text-lg dark:text-gray-50 text-gray-900" />
@@ -90,10 +95,10 @@ const EditPage = ({ page }: EditPageProps) => {
                 type="button"
               >
                 <div className="flex items-center w-6 h-6">
-                  <IconEdit width="19" height="19" />
+                  <IconEdit width="18" height="19" />
                 </div>
 
-                <span className='pt-px font-medium text-sm'>Renomear</span>
+                <span className="pt-px font-medium text-sm">Renomear</span>
               </Dialog.Trigger>
 
               {/* <Modal type="edit" list={list} /> */}
@@ -105,12 +110,14 @@ const EditPage = ({ page }: EditPageProps) => {
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
                 dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
               "
-              onClick={handleDeleteFromPage}
+              onClick={() =>
+                handleDeleteFromPage(page.id, page.title, page.color, true)
+              }
             >
               <div className="flex items-center w-6">
-                <IconTrash width="16.5" height="17" />
+                <IconTrash width="16" height="16" />
               </div>
-              <span className='pt-px font-medium text-sm'>Excluir</span>
+              <span className="font-medium text-sm">Excluir</span>
             </button>
           </div>
         </div>

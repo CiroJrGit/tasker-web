@@ -1,10 +1,15 @@
-import { useState, KeyboardEvent } from 'react';
+import { useState, useContext, KeyboardEvent } from 'react';
 import clsx from 'clsx';
 
 import { HiOutlinePlus } from 'react-icons/hi';
+import { PagesContext } from '../../../contexts/pagesContext';
 
-const NewTask = () => {
-  // const { handleCreateTask } = useContext(TaskListContext);
+interface NewTaskProps {
+  listId: string;
+}
+
+const NewTask = ({ listId }: NewTaskProps) => {
+  const { handleCreateTask } = useContext(PagesContext);
   const [desc, setDesc] = useState('');
 
   function handleInputEnter(event: KeyboardEvent) {
@@ -14,11 +19,9 @@ const NewTask = () => {
   }
 
   function handleCreateTaskForm() {
-    // handleCreateTask(desc, listId).then(() => {
-    //   setDesc('');
-    // });
-
-    console.log(desc);
+    handleCreateTask(desc, listId).then(() => {
+      setDesc('');
+    });
   }
 
   return (

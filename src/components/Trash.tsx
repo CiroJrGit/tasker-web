@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { PagesContext } from '../contexts/pagesContext';
 import clsx from 'clsx';
 
@@ -7,22 +8,8 @@ import IconBack from '../assets/icons/IconBack';
 import IconTrash from '../assets/icons/IconTrash';
 
 const Trash = () => {
-  const trash: any[] = [
-    {
-      id: 'Tailwind CSS: Aproveitando as Vantagens do Framework',
-      title: 'Tailwind CSS: Aproveitando as Vantagens do Framework',
-      content: 'Lorem impsum',
-      color: '#8029EE',
-      deleted: true,
-    },
-    {
-      id: 'TCC',
-      title: 'TCC',
-      content: 'Que tcc? HAAHAHAHAHAHAHA',
-      color: '#F4385A',
-      deleted: true,
-    },
-  ];
+  const { taskLists, handleDeleteTaskList, handleEditTaskList } =
+    useContext(PagesContext);
 
   return (
     <>
@@ -37,8 +24,8 @@ const Trash = () => {
           />
         </div>
 
-        <div className="flex flex-col gap-1 px-1">
-          {trash
+        <div className="flex flex-col gap-0.5 px-1">
+          {taskLists
             .filter((item) => item.deleted === true)
             .map((item) => (
               <div
@@ -46,7 +33,6 @@ const Trash = () => {
                 className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 cursor-pointer"
               >
                 <div className="flex justify-between items-center h-8 px-3 rounded-md dark:hover:bg-gray-600/95 hover:bg-white-600">
-                  {/* dark:active:bg-gray-600/60 active:bg-white-600 */}
                   <div className="flex items-center gap-2.5">
                     <span
                       className={clsx('block w-2 h-2 rounded-sm', {
@@ -67,26 +53,25 @@ const Trash = () => {
                   <div className="flex gap-2">
                     <button
                       className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
-                    /* eslint-disable prettier/prettier */
-                    // onClick={() =>
-                    //   handleEditTaskList(
-                    //     list.id,
-                    //     list.title,
-                    //     list.color,
-                    //     false,
-                    //   )
-                    // }
+                      onClick={() =>
+                        handleEditTaskList(
+                          item.id,
+                          item.title,
+                          item.color,
+                          false,
+                        )
+                      }
                     >
                       <div className="flex justify-center items-center w-4">
-                        <IconBack width="16" height="14" />
+                        <IconBack width="15.5" height="13.5" />
                       </div>
                     </button>
                     <button
                       className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
-                    // onClick={() => handleDeleteTaskList(list.id)}
+                      onClick={() => handleDeleteTaskList(item.id)}
                     >
                       <div className="flex justify-center items-center w-4">
-                        <IconTrash width="16" height="16" />
+                        <IconTrash width="16" height="17" />
                       </div>
                     </button>
                   </div>

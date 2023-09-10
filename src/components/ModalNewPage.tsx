@@ -131,7 +131,6 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
                       className={clsx(
                         'flex justify-center items-center w-5 h-5 rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
                         'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
-                        /* eslint-disable prettier/prettier */
                         {
                           'bg-main-blue': color === '#265EED',
                           'bg-main-purple': color === '#8029EE',
@@ -140,7 +139,8 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
                           'bg-main-yellow': color === '#EE9329',
                           'bg-main-green': color === '#29EE9B',
 
-                          'ring-1 ring-gray-200 ring-offset-2': color === selectedColor,
+                          'ring-1 ring-gray-200 ring-offset-2':
+                            color === selectedColor,
                         },
                       )}
                       onClick={() => setSelectedColor(color)}
@@ -171,8 +171,8 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
       <div className="flex justify-end gap-3">
         <Dialog.Close asChild>
           <Button
-            variant='primary'
-            size='md'
+            variant="primary"
+            size="md"
             label="Criar"
             onClick={() => handleCreateTaskList(title, selectedColor)}
             disabled={!title.trim() || selectedOption === ''}
@@ -180,11 +180,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
         </Dialog.Close>
 
         <Dialog.Close asChild>
-          <Button
-            variant='secondary'
-            size='md'
-            label="Cancelar"
-          />
+          <Button variant="secondary" size="md" label="Cancelar" />
         </Dialog.Close>
       </div>
     </div>
