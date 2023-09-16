@@ -9,10 +9,10 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 import * as Popover from '@radix-ui/react-popover';
 import Button from './Button';
 
-import IconCheck from '../assets/icons/IconCheck';
+import IconCheckbox from '../assets/icons/IconCheckbox';
 import IconNote from '../assets/icons/IconNote';
 import IconCaret from '../assets/icons/IconCaret';
-import { TbCheck } from 'react-icons/tb';
+import IconCheck from '../assets/icons/IconCheck';
 
 interface ModalNewPageProps {
   list?: TaskListProps;
@@ -59,7 +59,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
               "
               htmlFor="r1"
             >
-              <IconCheck
+              <IconCheckbox
                 width="18"
                 height="18"
                 color="dark:stroke-gray-100/60 stroke-gray-300/75"
@@ -129,7 +129,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
                     <button
                       key={index}
                       className={clsx(
-                        'flex justify-center items-center w-5 h-5 rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
+                        'flex justify-center items-center w-5 h-5 pt-px rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
                         'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
                         {
                           'bg-main-blue': color === '#265EED',
@@ -146,7 +146,12 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
                       onClick={() => setSelectedColor(color)}
                     >
                       {color === selectedColor && (
-                        <TbCheck className="text-md dark:text-gray-50 text-gray-900" />
+                        <IconCheck
+                          width="14"
+                          height="14"
+                          color="stroke-gray-50"
+                          stroke="2.2"
+                        />
                       )}
                     </button>
                   ))}

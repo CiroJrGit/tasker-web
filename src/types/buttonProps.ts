@@ -11,7 +11,7 @@ export const button = tv({
         'dark:text-gray-100 text-gray-200 border dark:border-gray-400 border-gray-100 dark:hover:bg-gray-700/90 hover:bg-white-700/90 dark:active:bg-gray-700/40 active:bg-white-600/90 dark:focus-visible:ring-gray-300 focus-visible:ring-gray-300/90 focus-visible:ring-offset-1 dark:focus-visible:ring-offset-gray-800 focus-visible:ring-offset-white-700',
     },
     size: {
-      lg: 'max-h-16 p-4 rounded-lg font-bold text-lg',
+      lg: 'max-h-[60px] p-4 rounded-lg font-bold text-lg',
       md: 'min-w-[76px] h-9 px-2 rounded-md font-medium text-sm',
       sm: 'min-w-[68px] h-8 px-2 rounded-md font-medium text-sm',
     },

@@ -3,7 +3,7 @@ import { AuthContext } from '../contexts/authContext';
 
 import * as Separator from '@radix-ui/react-separator';
 import IconLogout from '../assets/icons/IconLogout';
-import { TbCheck } from 'react-icons/tb';
+import IconCheck from '../assets/icons/IconCheck';
 
 interface UserProps {
   variant: string;
@@ -54,7 +54,12 @@ const User = ({ variant }: UserProps) => {
               </div>
 
               <div className="flex justify-center items-center px-2">
-                <TbCheck className="text-2xl dark:text-gray-300 text-white-300" />
+                <IconCheck
+                  width="21"
+                  height="21"
+                  color="dark:stroke-gray-300 stroke-white-300"
+                  stroke="1.4"
+                />
               </div>
             </div>
           </button>

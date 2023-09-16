@@ -5,7 +5,7 @@ import Menu from './Menu';
 import ModalNewPage from './ModalNewPage';
 import ModalWrap from './ModalWrap';
 
-import { HiOutlinePlus } from 'react-icons/hi';
+import IconPlus from '../assets/icons/IconPlus';
 
 const Sidebar = () => {
   return (
@@ -24,7 +24,11 @@ const Sidebar = () => {
           type="button"
         >
           <div className="flex justify-center items-center w-6">
-            <HiOutlinePlus className="text-2xl" />
+            <IconPlus
+              width="20"
+              height="20"
+              color="dark:stroke-gray-100 stroke-gray-200"
+            />
           </div>
           <span className="font-medium">Nova página</span>
         </Dialog.Trigger>

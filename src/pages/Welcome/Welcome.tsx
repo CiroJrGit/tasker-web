@@ -6,7 +6,7 @@ import ModalWrap from '../../components/ModalWrap';
 import ModalNewPage from '../../components/ModalNewPage';
 
 import IconNote from '../../assets/icons/IconNote';
-import IconCheck from '../../assets/icons/IconCheck';
+import IconCheckbox from '../../assets/icons/IconCheckbox';
 
 const Welcome = () => {
   const { user } = useContext(AuthContext);
@@ -35,7 +35,7 @@ const Welcome = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconCheck
+              <IconCheckbox
                 width="20"
                 height="20"
                 color="dark:stroke-gray-400 stroke-white-400"

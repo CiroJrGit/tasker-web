@@ -10,7 +10,7 @@ import EditPage from '../../components/EditPage';
 import NewTask from './components/NewTask';
 import Tasks from './components/Tasks';
 
-import { IoEllipsisHorizontal } from 'react-icons/io5';
+import IconEllipsis from '../../assets/icons/IconEllipsis';
 
 const TaskList = () => {
   const { taskLists, handleGetTaskList, tasks, loadingTasks, loadTasks } =
@@ -63,7 +63,7 @@ const TaskList = () => {
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
               "
             >
-              <IoEllipsisHorizontal />
+              <IconEllipsis width="30" height="30" />
             </Popover.Trigger>
             <Popover.Portal>
               <Popover.Content className="relative focus:outline-none">

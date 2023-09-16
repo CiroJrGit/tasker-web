@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 import IconUser from '../../../assets/icons/IconUser';
 import IconEmail from '../../../assets/icons/IconEmail';
 import IconLock from '../../../assets/icons/IconLock';
-import { CgSpinner } from 'react-icons/cg';
+import IconSpinner from '../../../assets/icons/IconSpinner';
 
 import { motion } from 'framer-motion';
 
@@ -172,7 +172,7 @@ const FormSignUp = () => {
             size="lg"
             label={
               loadingAuth ? (
-                <CgSpinner className="animate-spin text-4.5xl" />
+                <IconSpinner width="32" height="32" />
               ) : (
                 'Criar conta'
               )

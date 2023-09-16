@@ -8,7 +8,7 @@ import * as Popover from '@radix-ui/react-popover';
 
 import IconClose from '../../../assets/icons/IconClose';
 import IconEditPen from '../../../assets/icons/IconEditPen';
-import { BsCheck } from 'react-icons/bs';
+import IconCheck from '../../../assets/icons/IconCheck';
 
 interface TaskItemProps {
   tasks: TaskProps[];
@@ -44,7 +44,7 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
           >
             <div
               className={clsx(
-                'flex justify-center items-center w-[22px] h-[22px] rounded-md dark:bg-gray-950 bg-white-950 border dark:border-gray-300 border-gray-200',
+                'flex justify-center items-center w-[22px] h-[22px] pt-px rounded-md dark:bg-gray-950 bg-white-950 border dark:border-gray-300 border-gray-200',
                 {
                   'group-data-[state=checked]:bg-main-blue group-data-[state=checked]:border-main-blue group-focus:ring-2':
                     listColor === '#265EED',
@@ -62,7 +62,12 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
               )}
             >
               <Checkbox.Indicator>
-                <BsCheck size={24} className="text-gray-50" />
+                <IconCheck
+                  width="16"
+                  height="16"
+                  color="stroke-gray-50"
+                  stroke="2"
+                />
               </Checkbox.Indicator>
             </div>
 

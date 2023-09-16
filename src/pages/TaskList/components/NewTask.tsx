@@ -1,8 +1,7 @@
 import { useState, useContext, KeyboardEvent } from 'react';
-import clsx from 'clsx';
-
-import { HiOutlinePlus } from 'react-icons/hi';
 import { PagesContext } from '../../../contexts/pagesContext';
+
+import IconPlus from '../../../assets/icons/IconPlus';
 
 interface NewTaskProps {
   listId: string;
@@ -28,7 +27,7 @@ const NewTask = ({ listId }: NewTaskProps) => {
     <>
       <input
         className="
-          w-full h-full text-lg dark:placeholder:text-gray-300 placeholder:text-gray-200 dark:text-gray-50 text-gray-500
+          w-full h-full pt-px text-lg dark:placeholder:text-gray-300 placeholder:text-gray-200 dark:text-gray-50 text-gray-500
           bg-transparent focus:outline-none peer
         "
         type="text"
@@ -42,10 +41,14 @@ const NewTask = ({ listId }: NewTaskProps) => {
         disabled={!desc}
         onClick={handleCreateTaskForm}
       >
-        <HiOutlinePlus
-          className={clsx('text-xl dark:text-gray-300 text-white-400', {
-            'dark:text-gray-50 text-gray-500': desc,
-          })}
+        <IconPlus
+          width="18"
+          height="18"
+          color={
+            desc
+              ? 'dark:stroke-gray-50 stroke-gray-500'
+              : 'dark:stroke-gray-300 stroke-white-300'
+          }
         />
       </button>
     </>

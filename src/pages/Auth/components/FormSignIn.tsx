@@ -5,7 +5,7 @@ import * as Form from '@radix-ui/react-form';
 import Button from '../../../components/Button';
 import IconEmail from '../../../assets/icons/IconEmail';
 import IconLock from '../../../assets/icons/IconLock';
-import { CgSpinner } from 'react-icons/cg';
+import IconSpinner from '../../../assets/icons/IconSpinner';
 
 import { motion } from 'framer-motion';
 
@@ -140,11 +140,7 @@ const FormSignIn = () => {
             variant="primary"
             size="lg"
             label={
-              loadingAuth ? (
-                <CgSpinner className="animate-spin text-4.5xl" />
-              ) : (
-                'Entrar'
-              )
+              loadingAuth ? <IconSpinner width="32" height="32" /> : 'Entrar'
             }
           />
         </Form.Submit>

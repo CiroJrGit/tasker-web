@@ -1,27 +1,18 @@
 import { IconProps } from '../../types/iconProps';
 
-const IconCheck = ({ width, height, color }: IconProps) => {
+const IconCheck = ({ width, height, color, stroke }: IconProps) => {
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 22 22"
+      viewBox="0 0 13 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect
-        x="0.75"
-        y="0.75"
-        width="20.5"
-        height="20.5"
-        rx="5.25"
-        className={color}
-        strokeWidth="1.5"
-      />
       <path
-        d="M16 7.5L9.125 14.375L6 11.25"
+        d="M11 1.5L4.8125 7.6875L2 4.875"
         className={color}
-        strokeWidth="2"
+        strokeWidth={stroke}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

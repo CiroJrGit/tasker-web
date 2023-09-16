@@ -9,7 +9,7 @@ import * as Separator from '@radix-ui/react-separator';
 
 import IconEdit from '../assets/icons/IconEdit';
 import IconTrash from '../assets/icons/IconTrash';
-import { TbCheck } from 'react-icons/tb';
+import IconCheck from '../assets/icons/IconCheck';
 
 interface EditPageProps {
   page: TaskListProps;
@@ -59,7 +59,7 @@ const EditPage = ({ page }: EditPageProps) => {
                 <button
                   key={index}
                   className={clsx(
-                    'flex justify-center items-center w-[22px] h-[22px] rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
+                    'flex justify-center items-center w-[22px] h-[22px] pt-px rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
                     'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
                     {
                       'bg-main-blue': color === '#265EED',
@@ -78,7 +78,12 @@ const EditPage = ({ page }: EditPageProps) => {
                   }
                 >
                   {color === page.color && (
-                    <TbCheck className="text-lg dark:text-gray-50 text-gray-900" />
+                    <IconCheck
+                      width="14"
+                      height="14"
+                      color="stroke-gray-50"
+                      stroke="2.2"
+                    />
                   )}
                 </button>
               ))}
