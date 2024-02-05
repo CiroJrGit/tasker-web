@@ -11,8 +11,14 @@
     @apply transition-colors ease-in-out duration-10
   }
 
-  .primary {
-    @apply flex justify-center items-center gap-1 text-gray-100 bg-blue-600 active:bg-blue-700/80 hover:bg-blue-700 focus:outline-none focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-800 focus-visible:ring-offset-white-700;
+  .scrollbar::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    padding-top: 16px;
+    background-color: #303338; /* Cor da alça da barra de rolagem */
+    /* border-radius: 4px; Raio da alça da barra de rolagem */
   }
 
   .validate[data-invalid] {

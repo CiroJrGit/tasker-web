@@ -33,10 +33,10 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="flex items-center h-10 px-4 rounded-md dark:hover:bg-gray-800/80 hover:bg-white-800/60 group"
+          className="flex items-center px-4 rounded-md dark:hover:bg-gray-800/80 hover:bg-white-800/60 group"
         >
           <Checkbox.Root
-            className="flex items-center gap-4 w-full group focus:outline-none disabled:opacity-30"
+            className="flex items-center gap-4 w-full h-10 group focus:outline-none disabled:opacity-30"
             onCheckedChange={() =>
               handleToggleTask(task.id, !task.completed, listId)
             }
@@ -73,9 +73,9 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
 
             <span
               className="
-              text-lg dark:text-gray-50 text-gray-500 bg-transparent group-data-[state=checked]:line-through
-              dark:group-data-[state=checked]:text-gray-400 group-data-[state=checked]:text-white-400 group-data-[state=checked]:font-medium cursor-pointer
-            "
+                text-lg dark:text-gray-50 text-gray-500 bg-transparent group-data-[state=checked]:line-through
+                dark:group-data-[state=checked]:text-gray-400 group-data-[state=checked]:text-white-400 group-data-[state=checked]:font-medium cursor-pointer
+              "
             >
               {task.desc}
             </span>
@@ -84,22 +84,23 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
             <Popover.Root>
               <Popover.Trigger
                 className="
-                p-1.5 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60
-                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
-                dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
-              "
+                  p-1.5 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60
+                  focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
+                  dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
+                "
               >
                 <IconEditPen width="19" height="18" />
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content className="focus:outline-none">
-                  <div className="relative -left-[282px] -top-9 flex gap-2 items-center rounded-lg bg-transparent">
+                  <div className="absolute -left-[578.6px] -top-[35px] flex gap-2 items-center rounded-lg bg-transparent">
                     <input
-                      className="mt-1 p-1 w-[555px] rounded-md dark:text-gray-100 text-gray-500 dark:bg-gray-700 bg-white-700 border dark:border-gray-300 border-white-400 focus:outline-none"
+                      className="mt-1 p-1 w-[555px] rounded-md dark:text-gray-100 text-gray-500 dark:bg-gray-700 bg-white-700 focus:outline-none"
                       type="text"
                       onChange={(e) => setDescTask(e.target.value)}
                       defaultValue={task.desc}
                     />
+                    {/* border dark:border-gray-300 border-white-400 */}
                     <Popover.Close
                       className="mt-1 p-1.5 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60"
                       onClick={() =>
@@ -114,10 +115,10 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
             </Popover.Root>
             <button
               className="
-              p-2 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
-              dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
-            "
+                p-2 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60
+                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
+                dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
+              "
               onClick={() => handleDeleteTask(task.id, listId)}
             >
               <IconClose width="15" height="15" />

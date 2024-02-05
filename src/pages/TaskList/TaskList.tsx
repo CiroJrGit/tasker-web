@@ -35,7 +35,7 @@ const TaskList = () => {
   }
 
   return (
-    <div className="space-y-14">
+    <div className="h-full space-y-14">
       <div className="space-y-9">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ const TaskList = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 px-4 ">
+      <div className="flex flex-col gap-3 px-4 pb-32">
         {loadingTasks && <span>Carregando tarefas...</span>}
 
         {tasks.length === 0 && !loadingTasks && <span>Sem tarefas.</span>}

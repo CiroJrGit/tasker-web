@@ -27,7 +27,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       {/* dark:from-navy-500 dark:via-navy-700 dark:to-navy-900 */}
       <div
         className={clsx(
-          'relative grid grid-cols-[320px_1fr] dark:bg-gray-950 dark:text-gray-50 bg-white-950 text-gray-500 transition-all duration-400 ease-in-out overflow-hidden',
+          'relative grid grid-cols-[320px_1fr] text-gray-500 dark:text-gray-50 dark:bg-gray-950 bg-white-950 transition-all duration-400 ease-in-out overflow-hidden',
           'dark:drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)] drop-shadow-[0_4px_6px_rgba(0,0,0,0.20)]',
           {
             'w-screen h-screen': fullScreen,
@@ -39,8 +39,8 @@ const AppLayout = ({ children }: AppLayoutProps) => {
           <Sidebar />
         </nav>
 
-        <header className="absolute right-0 p-4">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col items-center min-h-full">
+          <header className="flex justify-end items-center gap-2 w-full p-4">
             <NavLink
               to="/welcome"
               className="
@@ -66,12 +66,12 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                 <IconFullScreenOff width="18" height="18" />
               )}
             </button>
-          </div>
-        </header>
+          </header>
 
-        <main className="flex justify-center min-h-full pt-40">
-          <div className="w-[732px]">{children}</div>
-        </main>
+          <main className="flex justify-center w-full pt-28 overflow-y-auto scrollbar">
+            <div className="w-[732px]">{children}</div>
+          </main>
+        </div>
       </div>
     </div>
   );
