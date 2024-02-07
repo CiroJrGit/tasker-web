@@ -16,6 +16,16 @@ export interface TaskProps {
   completed: boolean;
 }
 
+export interface NoteProps {
+  id: string;
+  userId: string;
+  title: string;
+  content: string;
+  createdAt: Date;
+  color: string;
+  deleted: boolean;
+}
+
 export interface PagesProviderProps {
   children: ReactNode;
 }
@@ -28,7 +38,7 @@ export interface PagesContextProps {
   loadTaskLists: () => Promise<void>;
   handleGetTaskList: (id: string) => Promise<TaskListProps>;
   handleCreateTaskList: (title: string, color: string) => void;
-  handleDeleteTaskList: (title: string) => void;
+  handleDeleteTaskList: (id: string) => void;
   handleEditTaskList: (
     id: string | undefined,
     title: string | undefined,
@@ -53,4 +63,20 @@ export interface PagesContextProps {
     completed: boolean,
     listId: string,
   ) => Promise<void>;
+
+  notes: NoteProps[];
+  setNotes: Dispatch<SetStateAction<NoteProps[]>>;
+  loadingNotes: boolean;
+  setLoadingNotes: Dispatch<SetStateAction<boolean>>;
+  loadNotes: () => Promise<void>;
+  handleGetNote: (id: string) => Promise<NoteProps>;
+  handleCreateNote: (title: string, color: string) => void;
+  handleDeleteNote: (id: string) => void;
+  handleEditNote: (
+    id: string | undefined,
+    title: string | undefined,
+    // content: string | undefined,
+    color: string | undefined,
+    deleted: boolean | undefined,
+  ) => void;
 }

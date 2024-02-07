@@ -6,6 +6,7 @@ import { setAuthorization } from '../lib/authorization';
 import {
   TaskListProps,
   TaskProps,
+  NoteProps,
   PagesProviderProps,
   PagesContextProps,
 } from '../types/pagesProps';
@@ -24,6 +25,10 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
   const [loadingTasks, setLoadingTasks] = useState(true);
 
   const navigate = useNavigate();
+
+  // states anotacoes
+  const [notes, setNotes] = useState<NoteProps[]>([]);
+  const [loadingNotes, setLoadingNotes] = useState(true);
 
   // carregar listas de tarefas
   async function loadTaskLists() {
@@ -58,7 +63,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     const newTaskListId = newTaskList.data;
 
     loadTaskLists();
-    navigate(`/tasklist/${newTaskListId}`);
+    navigate(`/tasklists/${newTaskListId}`);
   }
 
   // deletar lista de tarefas
@@ -135,6 +140,60 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     loadTasks(listId);
   }
 
+  // carregar anotacoes
+  async function loadNotes() {
+    const authorization = setAuthorization();
+
+    const noteResponse = await api.get('/notes', authorization);
+    setNotes(noteResponse.data);
+    setLoadingNotes(false);
+  }
+
+  // obter uma anotacao
+  async function handleGetNote(id: string) {
+    const authorization = setAuthorization();
+
+    const noteResponse = await api.get(`/notes/${id}`, authorization);
+    const note: NoteProps = noteResponse.data;
+
+    return note;
+  }
+
+  // criar anotacao
+  async function handleCreateNote(title: string, color: string) {
+    const authorization = setAuthorization();
+
+    const newNote = await api.post('/notes', { title, color }, authorization);
+    const newNoteId = newNote.data;
+
+    loadNotes();
+    navigate(`/notes/${newNoteId}`);
+  }
+
+  // deletar anotacao
+  async function handleDeleteNote(id: string) {
+    const authorization = setAuthorization();
+
+    await api.delete(`/notes/${id}`, authorization);
+
+    loadNotes();
+  }
+
+  // editar anotacao
+  async function handleEditNote(
+    id: string | undefined,
+    title: string | undefined,
+    // content: string | undefined,
+    color: string | undefined,
+    deleted: boolean | undefined,
+  ) {
+    const authorization = setAuthorization();
+
+    await api.put(`/notes/${id}`, { title, color, deleted }, authorization);
+
+    loadNotes();
+  }
+
   return (
     <PagesContext.Provider
       value={{
@@ -157,6 +216,16 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
         handleDeleteTask,
         handleEditTask,
         handleToggleTask,
+
+        notes,
+        setNotes,
+        loadingNotes,
+        setLoadingNotes,
+        loadNotes,
+        handleGetNote,
+        handleCreateNote,
+        handleDeleteNote,
+        handleEditNote,
       }}
     >
       {children}

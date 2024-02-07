@@ -21,7 +21,7 @@ interface ModalNewPageProps {
 }
 
 const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
-  const { handleCreateTaskList } = useContext(PagesContext);
+  const { handleCreateTaskList, handleCreateNote } = useContext(PagesContext);
 
   const [title, setTitle] = useState('');
   const [selectedOption, setSelectedOption] = useState<string>(page || '');
@@ -179,7 +179,11 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
             variant="primary"
             size="md"
             label="Criar"
-            onClick={() => handleCreateTaskList(title, selectedColor)}
+            onClick={
+              page === 'tasklist'
+                ? () => handleCreateTaskList(title, selectedColor)
+                : () => handleCreateNote(title, selectedColor)
+            }
             disabled={!title.trim() || selectedOption === ''}
           />
         </Dialog.Close>

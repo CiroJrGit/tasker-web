@@ -3,34 +3,27 @@ import { useParams } from 'react-router';
 import clsx from 'clsx';
 
 import { PagesContext } from '../../contexts/pagesContext';
-import { TaskListProps } from '../../types/pagesProps';
+import { NoteProps } from '../../types/pagesProps';
 
 import * as Popover from '@radix-ui/react-popover';
 import EditPage from '../../components/EditPage';
-import NewTask from './components/NewTask';
-import Tasks from './components/Tasks';
 
 import IconEllipsis from '../../assets/icons/IconEllipsis';
 
-const TaskList = () => {
-  const { taskLists, handleGetTaskList, tasks, loadingTasks, loadTasks } =
-    useContext(PagesContext);
+const Note = () => {
+  const { notes, handleGetNote, loadingNotes } = useContext(PagesContext);
 
   const { id } = useParams();
-  const [taskList, setTaskList] = useState<TaskListProps | any>();
+  const [note, setNote] = useState<NoteProps | any>();
 
   useEffect(() => {
-    getTaskList();
+    getNote();
+  }, [id, notes]);
 
-    if (taskList) {
-      loadTasks(taskList.id);
-    }
-  }, [id, taskLists]);
-
-  async function getTaskList() {
+  async function getNote() {
     if (id) {
-      const taskListResponse = await handleGetTaskList(id);
-      setTaskList(taskListResponse);
+      const noteResponse = await handleGetNote(id);
+      setNote(noteResponse);
     }
   }
 
@@ -41,18 +34,18 @@ const TaskList = () => {
           <div className="flex items-center gap-3">
             <span
               className={clsx('block  w-1.5 h-7 rounded-sm', {
-                'bg-main-blue': taskList?.color === '#265EED',
-                'bg-main-purple': taskList?.color === '#8029EE',
-                'bg-main-pink': taskList?.color === '#EE29B7',
-                'bg-main-red': taskList?.color === '#F4385A',
-                'bg-main-yellow': taskList?.color === '#EE9329',
-                'bg-main-green': taskList?.color === '#29EE9B',
+                'bg-main-blue': note?.color === '#265EED',
+                'bg-main-purple': note?.color === '#8029EE',
+                'bg-main-pink': note?.color === '#EE29B7',
+                'bg-main-red': note?.color === '#F4385A',
+                'bg-main-yellow': note?.color === '#EE9329',
+                'bg-main-green': note?.color === '#29EE9B',
               })}
               aria-hidden="true"
             ></span>
 
             <h1 className="font-semibold text-4xl dark:text-gray-50 text-gray-500">
-              {taskList?.title}
+              {note?.title}
             </h1>
           </div>
 
@@ -68,33 +61,17 @@ const TaskList = () => {
             <Popover.Portal>
               <Popover.Content className="relative focus:outline-none">
                 <div className="absolute -right-8 drop-shadow-md">
-                  <EditPage page={taskList} type="tasklist" />
+                  <EditPage page={note} type="note" />
                 </div>
               </Popover.Content>
             </Popover.Portal>
           </Popover.Root>
         </div>
-
-        <div className="flex flex-row-reverse items-center gap-2">
-          <NewTask listId={taskList?.id} />
-        </div>
       </div>
 
-      <div className="flex flex-col gap-3 px-4 pb-32">
-        {loadingTasks && <span>Carregando tarefas...</span>}
-
-        {tasks.length === 0 && !loadingTasks && <span>Sem tarefas.</span>}
-
-        {!loadingTasks && (
-          <Tasks
-            tasks={tasks}
-            listColor={taskList?.color}
-            listId={taskList?.id}
-          />
-        )}
-      </div>
+      <div className="flex flex-col gap-3 px-4 pb-32"></div>
     </div>
   );
 };
 
-export default TaskList;
+export default Note;

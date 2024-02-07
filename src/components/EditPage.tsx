@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PagesContext } from '../contexts/pagesContext';
-import { TaskListProps } from '../types/pagesProps';
+import { TaskListProps, NoteProps } from '../types/pagesProps';
 import clsx from 'clsx';
 
 import * as Dialog from '@radix-ui/react-dialog';
@@ -12,11 +13,12 @@ import IconTrash from '../assets/icons/IconTrash';
 import IconCheck from '../assets/icons/IconCheck';
 
 interface EditPageProps {
-  page: TaskListProps;
+  page: TaskListProps | NoteProps;
+  type: string;
 }
 
-const EditPage = ({ page }: EditPageProps) => {
-  const { handleEditTaskList } = useContext(PagesContext);
+const EditPage = ({ page, type }: EditPageProps) => {
+  const { handleEditTaskList, handleEditNote } = useContext(PagesContext);
 
   const navigate = useNavigate();
   const colors = [
@@ -32,10 +34,16 @@ const EditPage = ({ page }: EditPageProps) => {
     id: string,
     title: string,
     color: string,
-    status: boolean,
+    deleted: boolean,
+    // content?: string,
   ) {
-    handleEditTaskList(id, title, color, status);
-    navigate('/welcome');
+    if (type === 'tasklist') {
+      handleEditTaskList(id, title, color, deleted);
+      navigate('/welcome');
+    } else {
+      handleEditNote(id, title, color, deleted);
+      navigate('/welcome');
+    }
   }
 
   return (
@@ -73,8 +81,10 @@ const EditPage = ({ page }: EditPageProps) => {
                         color === page.color,
                     },
                   )}
-                  onClick={() =>
-                    handleEditTaskList(page.id, page.title, color, page.deleted)
+                  onClick={
+                    type === 'tasklist'
+                      ? () => handleEditTaskList(page.id, page.title, color, page.deleted)
+                      : () => handleEditNote(page.id, page.title, color, page.deleted)
                   }
                 >
                   {color === page.color && (

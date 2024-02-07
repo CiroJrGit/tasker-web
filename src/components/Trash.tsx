@@ -8,8 +8,14 @@ import IconBack from '../assets/icons/IconBack';
 import IconTrash from '../assets/icons/IconTrash';
 
 const Trash = () => {
-  const { taskLists, handleDeleteTaskList, handleEditTaskList } =
-    useContext(PagesContext);
+  const {
+    taskLists,
+    handleDeleteTaskList,
+    handleEditTaskList,
+    notes,
+    handleDeleteNote,
+    handleEditNote,
+  } = useContext(PagesContext);
 
   return (
     <>
@@ -26,28 +32,28 @@ const Trash = () => {
 
         <div className="flex flex-col gap-0.5 px-1">
           {taskLists
-            .filter((item) => item.deleted === true)
-            .map((item) => (
+            .filter((list) => list.deleted === true)
+            .map((list) => (
               <div
-                key={item.id}
+                key={list.id}
                 className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 cursor-pointer"
               >
                 <div className="flex justify-between items-center h-8 px-3 rounded-md dark:hover:bg-gray-600/95 hover:bg-white-600">
                   <div className="flex items-center gap-2.5">
                     <span
                       className={clsx('block w-2 h-2 rounded-sm', {
-                        'bg-main-blue': item.color === '#265EED',
-                        'bg-main-purple': item.color === '#8029EE',
-                        'bg-main-pink': item.color === '#EE29B7',
-                        'bg-main-red': item.color === '#F4385A',
-                        'bg-main-yellow': item.color === '#EE9329',
-                        'bg-main-green': item.color === '#29EE9B',
+                        'bg-main-blue': list.color === '#265EED',
+                        'bg-main-purple': list.color === '#8029EE',
+                        'bg-main-pink': list.color === '#EE29B7',
+                        'bg-main-red': list.color === '#F4385A',
+                        'bg-main-yellow': list.color === '#EE9329',
+                        'bg-main-green': list.color === '#29EE9B',
                       })}
                       aria-hidden="true"
                     ></span>
 
                     <span className="max-w-[170px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
-                      {item.title}
+                      {list.title}
                     </span>
                   </div>
                   <div className="flex gap-2">
@@ -55,9 +61,9 @@ const Trash = () => {
                       className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
                       onClick={() =>
                         handleEditTaskList(
-                          item.id,
-                          item.title,
-                          item.color,
+                          list.id,
+                          list.title,
+                          list.color,
                           false,
                         )
                       }
@@ -68,10 +74,59 @@ const Trash = () => {
                     </button>
                     <button
                       className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
-                      onClick={() => handleDeleteTaskList(item.id)}
+                      onClick={() => handleDeleteTaskList(list.id)}
                     >
                       <div className="flex justify-center items-center w-4">
-                        <IconTrash width="16" height="17" />
+                        <IconTrash width="18" height="18" />
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          {notes
+            .filter((note) => note.deleted === true)
+            .map((note) => (
+              <div
+                key={note.id}
+                className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 cursor-pointer"
+              >
+                <div className="flex justify-between items-center h-8 px-3 rounded-md dark:hover:bg-gray-600/95 hover:bg-white-600">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className={clsx('block w-2 h-2 rounded-sm', {
+                        'bg-main-blue': note.color === '#265EED',
+                        'bg-main-purple': note.color === '#8029EE',
+                        'bg-main-pink': note.color === '#EE29B7',
+                        'bg-main-red': note.color === '#F4385A',
+                        'bg-main-yellow': note.color === '#EE9329',
+                        'bg-main-green': note.color === '#29EE9B',
+                      })}
+                      aria-hidden="true"
+                    ></span>
+
+                    <span className="max-w-[170px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                      {note.title}
+                    </span>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
+                      onClick={() =>
+                        handleEditNote(note.id, note.title, note.color, false)
+                      }
+                    >
+                      <div className="flex justify-center items-center w-4">
+                        <IconBack width="15.5" height="13.5" />
+                      </div>
+                    </button>
+                    <button
+                      className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
+                      onClick={() => handleDeleteNote(note.id)}
+                    >
+                      <div className="flex justify-center items-center w-4">
+                        <IconTrash width="18" height="18" />
                       </div>
                     </button>
                   </div>

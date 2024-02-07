@@ -4,27 +4,13 @@ import { PagesContext } from '../contexts/pagesContext';
 import clsx from 'clsx';
 
 const NavList = () => {
-  const { taskLists, loadTaskLists } = useContext(PagesContext);
+  const { taskLists, loadTaskLists, notes, loadNotes } =
+    useContext(PagesContext);
 
   useEffect(() => {
     loadTaskLists();
+    loadNotes();
   }, []);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const notes: any[] = [
-    // {
-    //   id: 'Tailwind CSS: Aproveitando as Vantagens do Framework',
-    //   title: 'Tailwind CSS: Aproveitando as Vantagens do Framework',
-    //   content: 'Lorem impsum',
-    //   theme: '#8029EE',
-    // },
-    // {
-    //   id: 'TCC',
-    //   title: 'TCC',
-    //   content: 'Que tcc? HAAHAHAHAHAHAHA',
-    //   theme: '#F4385A',
-    // },
-  ];
 
   return (
     <nav className="space-y-8">
@@ -40,7 +26,7 @@ const NavList = () => {
               .map((list) => (
                 <NavLink
                   key={list.id}
-                  to={`/tasklist/${list.id}`}
+                  to={`/tasklists/${list.id}`}
                   className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                 >
                   <div
@@ -81,39 +67,41 @@ const NavList = () => {
           </span>
 
           <div className="flex flex-col gap-0.5 px-px">
-            {notes.map((note, index) => (
-              <NavLink
-                key={index}
-                to={`/notes/${note.id}`}
-                className="rounded-m focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
-              >
-                <div
-                  className="
+            {notes
+              .filter((note) => note.deleted === false)
+              .map((note, index) => (
+                <NavLink
+                  key={index}
+                  to={`/notes/${note.id}`}
+                  className="rounded-m focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
+                >
+                  <div
+                    className="
                       flex items-center gap-2.5 h-8 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
                       dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700/70 dark:group-[.active]:active:bg-gray-800/80 group-[.active]:active:bg-white-600/75
                     "
-                >
-                  <span
-                    className={clsx(
-                      'block w-2 h-2 rounded-sm', // group-[.active]:w-[7px] group-[.active]:h-4.5 group-[.active]:left-px transition-all duration-150',
-                      {
-                        'bg-main-blue': note.theme === '#265EED',
-                        'bg-main-purple': note.theme === '#8029EE',
-                        'bg-main-pink': note.theme === '#EE29B7',
-                        'bg-main-red': note.theme === '#F4385A',
-                        'bg-main-yellow': note.theme === '#EE9329',
-                        'bg-main-green': note.theme === '#29EE9B',
-                      },
-                    )}
-                    aria-hidden="true"
-                  ></span>
+                  >
+                    <span
+                      className={clsx(
+                        'block w-2 h-2 rounded-sm', // group-[.active]:w-[7px] group-[.active]:h-4.5 group-[.active]:left-px transition-all duration-150',
+                        {
+                          'bg-main-blue': note.color === '#265EED',
+                          'bg-main-purple': note.color === '#8029EE',
+                          'bg-main-pink': note.color === '#EE29B7',
+                          'bg-main-red': note.color === '#F4385A',
+                          'bg-main-yellow': note.color === '#EE9329',
+                          'bg-main-green': note.color === '#29EE9B',
+                        },
+                      )}
+                      aria-hidden="true"
+                    ></span>
 
-                  <span className="max-w-[172px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
-                    {note.title}
-                  </span>
-                </div>
-              </NavLink>
-            ))}
+                    <span className="max-w-[172px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                      {note.title}
+                    </span>
+                  </div>
+                </NavLink>
+              ))}
           </div>
         </div>
       )}

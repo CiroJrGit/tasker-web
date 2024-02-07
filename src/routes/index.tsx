@@ -6,7 +6,7 @@ import AppLayout from '../layouts/AppLayout';
 import Auth from '../pages/Auth/Auth';
 import Welcome from '../pages/Welcome/Welcome';
 import TaskList from '../pages/TaskList/TaskList';
-import Notes from '../pages/Notes/Notes';
+import Note from '../pages/Note/Note';
 import AuthLayout from '../layouts/AuthLayout';
 
 const AppRoutes = () => {
@@ -32,7 +32,7 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/tasklist/:id"
+        path="/tasklists/:id"
         element={
           <PrivateRoute redirectTo="/">
             <AppLayout>
@@ -46,7 +46,7 @@ const AppRoutes = () => {
         element={
           <PrivateRoute redirectTo="/">
             <AppLayout>
-              <Notes />
+              <Note />
             </AppLayout>
           </PrivateRoute>
         }
