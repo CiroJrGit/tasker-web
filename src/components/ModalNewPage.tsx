@@ -1,8 +1,7 @@
 import { useState, useContext } from 'react';
 import { PagesContext } from '../contexts/pagesContext';
-import clsx from 'clsx';
-
 import { TaskListProps } from '../types/pagesProps';
+import clsx from 'clsx';
 
 import * as Dialog from '@radix-ui/react-dialog';
 import * as RadioGroup from '@radix-ui/react-radio-group';
@@ -37,7 +36,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
   ];
 
   return (
-    <div className="mt-8 space-y-8">
+    <div className="min-w-[472px] mt-8 space-y-8">
       <div className="flex flex-col gap-5">
         <RadioGroup.Root
           className="flex gap-3"

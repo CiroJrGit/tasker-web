@@ -1,7 +1,9 @@
-import { NavLink } from 'react-router-dom';
-
 import * as Popover from '@radix-ui/react-popover';
+import * as Dialog from '@radix-ui/react-dialog';
 import User from './User';
+import ModalWrap from './ModalWrap';
+import ModalSearch from './ModalSearch';
+import ModalUser from './ModalUser';
 
 import IconSearch from '../assets/icons/IconSearch';
 import IconSettings from '../assets/icons/IconSettings';
@@ -38,33 +40,46 @@ const Menu = () => {
       </Popover.Root>
 
       <div className="flex flex-col gap-1">
-        <NavLink
-          to="/"
-          className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
-        >
-          <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
-            <div className="flex justify-center items-center w-6">
-              <IconSearch width="16" height="16" />
+        <Dialog.Root>
+          <Dialog.Trigger
+            className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
+            type="button"
+          >
+            <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
+              <div className="flex justify-center items-center w-6">
+                <IconSearch
+                  width="16"
+                  height="16"
+                  color="dark:stroke-gray-100 stroke-gray-300"
+                />
+              </div>
+              <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
+                Pesquisar
+              </span>
             </div>
-            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-              Pesquisar
-            </span>
-          </div>
-        </NavLink>
+          </Dialog.Trigger>
 
-        <NavLink
-          to="/"
-          className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
-        >
-          <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
-            <div className="flex justify-center items-center w-6">
-              <IconSettings width="18" height="18" />
+          <ModalWrap title="Pesquisar páginas">
+            <ModalSearch />
+          </ModalWrap>
+        </Dialog.Root>
+
+        <Dialog.Root>
+          <Dialog.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
+            <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
+              <div className="flex justify-center items-center w-6">
+                <IconSettings width="18" height="18" />
+              </div>
+              <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
+                Configurações
+              </span>
             </div>
-            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-              Configurações
-            </span>
-          </div>
-        </NavLink>
+          </Dialog.Trigger>
+
+          <ModalWrap title="Configurações do usuário">
+            <ModalUser />
+          </ModalWrap>
+        </Dialog.Root>
 
         <Popover.Root>
           <Popover.Trigger

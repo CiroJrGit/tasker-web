@@ -89,7 +89,11 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
                   dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
                 "
               >
-                <IconEditPen width="19" height="18" />
+                <IconEditPen
+                  width="19"
+                  height="18"
+                  color="dark:stroke-gray-300 stroke-white-400"
+                />
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content className="focus:outline-none">
@@ -107,7 +111,11 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
                         handleAlternateEdit(task.id, task.desc, listId)
                       }
                     >
-                      <IconEditPen width="19" height="18" />
+                      <IconEditPen
+                        width="19"
+                        height="18"
+                        color="dark:stroke-gray-300 stroke-white-400"
+                      />
                     </Popover.Close>
                   </div>
                 </Popover.Content>

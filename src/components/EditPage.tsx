@@ -30,22 +30,6 @@ const EditPage = ({ page, type }: EditPageProps) => {
     '#29EE9B',
   ];
 
-  function handleDeleteFromPage(
-    id: string,
-    title: string,
-    color: string,
-    deleted: boolean,
-    // content?: string,
-  ) {
-    if (type === 'tasklist') {
-      handleEditTaskList(id, title, color, deleted);
-      navigate('/welcome');
-    } else {
-      handleEditNote(id, title, color, deleted);
-      navigate('/welcome');
-    }
-  }
-
   return (
     <>
       <div className="flex flex-col gap-4 mt-1 px-1 rounded-lg font-int dark:bg-gray-800 bg-white-800">
@@ -125,8 +109,10 @@ const EditPage = ({ page, type }: EditPageProps) => {
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
                 dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
               "
-              onClick={() =>
-                handleDeleteFromPage(page.id, page.title, page.color, true)
+              onClick={
+                type === 'tasklist'
+                  ? () => { handleEditTaskList(page.id, page.title, page.color, true); navigate('/welcome'); }
+                  : () => { handleEditNote(page.id, page.title, page.color, true); navigate('/welcome'); }
               }
             >
               <div className="flex items-center w-6">
