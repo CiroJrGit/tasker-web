@@ -26,6 +26,14 @@ export interface NoteProps {
   deleted: boolean;
 }
 
+// TO-DO: backgrounds
+// export interface BackgroundProps {
+//   id: string;
+//   userId: string;
+//   imageURL: string;
+//   selected: boolean;
+// }
+
 export interface PagesProviderProps {
   children: ReactNode;
 }
@@ -47,8 +55,8 @@ export interface PagesContextProps {
   ) => Promise<void>;
 
   tasks: TaskProps[];
-  loadingTasks: boolean;
   setTasks: Dispatch<SetStateAction<TaskProps[]>>;
+  loadingTasks: boolean;
   setLoadingTasks: Dispatch<SetStateAction<boolean>>;
   loadTasks: (listId: string) => Promise<void>;
   handleCreateTask: (desc: string, taskListId: string) => Promise<void>;
@@ -79,4 +87,8 @@ export interface PagesContextProps {
     color: string | undefined,
     deleted: boolean | undefined,
   ) => void;
+
+  // backgrds: BackgroundProps[];
+  // setBackgrds: Dispatch<SetStateAction<BackgroundProps[]>>;
+  // loadBackgrpunds: () => Promise<void>;
 }

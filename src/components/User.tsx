@@ -17,7 +17,9 @@ const User = ({ variant }: UserProps) => {
       {variant === 'sm' && (
         <div className="flex items-center gap-2">
           <div className="px-2 rounded-md text-xl font-medium dark:text-gray-100 text-gray-300 dark:bg-gray-500 bg-white-600">
-            <span className="duration-40">{user.name?.charAt(0)}</span>
+            <span className="duration-40">
+              {user.name?.charAt(0).toUpperCase()}
+            </span>
           </div>
 
           <div className="flex flex-col">
@@ -39,7 +41,9 @@ const User = ({ variant }: UserProps) => {
                     dark:group-hover:bg-gray-500 dark:group-hover:border-gray-500 group-hover:bg-white-500 group-hover:border-white-400/10
                   "
                 >
-                  <span className="duration-40">{user.name?.charAt(0)}</span>
+                  <span className="duration-40">
+                    {user.name?.charAt(0).toUpperCase()}
+                  </span>
                 </div>
 
                 <div className="flex flex-col">
