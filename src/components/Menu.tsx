@@ -48,8 +48,8 @@ const Menu = () => {
             <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
               <div className="flex justify-center items-center w-6">
                 <IconSearch
-                  width="16"
-                  height="16"
+                  width="17"
+                  height="17"
                   color="dark:stroke-gray-100 stroke-gray-300"
                 />
               </div>
@@ -68,7 +68,7 @@ const Menu = () => {
           <Dialog.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
             <div className="flex flex-row items-center gap-2 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
               <div className="flex justify-center items-center w-6">
-                <IconSettings width="18" height="18" />
+                <IconSettings width="19" height="19" />
               </div>
               <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
                 Configurações
@@ -89,7 +89,7 @@ const Menu = () => {
             "
           >
             <div className="flex justify-center items-center w-6">
-              <IconTrash width="16" height="16" />
+              <IconTrash width="18" height="18" />
             </div>
             <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
               Lixeira

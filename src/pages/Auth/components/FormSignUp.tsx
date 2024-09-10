@@ -3,9 +3,6 @@ import { AuthContext } from '../../../contexts/authContext';
 
 import * as Form from '@radix-ui/react-form';
 import Button from '../../../components/Button';
-import IconUser from '../../../assets/icons/IconUser';
-import IconEmail from '../../../assets/icons/IconEmail';
-import IconLock from '../../../assets/icons/IconLock';
 import IconSpinner from '../../../assets/icons/IconSpinner';
 
 import { motion } from 'framer-motion';
@@ -32,140 +29,149 @@ const FormSignUp = () => {
     <>
       <Form.Root onSubmit={handleSubmit} className="flex flex-col gap-7">
         <Form.Field name="name">
-          <div className="flex justify-end mb-1">
-            <Form.Message
-              className="text-2xs dark:text-red-500 text-red-700"
-              match="valueMissing"
-            >
-              <motion.span
-                className="inline-block"
-                variants={err}
-                initial="from"
-                animate="to"
+          <div className="flex flex-col gap-2">
+            <Form.Label className="flex justify-between w-full">
+              <span className="dark:text-gray-200 text-sm font-medium">
+                Nome
+              </span>
+
+              <Form.Message
+                className="text-sm dark:text-red-500 text-red-700"
+                match="valueMissing"
               >
-                Digite seu nome completo
-              </motion.span>
-            </Form.Message>
-          </div>
-          <div className="relative flex items-center">
+                <motion.span
+                  className="inline-block"
+                  variants={err}
+                  initial="from"
+                  animate="to"
+                >
+                  Por favor insira um nome
+                </motion.span>
+              </Form.Message>
+            </Form.Label>
+
             <Form.Control asChild>
               <input
                 className="
-                  w-full px-6 py-4.5 rounded-lg text-lg dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-800
-                  validate focus:outline-none focus:ring-2 dark:focus:ring-gray-500 focus:ring-gray-100 focus:ring-offset-2
+                  w-full px-5 py-3 rounded-md dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-800
+                  validate focus:outline-none focus:ring-1.5 dark:focus:ring-gray-500 focus:ring-gray-100 focus:ring-offset-2
                   dark:focus:ring-offset-gray-900 focus:ring-offset-white-900
                 "
                 type="text"
-                placeholder="Nome"
+                placeholder="Insira um nome"
                 onChange={(e) => setName(e.target.value)}
                 autoComplete="off"
                 required
               />
             </Form.Control>
-            <Form.Label className="absolute right-6">
-              <IconUser width="27" height="28" />
-            </Form.Label>
           </div>
         </Form.Field>
+
         <Form.Field name="email">
-          <div className="flex justify-end mb-1">
-            <Form.Message
-              className="text-2xs dark:text-red-500 text-red-700"
-              match="valueMissing"
-            >
-              <motion.span
-                className="inline-block"
-                variants={err}
-                initial="from"
-                animate="to"
+          <div className="flex flex-col gap-2">
+            <Form.Label className="flex justify-between w-full">
+              <span className="dark:text-gray-200 text-sm font-medium">
+                E-mail
+              </span>
+
+              <Form.Message
+                className="text-sm dark:text-red-500 text-red-700"
+                match="valueMissing"
               >
-                Digite um e-mail
-              </motion.span>
-            </Form.Message>
-            <Form.Message
-              className="text-2xs dark:text-red-500 text-red-700"
-              match="typeMismatch"
-            >
-              <motion.span
-                className="inline-block"
-                variants={err}
-                initial="from"
-                animate="to"
+                <motion.span
+                  className="inline-block"
+                  variants={err}
+                  initial="from"
+                  animate="to"
+                >
+                  Por favor insira um e-mail
+                </motion.span>
+              </Form.Message>
+              <Form.Message
+                className="text-sm dark:text-red-500 text-red-700"
+                match="typeMismatch"
               >
-                Digite um e-mail válido
-              </motion.span>
-            </Form.Message>
-          </div>
-          <div className="relative flex items-center">
+                <motion.span
+                  className="inline-block"
+                  variants={err}
+                  initial="from"
+                  animate="to"
+                >
+                  Insira um e-mail válido
+                </motion.span>
+              </Form.Message>
+            </Form.Label>
+
             <Form.Control asChild>
               <input
                 className="
-                  w-full px-6 py-4.5 rounded-lg text-lg dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-800
-                  validate focus:outline-none focus:ring-2 dark:focus:ring-gray-500 focus:ring-gray-100 focus:ring-offset-2
+                  w-full px-5 py-3 rounded-md dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-800
+                  validate focus:outline-none focus:ring-1.5 dark:focus:ring-gray-500 focus:ring-gray-100 focus:ring-offset-2
                   dark:focus:ring-offset-gray-900 focus:ring-offset-white-900
                 "
                 type="email"
-                placeholder="Email"
+                placeholder="Insira um e-mail"
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="off"
                 required
               />
             </Form.Control>
-            <Form.Label className="absolute right-6">
-              <IconEmail width="27" height="29" />
-            </Form.Label>
           </div>
         </Form.Field>
+
         <Form.Field name="password">
-          <div className="flex justify-end mb-1">
-            <Form.Message
-              className="text-2xs dark:text-red-500 text-red-700"
-              match="valueMissing"
-            >
-              <motion.span
-                className="inline-block"
-                variants={err}
-                initial="from"
-                animate="to"
+          <div className="flex flex-col gap-2 mb-8">
+            <Form.Label className="flex justify-between w-full">
+              <span className="dark:text-gray-200 text-sm font-medium">
+                Senha
+              </span>
+
+              <Form.Message
+                className="text-sm dark:text-red-500 text-red-700"
+                match="valueMissing"
               >
-                Digite uma senha
-              </motion.span>
-            </Form.Message>
-            <Form.Message
-              className="text-2xs dark:text-red-500 text-red-700"
-              match="patternMismatch"
-            >
-              <motion.span
-                className="inline-block"
-                variants={err}
-                initial="from"
-                animate="to"
+                <motion.span
+                  className="inline-block"
+                  variants={err}
+                  initial="from"
+                  animate="to"
+                >
+                  Por favor insira uma senha
+                </motion.span>
+              </Form.Message>
+              <Form.Message
+                className="text-sm dark:text-red-500 text-red-700"
+                match="patternMismatch"
               >
-                A senha deve conter no mínimo 8 caracteres e ao menos uma letra.
-              </motion.span>
-            </Form.Message>
-          </div>
-          <div className="relative flex items-center mb-6">
+                <motion.span
+                  className="inline-block"
+                  variants={err}
+                  initial="from"
+                  animate="to"
+                >
+                  Mínimo de 8 caracteres e ao menos uma letra
+                </motion.span>
+              </Form.Message>
+            </Form.Label>
+
             <Form.Control asChild>
               <input
                 className="
-                  w-full px-6 py-4.5 rounded-lg text-lg dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-800
-                  validate focus:outline-none focus:ring-2 dark:focus:ring-gray-500 focus:ring-gray-100 focus:ring-offset-2
+                  w-full px-5 py-3 rounded-md dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-800
+                  validate focus:outline-none focus:ring-1.5 dark:focus:ring-gray-500 focus:ring-gray-100 focus:ring-offset-2
                   dark:focus:ring-offset-gray-900 focus:ring-offset-white-900
                 "
                 type="password"
-                placeholder="Senha"
+                placeholder="Insira uma senha"
                 pattern="^(?=.*[a-zA-Z]).{8,}$"
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="off"
                 required
               />
             </Form.Control>
-            <Form.Label className="absolute right-6">
-              <IconLock width="27" height="27" />
-            </Form.Label>
           </div>
         </Form.Field>
+
         <Form.Submit asChild>
           <Button
             variant="primary"

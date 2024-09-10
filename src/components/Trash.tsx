@@ -73,11 +73,11 @@ const Trash = () => {
                       </div>
                     </button>
                     <button
-                      className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
+                      className="px-0.5 py-1 rounded-md dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
                       onClick={() => handleDeleteTaskList(list.id)}
                     >
-                      <div className="flex justify-center items-center w-4">
-                        <IconTrash width="18" height="18" />
+                      <div className="flex justify-center items-center w-5">
+                        <IconTrash width="17" height="17" />
                       </div>
                     </button>
                   </div>
@@ -112,7 +112,7 @@ const Trash = () => {
                   </div>
                   <div className="flex gap-2">
                     <button
-                      className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
+                      className="p-1 rounded-md dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
                       onClick={() =>
                         handleEditNote(note.id, note.title, note.color, false)
                       }
@@ -122,11 +122,11 @@ const Trash = () => {
                       </div>
                     </button>
                     <button
-                      className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
+                      className="px-0.5 py-1 rounded-md dark:hover:bg-gray-400/70 hover:bg-white-400/50 dark:active:bg-gray-400/40 active:bg-white-400/30"
                       onClick={() => handleDeleteNote(note.id)}
                     >
-                      <div className="flex justify-center items-center w-4">
-                        <IconTrash width="18" height="18" />
+                      <div className="flex justify-center items-center w-5">
+                        <IconTrash width="17" height="17" />
                       </div>
                     </button>
                   </div>

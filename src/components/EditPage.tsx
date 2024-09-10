@@ -94,7 +94,7 @@ const EditPage = ({ page, type }: EditPageProps) => {
                 type="button"
               >
                 <div className="flex items-center w-6 h-6">
-                  <IconEdit width="18" height="19" />
+                  <IconEdit width="19" height="19" />
                 </div>
 
                 <span className="pt-px font-medium text-sm">Renomear</span>
@@ -116,7 +116,7 @@ const EditPage = ({ page, type }: EditPageProps) => {
               }
             >
               <div className="flex items-center w-6">
-                <IconTrash width="16" height="16" />
+                <IconTrash width="18" height="18" />
               </div>
               <span className="font-medium text-sm">Excluir</span>
             </button>

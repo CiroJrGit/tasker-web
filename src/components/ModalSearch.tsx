@@ -9,6 +9,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import IconSearch from '../assets/icons/IconSearch';
 import IconTrash from '../assets/icons/IconTrash';
 import IconEditPen from '../assets/icons/IconEditPen';
+import IconEdit from '../assets/icons/IconEdit';
 
 const ModalSearch = () => {
   const {
@@ -86,24 +87,20 @@ const ModalSearch = () => {
                       to={`/tasklists/${list.id}`}
                       className="relative rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                     >
-                      <div className="absolute top-[4px] right-2 flex gap-1 peer">
+                      <div className="absolute top-[4px] right-2 flex gap-2 peer">
                         <button
                           className="
-                            p-1.5 rounded-lg dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
+                            p-1 rounded-md dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
                             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
                             dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
                           "
                           onClick={() => console.log('Editar ' + list.title)}
                         >
-                          <IconEditPen
-                            width="17"
-                            height="17"
-                            color="dark:stroke-gray-100 stroke-gray-300"
-                          />
+                          <IconEdit width="19" height="19" />
                         </button>
                         <button
                           className="
-                            p-1.5 rounded-lg dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
+                            p-1 rounded-md dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
                             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
                             dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
                           "
@@ -113,17 +110,17 @@ const ModalSearch = () => {
                             handleEditTaskList(list.id, list.title, list.color, true);
                           }}
                         >
-                          <IconTrash width="17" height="17" />
+                          <IconTrash width="18" height="18" />
                         </button>
                       </div>
 
                       <Dialog.Close asChild>
                         <div
                           className="
-                          flex items-center gap-2.5 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700 dark:active:bg-gray-800/80 active:bg-white-600/80
-                          dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700 dark:group-[.active]:active:bg-gray-800/80 group-[.active]:active:bg-white-600/80
-                          dark:peer-hover:bg-gray-700 peer-hover:bg-white-700
-                        "
+                            flex items-center gap-2.5 h-9 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700 dark:active:bg-gray-800/80 active:bg-white-600/80
+                            dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700 dark:group-[.active]:active:bg-gray-800/80 group-[.active]:active:bg-white-600/80
+                            dark:peer-hover:bg-gray-700 peer-hover:bg-white-700
+                          "
                         >
                           <span
                             className={clsx(
@@ -173,24 +170,20 @@ const ModalSearch = () => {
                       to={`/notes/${note.id}`}
                       className="relative rounded-m focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                     >
-                      <div className="absolute top-[4px] right-2 flex gap-1 peer">
+                      <div className="absolute top-[4px] right-2 flex gap-2 peer">
                         <button
                           className="
-                            p-1.5 rounded-lg dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
+                            p-1 rounded-md dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
                             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
                             dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
                           "
                           onClick={() => console.log('Editar ' + note.title)}
                         >
-                          <IconEditPen
-                            width="17"
-                            height="17"
-                            color="dark:stroke-gray-100 stroke-gray-300"
-                          />
+                          <IconEdit width="19" height="19" />
                         </button>
                         <button
                           className="
-                            p-1.5 rounded-lg dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
+                            p-1 rounded-md dark:active:bg-gray-500/40 active:bg-white-400/60 dark:hover:bg-gray-500/70 hover:bg-white-500/90
                             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400 focus-visible:ring-offset-2
                             dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
                           "
@@ -200,7 +193,7 @@ const ModalSearch = () => {
                             handleEditNote(note.id, note.title, note.color, true);
                           }}
                         >
-                          <IconTrash width="17" height="17" />
+                          <IconTrash width="18" height="18" />
                         </button>
                       </div>
 
