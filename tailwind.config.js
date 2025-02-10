@@ -17,13 +17,14 @@ export default {
       fontSize: {
         '2xs': '0.8125rem',
         '3xs': '0.84375rem',
-        '2sm': '0.9375rem',
         '4.5xl': '2.5rem',
       },
       spacing: {
         0.75: '0.1875rem',
         2.25: '0.5625rem',
         4.5: '1.125rem',
+        10.5: '2.625rem',
+        18: '4.5rem',
       },
       ringWidth: {
         1.5: '1.5px',
@@ -83,4 +84,4 @@ export default {
     },
   },
   plugins: [],
-};
+}

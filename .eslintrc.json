@@ -6,7 +6,7 @@
     "prettier/prettier": [
       "warn",
       {
-        "semi": true,
+        "semi": false,
         "trailingComma": "all",
         "singleQuote": true,
         "printWidth": 80,
@@ -19,3 +19,46 @@
     "@typescript-eslint/no-explicit-any": "off"
   }
 }
+// {
+//   "env": {
+//     "browser": true,
+//     "es2021": true,
+//     "node": true
+//   },
+//   "extends": [
+//     "eslint:recommended",
+//     "plugin:react/recommended",
+//     "plugin:react-hooks/recommended",
+//     "plugin:@typescript-eslint/recommended"
+//   ],
+//   "parser": "@typescript-eslint/parser",
+//   "parserOptions": {
+//     "ecmaFeatures": {
+//       "jsx": true
+//     },
+//     "ecmaVersion": 2021,
+//     "sourceType": "module"
+//   },
+//   "plugins": ["react", "react-hooks", "@typescript-eslint"],
+//   "rules": {
+//     // Regras de formatação
+//     "indent": ["warn", 2], // Indentação de 2 espaços
+//     "quotes": ["warn", "single"], // Aspas simples
+//     "semi": ["warn", "always"], // Sempre usar ponto e vírgula
+//     "comma-dangle": ["warn", "always-multiline"], // Vírgula no final de objetos/arrays multilinha
+//     "max-len": ["warn", { "code": 80 }], // Limitar linhas a 80 caracteres
+//     "no-trailing-spaces": "warn", // Remover espaços no final das linhas
+//     "eol-last": ["warn", "always"], // Sempre ter uma linha vazia no final do arquivo
+//     // Regras específicas do React
+//     "react/react-in-jsx-scope": "off", // Desativar (React 17+ não exige importar React)
+//     "react/prop-types": "off", // Desativar validação de PropTypes (usando TypeScript)
+//     // Regras específicas do TypeScript
+//     "@typescript-eslint/no-explicit-any": "off", // Permitir o uso de `any`
+//     "@typescript-eslint/explicit-module-boundary-types": "off" // Não exigir tipos explícitos em funções
+//   },
+//   "settings": {
+//     "react": {
+//       "version": "detect" // Detecta automaticamente a versão do React
+//     }
+//   }
+// }

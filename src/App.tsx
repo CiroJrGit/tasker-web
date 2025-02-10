@@ -1,13 +1,13 @@
-import './styles/global.css';
+import './styles/global.css'
 
-import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes';
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './routes'
 
-import AuthProvider from './contexts/authContext';
-import PagesProvider from './contexts/pagesContext';
-import ThemeProvider from './contexts/themeContext';
+import AuthProvider from './contexts/authContext'
+import PagesProvider from './contexts/pagesContext'
+import ThemeProvider from './contexts/themeContext'
 
-function App() {
+const App = () => {
   return (
     <div className="min-h-screen">
       <BrowserRouter>
@@ -20,7 +20,7 @@ function App() {
         </ThemeProvider>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

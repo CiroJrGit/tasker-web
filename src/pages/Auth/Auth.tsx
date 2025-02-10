@@ -1,83 +1,82 @@
-import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/authContext';
-import clsx from 'clsx';
+import { useState, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../contexts/authContext'
+import clsx from 'clsx'
 
-import FormSignIn from './components/FormSignIn';
-import FormSignUp from './components/FormSignUp';
-import LogoSVG from '../../assets/logo';
-import { motion } from 'framer-motion';
+import FormSignIn from './components/FormSignIn'
+import FormSignUp from './components/FormSignUp'
+import LogoSVG from '../../assets/logo'
+import { motion } from 'framer-motion'
 
 const Auth = () => {
-  const [signIn, setSignIn] = useState(true);
-  const [signUp, setSignUp] = useState(false);
+  const [signIn, setSignIn] = useState(true)
+  const [signUp, setSignUp] = useState(false)
 
-  const [visibleIn, setVisibleIn] = useState(true);
-  const [visibleUp, setVisibleUp] = useState(false);
+  const [visibleIn, setVisibleIn] = useState(true)
+  const [visibleUp, setVisibleUp] = useState(false)
 
-  const [loadComponent, setLoadComponent] = useState(false);
-  const { isAuthenticated } = useContext(AuthContext);
+  const [loadComponent, setLoadComponent] = useState(false)
+  const { isAuthenticated } = useContext(AuthContext)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const load = {
     from: { opacity: 0 },
     to: { opacity: 1, transition: { duration: 0.2 } },
-  };
+  }
 
   const span = {
-    from: { y: 10, opacity: 0 },
-    to: { y: 0, opacity: 1, transition: { duration: 0.45 } },
-  };
+    from: { opacity: 0 },
+    to: { opacity: 1, transition: { duration: 0.5 } },
+  }
+
+  const handleSignIn = () => {
+    setSignIn(false)
+    setSignUp(true)
+    setVisibleUp(true)
+
+    setTimeout(() => {
+      setVisibleIn(false)
+    }, 300)
+  }
+
+  const handleSignUp = () => {
+    setSignIn(true)
+    setSignUp(false)
+    setVisibleIn(true)
+
+    setTimeout(() => {
+      setVisibleUp(false)
+    }, 700)
+  }
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/welcome');
+      navigate('/welcome')
     }
 
     setTimeout(() => {
-      setLoadComponent(true);
-    }, 150);
-  }, [isAuthenticated, navigate]);
-
-  function handleSignIn() {
-    setSignIn(false);
-    setSignUp(true);
-    setVisibleUp(true);
-
-    setTimeout(() => {
-      setVisibleIn(false);
-    }, 300);
-  }
-
-  function handleSignUp() {
-    setSignIn(true);
-    setSignUp(false);
-    setVisibleIn(true);
-
-    setTimeout(() => {
-      setVisibleUp(false);
-    }, 700);
-  }
+      setLoadComponent(true)
+    }, 500)
+  }, [isAuthenticated, navigate])
 
   return (
     <>
       {loadComponent && (
         <motion.div
           className={clsx(
-            'relative flex flex-col items-center w-[600px] my-auto pt-20 rounded-lg dark:bg-gray-900 bg-white-900 drop-shadow-lg transition-all duration-600 ease-in-out overflow-hidden',
+            'relative flex flex-col items-center w-[560px] my-auto pt-18 rounded-lg dark:bg-gray-900 bg-white-900 drop-shadow-lg transition-all duration-600 ease-in-out overflow-hidden',
             {
-              'min-h-[796px]': signIn,
-              'min-h-[896px]': signUp,
+              'min-h-[762px]': signIn,
+              'min-h-[862px]': signUp,
             },
           )}
           variants={load}
           initial="from"
           animate="to"
         >
-          <div className="flex flex-col gap-7 w-full px-[72px]">
+          <div className="flex flex-col gap-6 w-full px-[58px]">
             <div>
-              {/* <img src={<LogoSVG />} alt="Logo" width={290} /> */}
               <LogoSVG />
             </div>
 
@@ -108,18 +107,18 @@ const Auth = () => {
             )}
           >
             {/* SignIn */}
-            <div className="flex flex-col justify-end w-[600px] min-h-[472px] px-[72px]">
-              <div className="flex flex-col gap-24">
+            <div className="flex flex-col justify-end w-[560px] min-h-[432px] px-[58px]">
+              <div className="flex flex-col gap-20">
                 {visibleIn && (
                   <>
                     <FormSignIn />
 
                     <div className="flex justify-center">
-                      <span className="pr-1 text-2sm dark:text-gray-200 text-gray-200">
+                      <span className="pr-1 text-sm dark:text-gray-200 text-gray-200">
                         Não tem uma conta?
                       </span>
                       <button
-                        className="text-2sm font-semibold text-blue-600 cursor-pointer hover:underline hover:underline-offset-2 focus:outline-none focus:underline"
+                        className="text-sm font-semibold text-blue-600 cursor-pointer hover:underline hover:underline-offset-2 focus:outline-none focus:underline"
                         onClick={handleSignIn}
                       >
                         Cadastre-se.
@@ -131,18 +130,18 @@ const Auth = () => {
             </div>
 
             {/* SignUp */}
-            <div className="flex flex-col justify-center w-[600px] min-h-[583px] px-[88px]">
+            <div className="flex flex-col justify-center w-[560px] min-h-[572px] px-[58px]">
               <div className="flex flex-col gap-24">
                 {visibleUp && (
                   <>
                     <FormSignUp />
 
                     <div className="flex justify-center">
-                      <span className="pr-1 text-2sm dark:text-gray-200 text-gray-200">
+                      <span className="pr-1 text-sm dark:text-gray-200 text-gray-200">
                         Já possui uma conta?
                       </span>
                       <button
-                        className="text-2sm font-semibold text-blue-600 cursor-pointer hover:underline hover:underline-offset-2 focus:outline-none focus:underline"
+                        className="text-sm font-semibold text-blue-600 cursor-pointer hover:underline hover:underline-offset-2 focus:outline-none focus:underline"
                         onClick={handleSignUp}
                       >
                         Entre.
@@ -156,7 +155,7 @@ const Auth = () => {
         </motion.div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Auth;
+export default Auth
