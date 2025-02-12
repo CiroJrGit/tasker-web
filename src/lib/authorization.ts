@@ -1,13 +1,13 @@
-import cookies from 'js-cookie';
+import cookies from 'js-cookie'
 
 export function setAuthorization() {
-  const token = cookies.get('token');
+  const token = cookies.get('token')
 
   const authorization = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  };
+  }
 
-  return authorization;
+  return authorization
 }

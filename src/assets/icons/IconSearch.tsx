@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconSearch = ({ width, height, color }: IconProps) => {
   return (
@@ -24,7 +24,7 @@ const IconSearch = ({ width, height, color }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconSearch;
+export default IconSearch

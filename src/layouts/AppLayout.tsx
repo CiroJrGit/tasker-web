@@ -1,19 +1,19 @@
-import { useState, ReactNode } from 'react';
-import { NavLink } from 'react-router-dom';
-import clsx from 'clsx';
+import { useState, ReactNode } from 'react'
+import { NavLink } from 'react-router-dom'
+import clsx from 'clsx'
 
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/Sidebar'
 
-import IconBack from '../assets/icons/IconBack';
-import IconFullScreenOn from '../assets/icons/IconFullScreenOn';
-import IconFullScreenOff from '../assets/icons/IconFullScreenOff';
+import IconBack from '../assets/icons/IconBack'
+import IconFullScreenOn from '../assets/icons/IconFullScreenOn'
+import IconFullScreenOff from '../assets/icons/IconFullScreenOff'
 
 interface AppLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const AppLayout = ({ children }: AppLayoutProps) => {
-  const [fullScreen, setFullScreen] = useState(false);
+  const [fullScreen, setFullScreen] = useState(false)
 
   return (
     <div
@@ -27,7 +27,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       {/* dark:from-navy-500 dark:via-navy-700 dark:to-navy-900 */}
       <div
         className={clsx(
-          'relative grid grid-cols-[320px_1fr] text-gray-500 dark:text-gray-50 dark:bg-gray-950 bg-white-950 transition-all duration-400 ease-in-out overflow-hidden',
+          'relative grid grid-cols-[308px_1fr] text-gray-500 dark:text-gray-50 dark:bg-gray-950 bg-white-950 transition-all duration-400 ease-in-out overflow-hidden',
           'dark:drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)] drop-shadow-[0_4px_6px_rgba(0,0,0,0.20)]',
           {
             'w-screen h-screen': fullScreen,
@@ -74,7 +74,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AppLayout;
+export default AppLayout

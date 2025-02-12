@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconSun = ({ width, height, color }: IconProps) => {
   return (
@@ -20,7 +20,7 @@ const IconSun = ({ width, height, color }: IconProps) => {
         className={color}
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconSun;
+export default IconSun

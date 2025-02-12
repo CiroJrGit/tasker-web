@@ -1,26 +1,26 @@
-import { useEffect, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import { PagesContext } from '../contexts/pagesContext';
-import clsx from 'clsx';
+import { useEffect, useContext } from 'react'
+import { NavLink } from 'react-router-dom'
+import { PagesContext } from '../contexts/pagesContext'
+import clsx from 'clsx'
 
 const NavList = () => {
   const { taskLists, loadTaskLists, notes, loadNotes } =
-    useContext(PagesContext);
+    useContext(PagesContext)
 
   useEffect(() => {
-    loadTaskLists();
-    loadNotes();
-  }, []);
+    loadTaskLists()
+    loadNotes()
+  }, [])
 
   return (
-    <nav className="space-y-8">
+    <nav className="space-y-9">
       {taskLists.length !== 0 && (
         <div className="flex flex-col gap-2">
-          <span className="px-2.5 font-semibold text-2sm dark:text-gray-300 text-white-400">
+          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
             Listas
           </span>
 
-          <div className="flex flex-col gap-0.5 px-px">
+          <div className="flex flex-col gap-1">
             {taskLists
               .filter((list) => list.deleted === false)
               .map((list) => (
@@ -37,7 +37,7 @@ const NavList = () => {
                   >
                     <span
                       className={clsx(
-                        'block w-2 h-2 rounded-sm', // group-[.active]:w-[7px] group-[.active]:h-4.5 group-[.active]:left-px transition-all duration-150',
+                        'block w-2 h-2 rounded-sm', // TO-DO: Refinar codigo group-[.active]:w-[7px] group-[.active]:h-4.5 group-[.active]:left-px transition-all duration-150',
                         {
                           'bg-main-blue': list.color === '#265EED',
                           'bg-main-purple': list.color === '#8029EE',
@@ -50,7 +50,7 @@ const NavList = () => {
                       aria-hidden="true"
                     ></span>
 
-                    <span className="max-w-[172px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                    <span className="max-w-[168px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                       {list.title}
                     </span>
                   </div>
@@ -61,8 +61,8 @@ const NavList = () => {
       )}
 
       {notes.length !== 0 && (
-        <div className="flex flex-col gap-2">
-          <span className="px-2.5 font-semibold text-2sm dark:text-gray-300 text-white-400">
+        <div className="flex flex-col gap-1">
+          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
             Notas
           </span>
 
@@ -106,7 +106,7 @@ const NavList = () => {
         </div>
       )}
     </nav>
-  );
-};
+  )
+}
 
-export default NavList;
+export default NavList

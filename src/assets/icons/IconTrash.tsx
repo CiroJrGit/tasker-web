@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconTrash = ({ width, height }: IconProps) => {
   return (
@@ -50,7 +50,7 @@ const IconTrash = ({ width, height }: IconProps) => {
         strokeWidth="1.4"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconTrash;
+export default IconTrash

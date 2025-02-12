@@ -1,36 +1,29 @@
-import * as Dialog from '@radix-ui/react-dialog';
+import * as Dialog from '@radix-ui/react-dialog'
 
-import NavList from './NavList';
-import Menu from './Menu';
-import ModalNewPage from './ModalNewPage';
-import ModalWrap from './ModalWrap';
+import NavList from './NavList'
+import Menu from './Menu'
+import ModalNewPage from './ModalNewPage'
+import ModalWrap from './ModalWrap'
 
-import IconPlus from '../assets/icons/IconPlus';
+import IconPlusRounded from '../assets/icons/IconPlusRounded'
 
 const Sidebar = () => {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] gap-11 w-[320px] min-h-full px-3 pt-7 p-4">
+    <div className="grid grid-rows-[auto_1fr_auto] gap-11 w-full min-h-full px-3 py-6">
       <Menu />
 
       <NavList />
 
       <Dialog.Root>
-        <Dialog.Trigger
-          className="
-            flex flex-row items-center gap-2 h-[52px] px-4 rounded-md dark:text-gray-100 text-gray-300
-            dark:hover:bg-gray-700/80 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
-            focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
-          "
-          type="button"
-        >
-          <div className="flex justify-center items-center w-6">
-            <IconPlus
-              width="20"
-              height="20"
-              color="dark:stroke-gray-100 stroke-gray-200"
-            />
+        <Dialog.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
+          <div className="flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
+            <div className="flex justify-center items-center w-6">
+              <IconPlusRounded width="18" height="18" />
+            </div>
+            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
+              Nova página
+            </span>
           </div>
-          <span className="font-medium">Nova página</span>
         </Dialog.Trigger>
 
         <ModalWrap title="Nova página">
@@ -38,7 +31,7 @@ const Sidebar = () => {
         </ModalWrap>
       </Dialog.Root>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

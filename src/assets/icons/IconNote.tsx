@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconNote = ({ width, height, color }: IconProps) => {
   return (
@@ -38,7 +38,7 @@ const IconNote = ({ width, height, color }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconNote;
+export default IconNote

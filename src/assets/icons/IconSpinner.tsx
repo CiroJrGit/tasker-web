@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconSpinner = ({ width, height }: IconProps) => {
   return (
@@ -22,7 +22,7 @@ const IconSpinner = ({ width, height }: IconProps) => {
         fill="#E3E3E3"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconSpinner;
+export default IconSpinner
