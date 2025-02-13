@@ -1,15 +1,15 @@
 /* eslint-disable prettier/prettier */
-import { useContext, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { PagesContext } from '../contexts/pagesContext';
-import clsx from 'clsx';
+import { useContext, useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { PagesContext } from '../contexts/pagesContext'
+import clsx from 'clsx'
 
-import * as Dialog from '@radix-ui/react-dialog';
+import * as Dialog from '@radix-ui/react-dialog'
 
-import IconSearch from '../assets/icons/IconSearch';
-import IconTrash from '../assets/icons/IconTrash';
-import IconEditPen from '../assets/icons/IconEditPen';
-import IconEdit from '../assets/icons/IconEdit';
+import IconSearch from '../assets/icons/IconSearch'
+import IconTrash from '../assets/icons/IconTrash'
+// import IconEditPen from '../assets/icons/IconEditPen'
+import IconEdit from '../assets/icons/IconEdit'
 
 const ModalSearch = () => {
   const {
@@ -19,27 +19,27 @@ const ModalSearch = () => {
     loadNotes,
     handleEditTaskList,
     handleEditNote,
-  } = useContext(PagesContext);
+  } = useContext(PagesContext)
 
-  const [search, setSearch] = useState('');
-  const lowerSearch = search.toLowerCase();
+  const [search, setSearch] = useState('')
+  const lowerSearch = search.toLowerCase()
 
   const tasklistsFiltereds = taskLists.filter((tasklist) =>
     tasklist.title.toLowerCase().includes(lowerSearch.trim()),
-  );
+  )
 
   const notesFiltereds = notes.filter((note) =>
     note.title.toLowerCase().includes(lowerSearch.trim()),
-  );
+  )
 
   useEffect(() => {
-    loadTaskLists();
-    loadNotes();
-  }, []);
+    loadTaskLists()
+    loadNotes()
+  }, [])
 
   function handlePropagationLink(e: any) {
-    e.stopPropagation();
-    e.preventDefault();
+    e.stopPropagation()
+    e.preventDefault()
   }
 
   return (
@@ -105,9 +105,9 @@ const ModalSearch = () => {
                             dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
                           "
                           onClick={(e) => {
-                            console.log('Excluir ' + list.title);
-                            handlePropagationLink(e);
-                            handleEditTaskList(list.id, list.title, list.color, true);
+                            console.log('Excluir ' + list.title)
+                            handlePropagationLink(e)
+                            handleEditTaskList(list.id, list.title, list.color, true)
                           }}
                         >
                           <IconTrash width="18" height="18" />
@@ -188,9 +188,9 @@ const ModalSearch = () => {
                             dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700
                           "
                           onClick={(e) => {
-                            console.log('Excluir ' + note.title);
-                            handlePropagationLink(e);
-                            handleEditNote(note.id, note.title, note.color, true);
+                            console.log('Excluir ' + note.title)
+                            handlePropagationLink(e)
+                            handleEditNote(note.id, note.title, note.color, true)
                           }}
                         >
                           <IconTrash width="18" height="18" />
@@ -233,7 +233,7 @@ const ModalSearch = () => {
         </div>
       </>
     </div>
-  );
-};
+  )
+}
 
-export default ModalSearch;
+export default ModalSearch

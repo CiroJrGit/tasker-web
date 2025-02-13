@@ -28,7 +28,7 @@ const User = ({ variant }: UserProps) => {
           </div>
 
           <div className="flex flex-col">
-            <span className="block max-w-[175px] pt-0.5 text-base font-medium dark:text-gray-50 text-gray-400 whitespace-nowrap overflow-hidden text-ellipsis">
+            <span className="block max-w-[175px] pt-0.5 text-base font-semibold dark:text-gray-50 text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">
               {user.name}
             </span>
           </div>
@@ -39,7 +39,7 @@ const User = ({ variant }: UserProps) => {
         <div className="flex flex-col gap-3">
           <button
             className="
-              flex justify-between items-center h-16 mx-1 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-600/70 dark:active:bg-gray-500/30 active:bg-white-600
+              flex justify-between items-center h-16 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/30 active:bg-white-600/75
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group
             "
           >
@@ -56,7 +56,7 @@ const User = ({ variant }: UserProps) => {
               </div>
 
               <div className="flex justify-center flex-col">
-                <span className="text-base font-semibold dark:text-gray-50 text-gray-400 text-start whitespace-nowrap overflow-hidden text-ellipsistext-start">
+                <span className="text-base font-semibold dark:text-gray-50 text-gray-500 text-start whitespace-nowrap overflow-hidden text-ellipsistext-start">
                   {user.name}
                 </span>
 
@@ -76,10 +76,12 @@ const User = ({ variant }: UserProps) => {
             </div>
           </button>
 
-          <Separator.Root
-            className="dark:bg-gray-500/70 bg-gray-100/60 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full"
-            decorative
-          />
+          <div className="px-1">
+            <Separator.Root
+              className="dark:bg-gray-500/70 bg-gray-100/60 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full"
+              decorative
+            />
+          </div>
 
           <div className="flex flex-col gap-1">
             {/* <Dialog.Root>
@@ -103,7 +105,7 @@ const User = ({ variant }: UserProps) => {
               className="focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
               onClick={() => handleSignOut()}
             >
-              <div className="flex flex-row items-center gap-2 h-8 mx-1 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-600/70 dark:active:bg-gray-500/30 active:bg-white-600">
+              <div className="flex flex-row items-center gap-2 h-8 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/30 active:bg-white-600/75">
                 <div className="flex justify-center items-center w-6">
                   <IconLogout width="16" height="16" />
                 </div>

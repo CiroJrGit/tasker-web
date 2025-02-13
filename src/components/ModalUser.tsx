@@ -1,19 +1,19 @@
-import { useState, useContext } from 'react';
-import { AuthContext } from '../contexts/authContext';
+import { useState, useContext } from 'react'
+import { AuthContext } from '../contexts/authContext'
 // import { PagesContext } from '../contexts/pagesContext';
 
-import * as Switch from '@radix-ui/react-switch';
-import * as Dialog from '@radix-ui/react-dialog';
-import Toggle from './Toggle';
-import Button from './Button';
+import * as Switch from '@radix-ui/react-switch'
+import * as Dialog from '@radix-ui/react-dialog'
+import Toggle from './Toggle'
+import Button from './Button'
 
-import IconPlus from '../assets/icons/IconPlus';
+import IconPlus from '../assets/icons/IconPlus'
 
 const ModalUser = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext)
   // const { backgrds, loadBackgrpunds } = useContext(PagesContext);
 
-  const [username, setUsername] = useState(user.name || '');
+  const [username, setUsername] = useState(user.name || '')
 
   // TO-DO: backgrounds
   // useEffect(() => {
@@ -147,7 +147,7 @@ const ModalUser = () => {
         </Dialog.Close>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ModalUser;
+export default ModalUser

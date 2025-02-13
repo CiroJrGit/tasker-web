@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconCaret = ({ width, height, color }: IconProps) => {
   return (
@@ -17,7 +17,7 @@ const IconCaret = ({ width, height, color }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconCaret;
+export default IconCaret

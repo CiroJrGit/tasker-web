@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconEllipsis = ({ width, height }: IconProps) => {
   return (
@@ -22,7 +22,7 @@ const IconEllipsis = ({ width, height }: IconProps) => {
         className="dark:fill-gray-300 fill-white-300"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconEllipsis;
+export default IconEllipsis

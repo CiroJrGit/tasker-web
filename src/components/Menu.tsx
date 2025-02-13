@@ -30,8 +30,8 @@ const Menu = () => {
         </Popover.Trigger>
 
         <Popover.Portal>
-          <Popover.Content className="relative bottom-9 left-[294px] min-w-[306px]">
-            <div className=" px-1 py-2 rounded-md dark:bg-gray-800 bg-white-800 drop-shadow-md">
+          <Popover.Content className="relative bottom-9 left-[294px]">
+            <div className="min-w-[306px] py-2 rounded-md dark:bg-gray-800 bg-white-900 drop-shadow-md">
               <User variant="md" />
             </div>
           </Popover.Content>
@@ -40,19 +40,22 @@ const Menu = () => {
 
       <div className="flex flex-col gap-1">
         <Dialog.Root>
-          <Dialog.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
-            <div className="flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
-              <div className="flex justify-center items-center w-6">
-                <IconSearch
-                  width="16"
-                  height="16"
-                  color="dark:stroke-gray-100 stroke-gray-300"
-                />
-              </div>
-              <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-                Pesquisar
-              </span>
+          <Dialog.Trigger
+            className="
+              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
+            "
+          >
+            <div className="flex justify-center items-center w-6">
+              <IconSearch
+                width="16"
+                height="16"
+                color="dark:stroke-gray-100 stroke-gray-300"
+              />
             </div>
+            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
+              Pesquisar
+            </span>
           </Dialog.Trigger>
 
           <ModalWrap title="Pesquisar páginas">
@@ -61,15 +64,18 @@ const Menu = () => {
         </Dialog.Root>
 
         <Dialog.Root>
-          <Dialog.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
-            <div className="flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
-              <div className="flex justify-center items-center w-6">
-                <IconSettings width="18" height="18" />
-              </div>
-              <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-                Configurações
-              </span>
+          <Dialog.Trigger
+            className="
+              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
+            "
+          >
+            <div className="flex justify-center items-center w-6">
+              <IconSettings width="18" height="18" />
             </div>
+            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
+              Configurações
+            </span>
           </Dialog.Trigger>
 
           <ModalWrap title="Configurações do usuário">
@@ -78,20 +84,23 @@ const Menu = () => {
         </Dialog.Root>
 
         <Popover.Root>
-          <Popover.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
-            <div className="flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75">
-              <div className="flex justify-center items-center w-6">
-                <IconTrash width="17" height="17" />
-              </div>
-              <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-                Lixeira
-              </span>
+          <Popover.Trigger
+            className="
+              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
+            "
+          >
+            <div className="flex justify-center items-center w-6">
+              <IconTrash width="17" height="17" />
             </div>
+            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
+              Lixeira
+            </span>
           </Popover.Trigger>
 
           <Popover.Portal>
-            <Popover.Content className="focus:outline-none">
-              <div className="relative left-4 min-w-[306px] drop-shadow-md">
+            <Popover.Content className="relative bottom-8 left-[140px]">
+              <div className="absolute min-w-[392px] pt-1.5 pb-8.5 rounded-md dark:bg-gray-800 bg-white-900 drop-shadow-md">
                 <Trash />
               </div>
             </Popover.Content>

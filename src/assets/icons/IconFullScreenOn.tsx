@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconFullScreenOn = ({ width, height }: IconProps) => {
   return (
@@ -26,7 +26,7 @@ const IconFullScreenOn = ({ width, height }: IconProps) => {
         className="dark:fill-gray-400 fill-white-300"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconFullScreenOn;
+export default IconFullScreenOn

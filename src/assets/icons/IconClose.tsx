@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconClose = ({ width, height }: IconProps) => {
   return (
@@ -24,7 +24,7 @@ const IconClose = ({ width, height }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconClose;
+export default IconClose

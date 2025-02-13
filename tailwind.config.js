@@ -15,8 +15,6 @@ export default {
         int: ['Inter', 'sans-serif'],
       },
       fontSize: {
-        '2xs': '0.8125rem',
-        '3xs': '0.84375rem',
         '2.5xl': '1.75rem',
         '4.5xl': '2.5rem',
       },
@@ -24,8 +22,10 @@ export default {
         0.75: '0.1875rem',
         2.25: '0.5625rem',
         4.5: '1.125rem',
+        8.5: '2.125rem',
         10.5: '2.625rem',
         18: '4.5rem',
+        20.5: '5.375rem',
       },
       ringWidth: {
         1.5: '1.5px',

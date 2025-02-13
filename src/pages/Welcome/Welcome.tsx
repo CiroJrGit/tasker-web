@@ -1,16 +1,16 @@
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/authContext';
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/authContext'
 
-import * as Dialog from '@radix-ui/react-dialog';
-import ModalWrap from '../../components/ModalWrap';
-import ModalNewPage from '../../components/ModalNewPage';
+import * as Dialog from '@radix-ui/react-dialog'
+import ModalWrap from '../../components/ModalWrap'
+import ModalNewPage from '../../components/ModalNewPage'
 
-import IconNote from '../../assets/icons/IconNote';
-import IconCheckbox from '../../assets/icons/IconCheckbox';
+import IconNote from '../../assets/icons/IconNote'
+import IconCheckbox from '../../assets/icons/IconCheckbox'
 
 const Welcome = () => {
-  const { user } = useContext(AuthContext);
-  const firstName = user.name?.trim().split(' ');
+  const { user } = useContext(AuthContext)
+  const firstName = user.name?.trim().split(' ')
 
   return (
     <div className="flex flex-col gap-16 w-11/12">
@@ -78,7 +78,7 @@ const Welcome = () => {
         </Dialog.Root>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Welcome;
+export default Welcome

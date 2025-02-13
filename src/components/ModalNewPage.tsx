@@ -1,30 +1,25 @@
-import { useState, useContext } from 'react';
-import { PagesContext } from '../contexts/pagesContext';
-import { TaskListProps } from '../types/pagesProps';
-import clsx from 'clsx';
+import { useState, useContext } from 'react'
+import { PagesContext } from '../contexts/pagesContext'
+import clsx from 'clsx'
 
-import * as Dialog from '@radix-ui/react-dialog';
-import * as RadioGroup from '@radix-ui/react-radio-group';
-import * as Popover from '@radix-ui/react-popover';
-import Button from './Button';
+import * as Dialog from '@radix-ui/react-dialog'
+import * as RadioGroup from '@radix-ui/react-radio-group'
+import Button from './Button'
 
-import IconCheckbox from '../assets/icons/IconCheckbox';
-import IconNote from '../assets/icons/IconNote';
-import IconCaret from '../assets/icons/IconCaret';
-import IconCheck from '../assets/icons/IconCheck';
+import IconCheckbox from '../assets/icons/IconCheckbox'
+import IconNote from '../assets/icons/IconNote'
+import IconCheck from '../assets/icons/IconCheck'
 
 interface ModalNewPageProps {
-  list?: TaskListProps;
-  type?: string;
-  page?: string;
+  page?: string
 }
 
-const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
-  const { handleCreateTaskList, handleCreateNote } = useContext(PagesContext);
+const ModalNewPage = ({ page }: ModalNewPageProps) => {
+  const { handleCreateTaskList, handleCreateNote } = useContext(PagesContext)
 
-  const [title, setTitle] = useState('');
-  const [selectedOption, setSelectedOption] = useState<string>(page || '');
-  const [selectedColor, setSelectedColor] = useState('#265EED');
+  const [title, setTitle] = useState('')
+  const [selectedOption, setSelectedOption] = useState<string>(page || '')
+  const [selectedColor, setSelectedColor] = useState('#265EED')
 
   const colors = [
     '#265EED',
@@ -33,17 +28,17 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
     '#F4385A',
     '#EE9329',
     '#29EE9B',
-  ];
+  ]
 
   return (
-    <div className="min-w-[472px] mt-8 space-y-8">
-      <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-18 min-w-[506px] min-h-[324px] px-4">
+      <div className="flex flex-col gap-8">
         <RadioGroup.Root
           className="flex gap-3"
           defaultValue={page}
           aria-label="Page type"
         >
-          <div className="flex items-center">
+          <div className="flex">
             <RadioGroup.Item
               className="hidden peer"
               value="tasklist"
@@ -52,24 +47,43 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
             />
             <label
               className="
-                flex items-center gap-2 px-2 py-1.5 rounded-md dark:text-gray-100/70 text-gray-300/90 cursor-pointer
-                dark:hover:text-gray-100 hover:text-gray-400 dark:hover:bg-gray-800 hover:bg-white-800/90
-                peer-aria-checked:dark:bg-gray-600/90 peer-aria-checked:bg-white-600/70 peer-aria-checked:dark:text-gray-100 peer-aria-checked:text-gray-400
+                flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-2xl dark:text-gray-100 text-gray-300 cursor-pointer
+                dark:hover:bg-gray-800 hover:bg-white-800 border dark:border-gray-500 border-gray-100
+                peer-aria-checked:dark:bg-gray-700 peer-aria-checked:bg-white-700
+                peer-aria-checked:dark:border-gray-100 peer-aria-checked:border-gray-300
               "
               htmlFor="r1"
             >
               <IconCheckbox
-                width="18"
-                height="18"
-                color="dark:stroke-gray-100/60 stroke-gray-300/75"
+                width="20"
+                height="20"
+                color={
+                  selectedOption === 'tasklist'
+                    ? 'dark:stroke-gray-100 stroke-gray-400'
+                    : 'dark:stroke-gray-500 stroke-white-300'
+                }
               />
-              <span className="text-sm font-medium duration-10">
-                Lista de tarefas
-              </span>
+
+              <div className="flex flex-col gap-px">
+                <span
+                  className={clsx(
+                    'font-medium text-sm dark:text-gray-100 text-gray-300',
+                    {
+                      'dark:text-gray-50 text-gray-500':
+                        selectedOption === 'tasklist',
+                    },
+                  )}
+                >
+                  Listas
+                </span>
+                <span className="text-xs font-medium dark:text-gray-300 text-white-300">
+                  Crie e conclua lista de tarefas
+                </span>
+              </div>
             </label>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex">
             <RadioGroup.Item
               className="hidden peer"
               value="notes"
@@ -78,97 +92,97 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
             />
             <label
               className="
-                flex items-center gap-2 px-2 py-1.5 rounded-md dark:text-gray-100/70 text-gray-300/90 cursor-pointer
-                dark:hover:text-gray-100 hover:text-gray-400 dark:hover:bg-gray-800 hover:bg-white-800/90
-                peer-aria-checked:dark:bg-gray-600/90 peer-aria-checked:bg-white-600/70 peer-aria-checked:dark:text-gray-100 peer-aria-checked:text-gray-400
+                flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-2xl dark:text-gray-100 text-gray-300 cursor-pointer
+                dark:hover:bg-gray-800 hover:bg-white-800 border dark:border-gray-500 border-gray-100
+                peer-aria-checked:dark:bg-gray-700 peer-aria-checked:bg-white-700
+                peer-aria-checked:dark:border-gray-100 peer-aria-checked:border-gray-300
               "
               htmlFor="r2"
             >
               <IconNote
-                width="19"
-                height="19"
-                color="dark:stroke-gray-100/60 stroke-gray-300/80"
+                width="21"
+                height="21"
+                color={
+                  selectedOption === 'notes'
+                    ? 'dark:stroke-gray-100 stroke-gray-400'
+                    : 'dark:stroke-gray-500 stroke-white-300'
+                }
               />
-              <span className="text-sm font-medium duration-10">
-                Página de anotações
-              </span>
+              <div className="flex flex-col gap-px">
+                <span
+                  className={clsx(
+                    'font-medium text-sm dark:text-gray-100 text-gray-300',
+                    {
+                      'dark:text-gray-50 text-gray-500':
+                        selectedOption === 'notes',
+                    },
+                  )}
+                >
+                  Anotações
+                </span>
+                <span className="text-xs font-medium dark:text-gray-300 text-white-300">
+                  Crie e edite suas anotações
+                </span>
+              </div>
             </label>
           </div>
         </RadioGroup.Root>
 
-        <div className="flex gap-3">
-          <Popover.Root>
-            <Popover.Trigger
+        <div className="flex flex-col gap-9">
+          <div className="flex flex-col gap-3">
+            <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">
+              Título
+            </span>
+
+            <input
               className="
-                flex flex-row items-center gap-3 p-2.5 rounded-lg dark:bg-gray-700 bg-white-700
-                dark:hover:bg-gray-600/70 hover:bg-white-800/90 dark:active:bg-gray-700/90 active:bg-white-600/75
+                w-full h-8.5 px-2.5 rounded text-sm dark:text-gray-50 text-gray-500 dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-700 bg-white-700
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
-            >
-              <div
-                className={clsx('w-5 h-5 rounded-md', {
-                  'bg-main-blue': selectedColor === '#265EED',
-                  'bg-main-purple': selectedColor === '#8029EE',
-                  'bg-main-pink': selectedColor === '#EE29B7',
-                  'bg-main-red': selectedColor === '#F4385A',
-                  'bg-main-yellow': selectedColor === '#EE9329',
-                  'bg-main-green': selectedColor === '#29EE9B',
-                })}
-              />
-              <IconCaret
-                width="11"
-                height="11"
-                color="dark:stroke-gray-300 stroke-white-300"
-              />
-            </Popover.Trigger>
-            <Popover.Portal>
-              <Popover.Content className="focus:outline-none">
-                <div className="relative left-[95px] flex gap-5 mt-4 px-4 py-3 rounded-lg dark:bg-gray-800 bg-white-700 drop-shadow-md">
-                  {colors.map((color, index) => (
-                    <button
-                      key={index}
-                      className={clsx(
-                        'flex justify-center items-center w-5 h-5 pt-px rounded-md hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
-                        'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
-                        {
-                          'bg-main-blue': color === '#265EED',
-                          'bg-main-purple': color === '#8029EE',
-                          'bg-main-pink': color === '#EE29B7',
-                          'bg-main-red': color === '#F4385A',
-                          'bg-main-yellow': color === '#EE9329',
-                          'bg-main-green': color === '#29EE9B',
+              type="text"
+              placeholder="Título da página..."
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
 
-                          'ring-1 ring-gray-200 ring-offset-2':
-                            color === selectedColor,
-                        },
-                      )}
-                      onClick={() => setSelectedColor(color)}
-                    >
-                      {color === selectedColor && (
-                        <IconCheck
-                          width="14"
-                          height="14"
-                          color="stroke-gray-50"
-                          stroke="2.2"
-                        />
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </Popover.Content>
-            </Popover.Portal>
-          </Popover.Root>
+          <div className="flex justify-between items-center gap-3">
+            <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">
+              Cor de destaque
+            </span>
 
-          <input
-            className="
-              w-full h-11 px-5 rounded-md dark:text-gray-50 text-gray-400 dark:placeholder:text-gray-200 placeholder:text-white-300 dark:bg-gray-700 bg-white-700
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
-            "
-            type="text"
-            defaultValue={type === 'edit' ? list?.title : ''}
-            placeholder="Título da página..."
-            onChange={(e) => setTitle(e.target.value)}
-          />
+            <div className="flex gap-2.5 pt-0.5">
+              {colors.map((color, index) => (
+                <button
+                  key={index}
+                  className={clsx(
+                    'flex justify-center items-center w-5 h-5 pt-px rounded-[5px] hover:bg-opacity-75 focus:outline-none focus-visible:ring-1.5',
+                    'dark:focus-visible:ring-gray-200 focus-visible:ring-gray-200/90 ring-offset-1 dark:ring-offset-gray-700 ring-offset-white-700',
+                    {
+                      'bg-main-blue ring-main-blue': color === '#265EED',
+                      'bg-main-purple ring-main-purple': color === '#8029EE',
+                      'bg-main-pink ring-main-pink': color === '#EE29B7',
+                      'bg-main-red ring-main-red': color === '#F4385A',
+                      'bg-main-yellow ring-main-yellow': color === '#EE9329',
+                      'bg-main-green ring-main-green': color === '#29EE9B',
+
+                      'ring-[0.8px] ring-offset-[1.3px]':
+                        color === selectedColor,
+                    },
+                  )}
+                  onClick={() => setSelectedColor(color)}
+                >
+                  {color === selectedColor && (
+                    <IconCheck
+                      width="13"
+                      height="13"
+                      color="stroke-gray-50"
+                      stroke="2.2"
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -179,7 +193,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
             size="md"
             label="Criar"
             onClick={
-              page === 'tasklist'
+              selectedOption === 'tasklist'
                 ? () => handleCreateTaskList(title, selectedColor)
                 : () => handleCreateNote(title, selectedColor)
             }
@@ -192,7 +206,7 @@ const ModalNewPage = ({ type, list, page }: ModalNewPageProps) => {
         </Dialog.Close>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ModalNewPage;
+export default ModalNewPage

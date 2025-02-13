@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconEditPen = ({ width, height, color }: IconProps) => {
   return (
@@ -26,7 +26,7 @@ const IconEditPen = ({ width, height, color }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconEditPen;
+export default IconEditPen

@@ -13,8 +13,8 @@ const NavList = () => {
   }, [])
 
   return (
-    <nav className="space-y-9">
-      {taskLists.length !== 0 && (
+    <nav className="flex flex-col gap-9 font-int">
+      {taskLists.filter((list) => list.deleted === false).length !== 0 && (
         <div className="flex flex-col gap-2">
           <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
             Listas
@@ -60,8 +60,8 @@ const NavList = () => {
         </div>
       )}
 
-      {notes.length !== 0 && (
-        <div className="flex flex-col gap-1">
+      {notes.filter((note) => note.deleted === false).length !== 0 && (
+        <div className="flex flex-col gap-2">
           <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
             Notas
           </span>

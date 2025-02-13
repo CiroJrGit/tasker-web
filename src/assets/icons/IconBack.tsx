@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconBack = ({ width, height }: IconProps) => {
   return (
@@ -26,7 +26,7 @@ const IconBack = ({ width, height }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconBack;
+export default IconBack

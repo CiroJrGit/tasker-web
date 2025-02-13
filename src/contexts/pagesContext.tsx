@@ -1,7 +1,7 @@
-import { useState, createContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { api } from '../lib/api';
-import { setAuthorization } from '../lib/authorization';
+import { useState, createContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { api } from '../lib/api'
+import { setAuthorization } from '../lib/authorization'
 
 import {
   TaskListProps,
@@ -10,74 +10,74 @@ import {
   // BackgroundProps,
   PagesProviderProps,
   PagesContextProps,
-} from '../types/pagesProps';
+} from '../types/pagesProps'
 
 export const PagesContext = createContext<PagesContextProps>(
   {} as PagesContextProps,
-);
+)
 
 const PagesProvider = ({ children }: PagesProviderProps) => {
   // states lista de tarefas
-  const [taskLists, setTaskLists] = useState<TaskListProps[]>([]);
-  const [loadingTaskLists, setLoadingTaskLists] = useState(true);
+  const [taskLists, setTaskLists] = useState<TaskListProps[]>([])
+  const [loadingTaskLists, setLoadingTaskLists] = useState(true)
 
   // states tarefas
-  const [tasks, setTasks] = useState<TaskProps[]>([]);
-  const [loadingTasks, setLoadingTasks] = useState(true);
+  const [tasks, setTasks] = useState<TaskProps[]>([])
+  const [loadingTasks, setLoadingTasks] = useState(true)
 
   // states anotacoes
-  const [notes, setNotes] = useState<NoteProps[]>([]);
-  const [loadingNotes, setLoadingNotes] = useState(true);
+  const [notes, setNotes] = useState<NoteProps[]>([])
+  const [loadingNotes, setLoadingNotes] = useState(true)
 
   // states backgrounds
   // const [backgrds, setBackgrds] = useState<BackgroundProps[]>([]);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // carregar listas de tarefas
   async function loadTaskLists() {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    const taskListResponse = await api.get('/tasklists', authorization);
-    setTaskLists(taskListResponse.data);
-    setLoadingTaskLists(false);
+    const taskListResponse = await api.get('/tasklists', authorization)
+    setTaskLists(taskListResponse.data)
+    setLoadingTaskLists(false)
   }
 
   // obter uma lista de tarefas
   async function handleGetTaskList(id: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    const taskListResponse = await api.get(`/tasklists/${id}`, authorization);
-    const taskList: TaskListProps = taskListResponse.data;
+    const taskListResponse = await api.get(`/tasklists/${id}`, authorization)
+    const taskList: TaskListProps = taskListResponse.data
 
-    loadTasks(taskList.id);
-    return taskList;
+    loadTasks(taskList.id)
+    return taskList
   }
 
   // criar lista de tarefas
   async function handleCreateTaskList(title: string, color: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
     const newTaskList = await api.post(
       '/tasklists',
       { title, color },
       authorization,
-    );
+    )
 
-    const newTaskListId = newTaskList.data;
+    const newTaskListId = newTaskList.data
 
-    loadTaskLists();
-    navigate(`/tasklists/${newTaskListId}`);
+    loadTaskLists()
+    navigate(`/tasklists/${newTaskListId}`)
   }
 
   // deletar lista de tarefas
   async function handleDeleteTaskList(id: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.delete(`/tasks/${id}/all`, authorization);
-    await api.delete(`/tasklists/${id}`, authorization);
+    await api.delete(`/tasks/${id}/all`, authorization)
+    await api.delete(`/tasklists/${id}`, authorization)
 
-    loadTaskLists();
+    loadTaskLists()
   }
 
   // editar lista de tarefas
@@ -87,48 +87,48 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     color: string | undefined,
     deleted: boolean | undefined,
   ) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.put(`/tasklists/${id}`, { title, color, deleted }, authorization);
+    await api.put(`/tasklists/${id}`, { title, color, deleted }, authorization)
 
-    loadTaskLists();
+    loadTaskLists()
   }
 
   // carregar tarefas
   async function loadTasks(listId: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    const taskResponse = await api.get(`/tasks/${listId}`, authorization);
+    const taskResponse = await api.get(`/tasks/${listId}`, authorization)
 
-    setTasks(taskResponse.data);
-    setLoadingTasks(false);
+    setTasks(taskResponse.data)
+    setLoadingTasks(false)
   }
 
   // criar tarefa
   async function handleCreateTask(desc: string, taskListId: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.post(`/tasks`, { desc, taskListId }, authorization);
+    await api.post(`/tasks`, { desc, taskListId }, authorization)
 
-    loadTasks(taskListId);
+    loadTasks(taskListId)
   }
 
   // deletar tarefa
   async function handleDeleteTask(id: string, taskListId: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.delete(`/tasks/${id}`, authorization);
+    await api.delete(`/tasks/${id}`, authorization)
 
-    loadTasks(taskListId);
+    loadTasks(taskListId)
   }
 
   // editar tarefa
   async function handleEditTask(id: string, desc: string, taskListId: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.put(`/tasks/${id}`, { desc }, authorization);
+    await api.put(`/tasks/${id}`, { desc }, authorization)
 
-    loadTasks(taskListId);
+    loadTasks(taskListId)
   }
 
   // marcar/desmarcar tarefa como concluida
@@ -137,50 +137,50 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     completed: boolean,
     listId: string,
   ) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.put(`/tasks/${taskId}/toggle`, { completed }, authorization);
+    await api.put(`/tasks/${taskId}/toggle`, { completed }, authorization)
 
-    loadTasks(listId);
+    loadTasks(listId)
   }
 
   // carregar anotacoes
   async function loadNotes() {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    const noteResponse = await api.get('/notes', authorization);
-    setNotes(noteResponse.data);
-    setLoadingNotes(false);
+    const noteResponse = await api.get('/notes', authorization)
+    setNotes(noteResponse.data)
+    setLoadingNotes(false)
   }
 
   // obter uma anotacao
   async function handleGetNote(id: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    const noteResponse = await api.get(`/notes/${id}`, authorization);
-    const note: NoteProps = noteResponse.data;
+    const noteResponse = await api.get(`/notes/${id}`, authorization)
+    const note: NoteProps = noteResponse.data
 
-    return note;
+    return note
   }
 
   // criar anotacao
   async function handleCreateNote(title: string, color: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    const newNote = await api.post('/notes', { title, color }, authorization);
-    const newNoteId = newNote.data;
+    const newNote = await api.post('/notes', { title, color }, authorization)
+    const newNoteId = newNote.data
 
-    loadNotes();
-    navigate(`/notes/${newNoteId}`);
+    loadNotes()
+    navigate(`/notes/${newNoteId}`)
   }
 
   // deletar anotacao
   async function handleDeleteNote(id: string) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.delete(`/notes/${id}`, authorization);
+    await api.delete(`/notes/${id}`, authorization)
 
-    loadNotes();
+    loadNotes()
   }
 
   // editar anotacao
@@ -191,11 +191,11 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     color: string | undefined,
     deleted: boolean | undefined,
   ) {
-    const authorization = setAuthorization();
+    const authorization = setAuthorization()
 
-    await api.put(`/notes/${id}`, { title, color, deleted }, authorization);
+    await api.put(`/notes/${id}`, { title, color, deleted }, authorization)
 
-    loadNotes();
+    loadNotes()
   }
 
   // TO-DO: backgrounds
@@ -247,7 +247,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     >
       {children}
     </PagesContext.Provider>
-  );
-};
+  )
+}
 
-export default PagesProvider;
+export default PagesProvider

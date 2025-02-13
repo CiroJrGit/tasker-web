@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps';
+import { IconProps } from '../../types/iconProps'
 
 const IconCheck = ({ width, height, color, stroke }: IconProps) => {
   return (
@@ -17,7 +17,7 @@ const IconCheck = ({ width, height, color, stroke }: IconProps) => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default IconCheck;
+export default IconCheck
