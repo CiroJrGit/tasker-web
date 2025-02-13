@@ -39,7 +39,7 @@ const User = ({ variant }: UserProps) => {
         <div className="flex flex-col gap-3">
           <button
             className="
-              flex justify-between items-center h-16 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/30 active:bg-white-600/75
+              flex justify-between items-center h-16 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group
             "
           >
@@ -105,7 +105,7 @@ const User = ({ variant }: UserProps) => {
               className="focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300"
               onClick={() => handleSignOut()}
             >
-              <div className="flex flex-row items-center gap-2 h-8 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/30 active:bg-white-600/75">
+              <div className="flex flex-row items-center gap-2 h-8 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70">
                 <div className="flex justify-center items-center w-6">
                   <IconLogout width="16" height="16" />
                 </div>

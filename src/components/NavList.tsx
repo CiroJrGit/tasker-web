@@ -31,8 +31,8 @@ const NavList = () => {
                 >
                   <div
                     className="
-                      flex items-center gap-2.5 h-8 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
-                      dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700/70 dark:group-[.active]:active:bg-gray-800/80 group-[.active]:active:bg-white-600/75
+                      flex items-center gap-2.5 h-8 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
+                      dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700/70 dark:group-[.active]:active:bg-gray-700/70 group-[.active]:active:bg-white-600/75
                     "
                   >
                     <span
@@ -77,8 +77,8 @@ const NavList = () => {
                 >
                   <div
                     className="
-                      flex items-center gap-2.5 h-8 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
-                      dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700/70 dark:group-[.active]:active:bg-gray-800/80 group-[.active]:active:bg-white-600/75
+                      flex items-center gap-2.5 h-8 px-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
+                      dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700/70 dark:group-[.active]:active:bg-gray-700/70 group-[.active]:active:bg-white-600/75
                     "
                   >
                     <span

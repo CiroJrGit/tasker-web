@@ -17,7 +17,7 @@ const Menu = () => {
       <Popover.Root>
         <Popover.Trigger
           className="
-            flex justify-between items-center h-11 pl-1.5 pr-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+            flex justify-between items-center h-11 pl-1.5 pr-3 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
             focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
           "
         >
@@ -42,7 +42,7 @@ const Menu = () => {
         <Dialog.Root>
           <Dialog.Trigger
             className="
-              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
             "
           >
@@ -58,7 +58,7 @@ const Menu = () => {
             </span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Pesquisar páginas">
+          <ModalWrap>
             <ModalSearch />
           </ModalWrap>
         </Dialog.Root>
@@ -66,7 +66,7 @@ const Menu = () => {
         <Dialog.Root>
           <Dialog.Trigger
             className="
-              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
             "
           >
@@ -86,7 +86,7 @@ const Menu = () => {
         <Popover.Root>
           <Popover.Trigger
             className="
-              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-800/80 active:bg-white-600/75
+              flex flex-row items-center gap-2 h-8 px-2 rounded-md dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
             "
           >
