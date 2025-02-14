@@ -1,33 +1,33 @@
-import { useState, useContext, KeyboardEvent } from 'react';
-import { PagesContext } from '../../../contexts/pagesContext';
+import { useState, useContext, KeyboardEvent } from 'react'
+import { PagesContext } from '../../../contexts/pagesContext'
 
-import IconPlus from '../../../assets/icons/IconPlus';
+import IconPlus from '../../../assets/icons/IconPlus'
 
 interface NewTaskProps {
-  listId: string;
+  listId: string
 }
 
 const NewTask = ({ listId }: NewTaskProps) => {
-  const { handleCreateTask } = useContext(PagesContext);
-  const [desc, setDesc] = useState('');
+  const { handleCreateTask } = useContext(PagesContext)
+  const [desc, setDesc] = useState('')
 
   function handleInputEnter(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      handleCreateTaskForm();
+      handleCreateTaskForm()
     }
   }
 
   function handleCreateTaskForm() {
     handleCreateTask(desc, listId).then(() => {
-      setDesc('');
-    });
+      setDesc('')
+    })
   }
 
   return (
     <>
       <input
         className="
-          w-full h-full pt-px text-lg dark:placeholder:text-gray-300 placeholder:text-gray-200 dark:text-gray-50 text-gray-500
+          w-full h-full pt-px dark:placeholder:text-gray-300 placeholder:text-gray-200 dark:text-gray-50 text-gray-500
           bg-transparent focus:outline-none peer
         "
         type="text"
@@ -42,8 +42,8 @@ const NewTask = ({ listId }: NewTaskProps) => {
         onClick={handleCreateTaskForm}
       >
         <IconPlus
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           color={
             desc
               ? 'dark:stroke-gray-50 stroke-gray-500'
@@ -52,7 +52,7 @@ const NewTask = ({ listId }: NewTaskProps) => {
         />
       </button>
     </>
-  );
-};
+  )
+}
 
-export default NewTask;
+export default NewTask

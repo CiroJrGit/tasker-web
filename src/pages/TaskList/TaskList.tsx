@@ -1,46 +1,46 @@
-import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router';
-import clsx from 'clsx';
+import { useState, useEffect, useContext } from 'react'
+import { useParams } from 'react-router'
+import clsx from 'clsx'
 
-import { PagesContext } from '../../contexts/pagesContext';
-import { TaskListProps } from '../../types/pagesProps';
+import { PagesContext } from '../../contexts/pagesContext'
+import { TaskListProps } from '../../types/pagesProps'
 
-import * as Popover from '@radix-ui/react-popover';
-import EditPage from '../../components/EditPage';
-import NewTask from './components/NewTask';
-import Tasks from './components/Tasks';
+import * as Popover from '@radix-ui/react-popover'
+import EditPage from '../../components/EditPage'
+import NewTask from './components/NewTask'
+import Tasks from './components/Tasks'
 
-import IconEllipsis from '../../assets/icons/IconEllipsis';
+import IconEllipsis from '../../assets/icons/IconEllipsis'
 
 const TaskList = () => {
   const { taskLists, handleGetTaskList, tasks, loadingTasks, loadTasks } =
-    useContext(PagesContext);
+    useContext(PagesContext)
 
-  const { id } = useParams();
-  const [taskList, setTaskList] = useState<TaskListProps | any>();
+  const { id } = useParams()
+  const [taskList, setTaskList] = useState<TaskListProps | any>()
 
   useEffect(() => {
-    getTaskList();
+    getTaskList()
 
     if (taskList) {
-      loadTasks(taskList.id);
+      loadTasks(taskList.id)
     }
-  }, [id, taskLists]);
+  }, [id, taskLists])
 
   async function getTaskList() {
     if (id) {
-      const taskListResponse = await handleGetTaskList(id);
-      setTaskList(taskListResponse);
+      const taskListResponse = await handleGetTaskList(id)
+      setTaskList(taskListResponse)
     }
   }
 
   return (
     <div className="h-full space-y-14">
-      <div className="space-y-9">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
+      <div className="space-y-10">
+        <div className="flex justify-between items-center px-1">
+          <div className="flex items-center gap-2.5">
             <span
-              className={clsx('block  w-1.5 h-7 rounded-sm', {
+              className={clsx('block w-1.5 h-[26px] rounded-sm', {
                 'bg-main-blue': taskList?.color === '#265EED',
                 'bg-main-purple': taskList?.color === '#8029EE',
                 'bg-main-pink': taskList?.color === '#EE29B7',
@@ -51,28 +51,32 @@ const TaskList = () => {
               aria-hidden="true"
             ></span>
 
-            <h1 className="font-semibold text-4xl dark:text-gray-50 text-gray-500">
+            <h1 className="font-semibold text-3.5xl dark:text-gray-50 text-gray-500">
               {taskList?.title}
             </h1>
           </div>
 
-          <Popover.Root>
-            <Popover.Trigger
-              className="
-                h-[34px] px-0.5 rounded-md text-3xl dark:text-gray-300 text-white-400 dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
-                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-              "
-            >
-              <IconEllipsis width="30" height="30" />
-            </Popover.Trigger>
-            <Popover.Portal>
-              <Popover.Content className="relative focus:outline-none">
-                <div className="absolute -right-8 drop-shadow-md">
-                  <EditPage page={taskList} type="tasklist" />
-                </div>
-              </Popover.Content>
-            </Popover.Portal>
-          </Popover.Root>
+          <div className="absolute top-0 right-11 p-4">
+            <Popover.Root>
+              <Popover.Trigger
+                className="
+                  flex justify-center items-center w-[30px] h-[30px] rounded-md text-3xl dark:text-gray-300 text-white-400
+                  dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
+                  focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
+                "
+              >
+                <IconEllipsis width="26" height="26" />
+              </Popover.Trigger>
+
+              <Popover.Portal>
+                <Popover.Content className="relative focus:outline-none">
+                  <div className="absolute -right-8 drop-shadow-md">
+                    <EditPage page={taskList} type="tasklist" />
+                  </div>
+                </Popover.Content>
+              </Popover.Portal>
+            </Popover.Root>
+          </div>
         </div>
 
         <div className="flex flex-row-reverse items-center gap-2">
@@ -80,7 +84,7 @@ const TaskList = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 px-4 pb-32">
+      <div className="flex flex-col gap-2 pb-32">
         {loadingTasks && <span>Carregando tarefas...</span>}
 
         {tasks.length === 0 && !loadingTasks && <span>Sem tarefas.</span>}
@@ -94,7 +98,7 @@ const TaskList = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TaskList;
+export default TaskList

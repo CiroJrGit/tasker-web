@@ -1,30 +1,30 @@
-import { useState, useContext } from 'react';
-import { PagesContext } from '../../../contexts/pagesContext';
-import { TaskProps } from '../../../types/pagesProps';
-import clsx from 'clsx';
+import { useState, useContext } from 'react'
+import { PagesContext } from '../../../contexts/pagesContext'
+import { TaskProps } from '../../../types/pagesProps'
+import clsx from 'clsx'
 
-import * as Checkbox from '@radix-ui/react-checkbox';
-import * as Popover from '@radix-ui/react-popover';
+import * as Checkbox from '@radix-ui/react-checkbox'
+import * as Popover from '@radix-ui/react-popover'
 
-import IconClose from '../../../assets/icons/IconClose';
-import IconEditPen from '../../../assets/icons/IconEditPen';
-import IconCheck from '../../../assets/icons/IconCheck';
+import IconClose from '../../../assets/icons/IconClose'
+import IconEditPen from '../../../assets/icons/IconEditPen'
+import IconCheck from '../../../assets/icons/IconCheck'
 
 interface TaskItemProps {
-  tasks: TaskProps[];
-  listColor: string;
-  listId: string;
+  tasks: TaskProps[]
+  listColor: string
+  listId: string
 }
 
 const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
   const { handleToggleTask, handleDeleteTask, handleEditTask } =
-    useContext(PagesContext);
+    useContext(PagesContext)
 
-  const [descTask, setDescTask] = useState('');
+  const [descTask, setDescTask] = useState('')
 
   function handleAlternateEdit(id: string, desc: string, listId: string) {
     if (descTask !== desc && descTask !== '') {
-      handleEditTask(id, descTask, listId);
+      handleEditTask(id, descTask, listId)
     }
   }
 
@@ -33,7 +33,7 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="flex items-center px-4 rounded-md dark:hover:bg-gray-800/80 hover:bg-white-800/60 group"
+          className="flex items-center px-3 rounded-md dark:hover:bg-gray-800/80 hover:bg-white-800/60 group"
         >
           <Checkbox.Root
             className="flex items-center gap-4 w-full h-10 group focus:outline-none disabled:opacity-30"
@@ -44,7 +44,7 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
           >
             <div
               className={clsx(
-                'flex justify-center items-center w-[22px] h-[22px] pt-px rounded-md dark:bg-gray-950 bg-white-950 border dark:border-gray-300 border-gray-200',
+                'flex justify-center items-center w-5 h-5 pt-px rounded-[5px] dark:bg-gray-950 bg-white-950 border dark:border-gray-300 border-gray-200',
                 {
                   'group-data-[state=checked]:bg-main-blue group-data-[state=checked]:border-main-blue group-focus:ring-2':
                     listColor === '#265EED',
@@ -63,23 +63,24 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
             >
               <Checkbox.Indicator>
                 <IconCheck
-                  width="16"
-                  height="16"
+                  width="12"
+                  height="13"
                   color="stroke-gray-50"
-                  stroke="2"
+                  stroke="2.4"
                 />
               </Checkbox.Indicator>
             </div>
 
             <span
               className="
-                text-lg dark:text-gray-50 text-gray-500 bg-transparent group-data-[state=checked]:line-through
+                font-int text-base dark:text-gray-50 text-gray-500 bg-transparent group-data-[state=checked]:line-through
                 dark:group-data-[state=checked]:text-gray-400 group-data-[state=checked]:text-white-400 group-data-[state=checked]:font-medium cursor-pointer
               "
             >
               {task.desc}
             </span>
           </Checkbox.Root>
+
           <div className="flex gap-2">
             <Popover.Root>
               <Popover.Trigger
@@ -90,11 +91,12 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
                 "
               >
                 <IconEditPen
-                  width="19"
-                  height="18"
+                  width="17"
+                  height="17"
                   color="dark:stroke-gray-300 stroke-white-400"
                 />
               </Popover.Trigger>
+
               <Popover.Portal>
                 <Popover.Content className="focus:outline-none">
                   <div className="absolute -left-[578.6px] -top-[35px] flex gap-2 items-center rounded-lg bg-transparent">
@@ -112,8 +114,8 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
                       }
                     >
                       <IconEditPen
-                        width="19"
-                        height="18"
+                        width="18"
+                        height="17"
                         color="dark:stroke-gray-300 stroke-white-400"
                       />
                     </Popover.Close>
@@ -129,13 +131,13 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
               "
               onClick={() => handleDeleteTask(task.id, listId)}
             >
-              <IconClose width="15" height="15" />
+              <IconClose width="13" height="14" />
             </button>
           </div>
         </div>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default Tasks;
+export default Tasks

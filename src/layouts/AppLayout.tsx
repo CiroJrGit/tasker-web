@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import Sidebar from '../components/Sidebar'
 
 import IconBack from '../assets/icons/IconBack'
+import IconEllipsis from '../assets/icons/IconEllipsis'
 import IconFullScreenOn from '../assets/icons/IconFullScreenOn'
 import IconFullScreenOff from '../assets/icons/IconFullScreenOff'
 
@@ -40,7 +41,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </nav>
 
         <div className="flex flex-col items-center min-h-full">
-          <header className="flex justify-end items-center gap-2 w-full p-4">
+          <header className="flex justify-end items-center gap-3.5 w-full p-4">
             <NavLink
               to="/welcome"
               className="
@@ -51,6 +52,16 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             >
               <IconBack width="18" height="18" />
             </NavLink>
+
+            <div
+              className="
+                flex justify-center items-center w-[30px] h-[30px] rounded-md font-int font-medium dark:text-gray-200 text-white-300
+                dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
+                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
+              "
+            >
+              <IconEllipsis width="26" height="26" />
+            </div>
 
             <button
               className="
