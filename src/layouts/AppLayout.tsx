@@ -4,8 +4,8 @@ import clsx from 'clsx'
 
 import Sidebar from '../components/Sidebar'
 
-import IconBack from '../assets/icons/IconBack'
-import IconEllipsis from '../assets/icons/IconEllipsis'
+// import IconBack from '../assets/icons/IconBack'
+// import IconEllipsis from '../assets/icons/IconEllipsis'
 import IconFullScreenOn from '../assets/icons/IconFullScreenOn'
 import IconFullScreenOff from '../assets/icons/IconFullScreenOff'
 
@@ -28,11 +28,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       {/* dark:from-navy-500 dark:via-navy-700 dark:to-navy-900 */}
       <div
         className={clsx(
-          'relative grid grid-cols-[308px_1fr] text-gray-500 dark:text-gray-50 dark:bg-gray-950 bg-white-950 transition-all duration-400 ease-in-out overflow-hidden',
+          'relative grid grid-cols-[278px_1fr] text-gray-500 dark:text-gray-50 dark:bg-gray-950 bg-white-950 transition-all duration-400 ease-in-out overflow-hidden',
           'dark:drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)] drop-shadow-[0_4px_6px_rgba(0,0,0,0.20)]',
           {
             'w-screen h-screen': fullScreen,
-            'w-[1500px] h-[952px] rounded-lg': !fullScreen,
+            'w-[1550px] h-[986px] rounded-lg': !fullScreen,
           },
         )}
       >
@@ -50,17 +50,18 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
             >
-              <IconBack width="18" height="18" />
+              <div className="w-4 h-4"></div>
+              {/* <IconBack width="18" height="18" /> */}
             </NavLink>
 
             <div
               className="
-                flex justify-center items-center w-[30px] h-[30px] rounded-md font-int font-medium dark:text-gray-200 text-white-300
-                dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
+                flex justify-center items-center w-[30px] h-[30px] rounded-md
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
             >
-              <IconEllipsis width="26" height="26" />
+              <div className="w-4 h-4"></div>
+              {/* <IconEllipsis width="26" height="26" /> */}
             </div>
 
             <button
@@ -79,8 +80,8 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             </button>
           </header>
 
-          <main className="flex justify-center w-full pt-28 overflow-y-auto scrollbar">
-            <div className="w-[732px]">{children}</div>
+          <main className="flex justify-center w-full pt-[104px] overflow-y-auto scrollbar">
+            <div className="w-[752px]">{children}</div>
           </main>
         </div>
       </div>

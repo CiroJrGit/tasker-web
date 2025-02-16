@@ -30,7 +30,7 @@ const Menu = () => {
         </Popover.Trigger>
 
         <Popover.Portal>
-          <Popover.Content className="relative bottom-9 left-[294px]">
+          <Popover.Content className="relative bottom-9 left-[280px]">
             <div className="min-w-[306px] py-2 rounded-md dark:bg-gray-800 bg-white-900 drop-shadow-md">
               <User variant="md" />
             </div>
@@ -99,7 +99,7 @@ const Menu = () => {
           </Popover.Trigger>
 
           <Popover.Portal>
-            <Popover.Content className="relative bottom-8 left-[140px]">
+            <Popover.Content className="relative bottom-8 left-[127px]">
               <div className="absolute min-w-[392px] pt-1.5 pb-8.5 rounded-md dark:bg-gray-800 bg-white-900 drop-shadow-md">
                 <Trash />
               </div>

@@ -65,12 +65,12 @@ const TaskList = () => {
                   focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
                 "
               >
-                <IconEllipsis width="26" height="26" />
+                <IconEllipsis width="20" height="20" />
               </Popover.Trigger>
 
               <Popover.Portal>
-                <Popover.Content className="relative focus:outline-none">
-                  <div className="absolute -right-8 drop-shadow-md">
+                <Popover.Content className="relative top-2.5 right-[146px] focus:outline-none">
+                  <div className="absolute w-[200px] drop-shadow-md">
                     <EditPage page={taskList} type="tasklist" />
                   </div>
                 </Popover.Content>
