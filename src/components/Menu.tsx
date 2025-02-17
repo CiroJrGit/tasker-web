@@ -91,7 +91,11 @@ const Menu = () => {
             "
           >
             <div className="flex justify-center items-center w-6">
-              <IconTrash width="17" height="17" />
+              <IconTrash
+                width="17"
+                height="17"
+                color="dark:stroke-gray-100 stroke-gray-300"
+              />
             </div>
             <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
               Lixeira

@@ -10,6 +10,9 @@ import * as Separator from '@radix-ui/react-separator'
 import IconEdit from '../assets/icons/IconEdit'
 import IconTrash from '../assets/icons/IconTrash'
 import IconCheck from '../assets/icons/IconCheck'
+import IconDuplicate from '../assets/icons/duplicate'
+import IconPin from '../assets/icons/iconPin'
+// import IconUnPin from '../assets/icons/iconUnPin'
 
 interface EditPageProps {
   page: TaskListProps | NoteProps
@@ -58,12 +61,8 @@ const EditPage = ({ page, type }: EditPageProps) => {
                 onClick={
                   type === 'tasklist'
                     ? () =>
-                        handleEditTaskList(
-                          page.id,
-                          page.title,
-                          color,
-                          page.deleted,
-                        )
+                        // eslint-disable-next-line prettier/prettier
+                        handleEditTaskList(page.id, page.title, color, page.deleted)
                     : () =>
                         handleEditNote(page.id, page.title, color, page.deleted)
                 }
@@ -89,48 +88,54 @@ const EditPage = ({ page, type }: EditPageProps) => {
         </div>
 
         <div className="flex flex-col gap-2.5 px-1.5 dark:text-gray-100 text-gray-300">
-          <Dialog.Root>
-            <Dialog.Trigger
-              className="
+          <div className="flex flex-col gap-1">
+            <Dialog.Root>
+              <Dialog.Trigger
+                className="
                 flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
               "
-              type="button"
+                type="button"
+              >
+                <div className="flex justify-center items-center w-5">
+                  <IconEdit width="18" height="18" />
+                </div>
+
+                <span className="pt-px font-medium text-sm">Renomear</span>
+              </Dialog.Trigger>
+
+              {/* <Modal type="edit" list={list} /> */}
+            </Dialog.Root>
+
+            <div
+              className="
+              flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
+              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
+            "
             >
               <div className="flex justify-center items-center w-5">
-                <IconEdit width="18" height="18" />
+                <IconDuplicate width="18" height="18" />
               </div>
 
-              <span className="pt-px font-medium text-sm">Renomear</span>
-            </Dialog.Trigger>
+              <span className="pt-px font-medium text-sm">Duplicar</span>
+            </div>
 
-            {/* <Modal type="edit" list={list} /> */}
-          </Dialog.Root>
-
-          <div
-            className="
+            <div
+              className="
               flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
             "
-          >
-            <div className="flex justify-center items-center w-5">
-              <IconEdit width="18" height="18" />
+            >
+              <div className="flex justify-center items-center w-5">
+                <IconPin width="18" height="18" />
+                {/* <IconUnPin width="19" height="19" /> */}
+              </div>
+
+              <span className="pt-px font-medium text-sm">
+                Fixar página
+                {/* Desafixar página */}
+              </span>
             </div>
-
-            <span className="pt-px font-medium text-sm">Duplicar</span>
-          </div>
-
-          <div
-            className="
-              flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-            "
-          >
-            <div className="flex justify-center items-center w-5">
-              <IconEdit width="18" height="18" />
-            </div>
-
-            <span className="pt-px font-medium text-sm">Fixar página</span>
           </div>
 
           <Separator.Root
@@ -140,7 +145,8 @@ const EditPage = ({ page, type }: EditPageProps) => {
 
           <button
             className="
-              flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
+              flex items-center gap-2.5 h-8 px-2 rounded-md group duration-0
+              dark:active:bg-gray-500/25 active:bg-white-600/70 dark:hover:bg-gray-600/90 hover:bg-white-700/75 hover:text-red-500
               focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
             "
             onClick={
@@ -156,7 +162,11 @@ const EditPage = ({ page, type }: EditPageProps) => {
             }
           >
             <div className="flex justify-center items-center w-5 pb-px">
-              <IconTrash width="17" height="17" />
+              <IconTrash
+                width="17"
+                height="17"
+                color="dark:stroke-gray-100 stroke-gray-300 group-hover:stroke-red-500"
+              />
             </div>
             <span className="font-medium text-sm">Excluir</span>
           </button>

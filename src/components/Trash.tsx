@@ -93,7 +93,11 @@ const Trash = () => {
                             onClick={() => handleDeleteTaskList(list.id)}
                           >
                             <div className="flex justify-center items-center w-5">
-                              <IconTrash width="17" height="17" />
+                              <IconTrash
+                                width="17"
+                                height="17"
+                                color="dark:stroke-gray-100 stroke-gray-300"
+                              />
                             </div>
                           </button>
                         </div>
@@ -157,7 +161,11 @@ const Trash = () => {
                             onClick={() => handleDeleteNote(note.id)}
                           >
                             <div className="flex justify-center items-center w-5">
-                              <IconTrash width="17" height="17" />
+                              <IconTrash
+                                width="17"
+                                height="17"
+                                color="dark:stroke-gray-100 stroke-gray-300"
+                              />
                             </div>
                           </button>
                         </div>

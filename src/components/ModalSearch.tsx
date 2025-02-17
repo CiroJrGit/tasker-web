@@ -81,7 +81,7 @@ const ModalSearch = () => {
                 Listas
               </span>
 
-              <div className="flex flex-col gap-1.5 px-px">
+              <div className="flex flex-col gap-1 px-px">
                 {tasklistsFiltereds.filter((list) => list.deleted === false)
                   .length === 0 && (
                   <span className="text-sm dark:text-gray-300 text-white-400 px-2">
@@ -148,7 +148,7 @@ const ModalSearch = () => {
                             handleEditTaskList(list.id, list.title, list.color, true)
                           }}
                         >
-                          <IconTrash width="17" height="17" />
+                          <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
                         </button>
                       </div>
                     </NavLink>
@@ -163,7 +163,7 @@ const ModalSearch = () => {
                 Notas
               </span>
 
-              <div className="flex flex-col gap-1.5 px-px">
+              <div className="flex flex-col gap-1 px-px">
                 {notesFiltereds.filter((note) => note.deleted === false)
                   .length === 0 && (
                   <span className="text-sm dark:text-gray-300 text-white-400 px-2">
@@ -230,7 +230,7 @@ const ModalSearch = () => {
                             handleEditNote(note.id, note.title, note.color, true)
                           }}
                         >
-                          <IconTrash width="17" height="17" />
+                          <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
                         </button>
                       </div>
                     </NavLink>
