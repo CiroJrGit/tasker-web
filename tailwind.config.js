@@ -15,6 +15,7 @@ export default {
         int: ['Inter', 'sans-serif'],
       },
       fontSize: {
+        '2xs': '0.8125rem',
         '2.5xl': '1.75rem',
         '3.5xl': '2rem',
         '4.5xl': '2.5rem',

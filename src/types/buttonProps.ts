@@ -12,8 +12,8 @@ export const button = tv({
     },
     size: {
       lg: 'h-[46px] p-4 rounded-md font-medium text-base',
-      md: 'min-w-[76px] h-9 px-2 rounded-md font-medium text-sm',
-      sm: 'min-w-[68px] h-8 px-2 rounded-md font-medium text-sm',
+      md: 'min-w-[72px] h-8.5 px-2 rounded-md font-medium text-2xs',
+      sm: 'min-w-[70px] h-8 px-2 rounded-md font-medium text-2xs',
     },
   },
   defaultVariants: {

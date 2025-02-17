@@ -78,7 +78,7 @@ const Menu = () => {
             </span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Configurações do usuário">
+          <ModalWrap title="Configurações">
             <ModalUser />
           </ModalWrap>
         </Dialog.Root>

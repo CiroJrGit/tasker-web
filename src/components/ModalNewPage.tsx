@@ -31,7 +31,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
   ]
 
   return (
-    <div className="flex flex-col gap-18 min-w-[506px] min-h-[324px] px-4">
+    <div className="flex flex-col gap-18 min-w-[506px] min-h-[324px] mt-5 px-4">
       <div className="flex flex-col gap-8">
         <RadioGroup.Root
           className="flex gap-3"
