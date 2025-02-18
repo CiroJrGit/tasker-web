@@ -1,12 +1,12 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../contexts/themeContext';
+import { useContext } from 'react'
+import { ThemeContext } from '../contexts/themeContext'
 
-import * as Switch from '@radix-ui/react-switch';
-import IconMoon from '../assets/icons/IconMoon';
-import IconSun from '../assets/icons/IconSun';
+import * as Switch from '@radix-ui/react-switch'
+import IconMoon from '../assets/icons/IconMoon'
+import IconSun from '../assets/icons/IconSun'
 
 const Toggle = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   return (
     <>
@@ -48,7 +48,7 @@ const Toggle = () => {
         </Switch.Thumb>
       </Switch.Root>
     </>
-  );
-};
+  )
+}
 
-export default Toggle;
+export default Toggle

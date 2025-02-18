@@ -7,6 +7,8 @@ interface ProfileProps {
 }
 
 const ProfileTab = ({ name, email }: ProfileProps) => {
+  // const [username, setUsername] = useState(user.name || '')
+
   return (
     <>
       <div className="flex flex-col gap-6 px-5">

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { AuthContext } from '../../contexts/authContext'
 
 // import * as Switch from '@radix-ui/react-switch'
@@ -14,8 +14,6 @@ import Button from '../Button'
 
 const ModalUser = () => {
   const { user } = useContext(AuthContext)
-
-  const [username, setUsername] = useState(user.name || '')
 
   return (
     <div className="flex flex-col justify-between min-w-[638px] h-[652px] mt-2">
@@ -68,7 +66,7 @@ const ModalUser = () => {
             size="md"
             label="Salvar"
             // onClick={}
-            disabled={!username.trim()}
+            // disabled={!username.trim()}
           />
         </Dialog.Close>
 

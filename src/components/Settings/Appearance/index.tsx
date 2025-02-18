@@ -1,8 +1,9 @@
 import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
-import Toggle from '../../Toggle'
+// import Toggle from '../../Toggle'
 
 import IconPlus from '../../../assets/icons/IconPlus'
+import Dropdown from '../../Dropdown'
 
 const AppearanceTab = () => {
   return (
@@ -95,9 +96,10 @@ const AppearanceTab = () => {
               </span>
             </div>
 
-            <div>
+            <Dropdown />
+            {/* <div>
               <Toggle />
-            </div>
+            </div> */}
           </div>
 
           <label
