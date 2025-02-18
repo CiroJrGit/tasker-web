@@ -8,3 +8,15 @@ export interface ThemeContextProps {
 export interface ThemeProviderProps {
   children: ReactNode
 }
+
+export enum ThemeOptions { // TO-DO: PADRONIZAR
+  DARK = 'dark',
+  LIGHT = 'light',
+  SYSTEM = 'system',
+}
+
+export enum ThemeLabels { // TO-DO: PADRONIZAR
+  dark = 'Escuro',
+  light = 'Claro',
+  system = 'Usar padrão do sistema',
+}

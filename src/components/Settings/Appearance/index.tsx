@@ -1,3 +1,7 @@
+import { useContext } from 'react'
+import { ThemeContext } from '../../../contexts/themeContext'
+import { DropdownType } from '../../../types/dropdownProps'
+
 import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
 // import Toggle from '../../Toggle'
@@ -6,6 +10,8 @@ import IconPlus from '../../../assets/icons/IconPlus'
 import Dropdown from '../../Dropdown'
 
 const AppearanceTab = () => {
+  const { theme } = useContext(ThemeContext)
+
   return (
     <>
       <div className="flex flex-col gap-6 px-5">
@@ -96,10 +102,7 @@ const AppearanceTab = () => {
               </span>
             </div>
 
-            <Dropdown />
-            {/* <div>
-              <Toggle />
-            </div> */}
+            <Dropdown name={theme} type={DropdownType.THEME} />
           </div>
 
           <label
