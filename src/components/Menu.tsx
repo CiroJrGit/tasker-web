@@ -3,7 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import User from './User'
 import ModalWrap from './ModalWrap'
 import ModalSearch from './ModalSearch'
-import ModalUser from './ModalUser'
+import ModalUser from './Settings/ModalUser'
 
 import IconSearch from '../assets/icons/IconSearch'
 import IconSettings from '../assets/icons/IconSettings'
