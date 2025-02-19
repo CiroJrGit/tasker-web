@@ -7,7 +7,13 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import IconCheck from '../../../assets/icons/IconCheck'
 
 const Theme = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useContext(ThemeContext)
+
+  const handleThemeChange = (value: string) => {
+    if (value === 'light' || value === 'dark' || value === 'system') {
+      setTheme(value)
+    }
+  }
 
   return (
     <DropdownMenu.Portal>
@@ -19,13 +25,13 @@ const Theme = () => {
         <DropdownMenu.RadioGroup
           className="flex flex-col gap-0.5"
           value={theme}
-          onValueChange={toggleTheme}
+          onValueChange={handleThemeChange}
         >
           <DropdownMenu.RadioItem
             className="
-            flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
-            focus:outline-none data-[highlighted]:dark:bg-gray-600 data-[highlighted]:bg-white-500
-          "
+              flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
+              focus:outline-none data-[highlighted]:dark:bg-gray-600 data-[highlighted]:bg-white-500
+            "
             value={ThemeOptions.DARK}
           >
             <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">
@@ -44,9 +50,9 @@ const Theme = () => {
 
           <DropdownMenu.RadioItem
             className="
-            flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
-            focus:outline-none data-[highlighted]:dark:bg-gray-600 data-[highlighted]:bg-white-500
-          "
+              flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
+              focus:outline-none data-[highlighted]:dark:bg-gray-600 data-[highlighted]:bg-white-500
+            "
             value={ThemeOptions.LIGHT}
           >
             <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">
@@ -65,9 +71,9 @@ const Theme = () => {
 
           <DropdownMenu.RadioItem
             className="
-            flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
-            focus:outline-none data-[highlighted]:dark:bg-gray-600 data-[highlighted]:bg-white-500
-          "
+              flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
+              focus:outline-none data-[highlighted]:dark:bg-gray-600 data-[highlighted]:bg-white-500
+            "
             value={ThemeOptions.SYSTEM}
           >
             <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">

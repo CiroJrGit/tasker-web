@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { ThemeContext } from '../../../contexts/themeContext'
 import { DropdownType } from '../../../types/dropdownProps'
+import { ThemeLabels } from '../../../types/themeProps'
 
 import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
@@ -11,6 +12,7 @@ import Dropdown from '../../Dropdown'
 
 const AppearanceTab = () => {
   const { theme } = useContext(ThemeContext)
+  const triggerName = ThemeLabels[theme as keyof typeof ThemeLabels]
 
   return (
     <>
@@ -102,7 +104,7 @@ const AppearanceTab = () => {
               </span>
             </div>
 
-            <Dropdown name={theme} type={DropdownType.THEME} />
+            <Dropdown name={triggerName} type={DropdownType.THEME} />
           </div>
 
           <label

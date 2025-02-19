@@ -1,4 +1,3 @@
-import { ThemeLabels } from '../../types/themeProps'
 import { DropdownProps, DropdownType } from '../../types/dropdownProps'
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
@@ -7,8 +6,6 @@ import Theme from './Theme'
 import IconCaret from '../../assets/icons/IconCaret'
 
 const Dropdown = ({ name, type }: DropdownProps) => {
-  const triggerName = ThemeLabels[name as keyof typeof ThemeLabels]
-
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
@@ -20,7 +17,7 @@ const Dropdown = ({ name, type }: DropdownProps) => {
         aria-label="Customise options"
       >
         <span className="pb-px font-normal font-int text-sm dark:text-gray-100 text-gray-300">
-          {triggerName}
+          {name}
         </span>
 
         <IconCaret
