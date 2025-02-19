@@ -1,12 +1,12 @@
-import { ReactNode } from 'react'
+export type Theme = 'light' | 'dark' | 'system'
 
 export interface ThemeContextProps {
-  theme: string
-  toggleTheme: () => void
+  theme: Theme
+  setTheme: (theme: Theme) => void
 }
 
 export interface ThemeProviderProps {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export enum ThemeOptions { // TO-DO: PADRONIZAR
