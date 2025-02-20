@@ -1,18 +1,28 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+
 import { ThemeContext } from '../../../contexts/themeContext'
+import { PagesContext } from '../../../contexts/pagesContext'
+
 import { DropdownType } from '../../../types/dropdownProps'
 import { ThemeLabels } from '../../../types/themeProps'
 
 import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
-// import Toggle from '../../Toggle'
 
-import IconPlus from '../../../assets/icons/IconPlus'
 import Dropdown from '../../Dropdown'
+import IconPlus from '../../../assets/icons/IconPlus'
 
 const AppearanceTab = () => {
+  const { backgrounds, loadBackgrounds } = useContext(PagesContext)
+
   const { theme } = useContext(ThemeContext)
-  const triggerName = ThemeLabels[theme as keyof typeof ThemeLabels]
+  const themeSelected = ThemeLabels[theme as keyof typeof ThemeLabels]
+
+  useEffect(() => {
+    if (!backgrounds) {
+      loadBackgrounds()
+    }
+  }, [])
 
   return (
     <>
@@ -33,13 +43,17 @@ const AppearanceTab = () => {
               Imagem de fundo
             </span>
 
-            <div className="grid grid-cols-7 gap-1.5">
-              <div className="aspect-square dark:bg-gray-600 bg-white-600 rounded"></div>
-              <div className="aspect-square dark:bg-gray-600 bg-white-600 rounded"></div>
-              <div className="aspect-square dark:bg-gray-600 bg-white-600 rounded"></div>
-              <div className="aspect-square dark:bg-gray-600 bg-white-600 rounded"></div>
-              <div className="aspect-square dark:bg-gray-600 bg-white-600 rounded"></div>
-              <div className="aspect-square dark:bg-gray-600 bg-white-600 rounded"></div>
+            <div className="grid grid-cols-7 gap-1.5 h-20 ">
+              {backgrounds.defaultBackgrounds.map((background, index) => (
+                <img
+                  className="w-20 h-20 object-cover rounded-[5px]"
+                  key={index}
+                  src={background}
+                  alt="tasker bgs"
+                />
+              ))}
+              <div className="w-20 h-20 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-navy-500 via-navy-900 to-navy-700 rounded"></div>
+              <div className="w-20 h-20 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-100 via-slate-500 to-slate-300 rounded"></div>
               <div className="flex justify-center items-center aspect-square border-2 border-dashed border-gray-300 rounded">
                 <IconPlus
                   width="20"
@@ -104,7 +118,7 @@ const AppearanceTab = () => {
               </span>
             </div>
 
-            <Dropdown name={triggerName} type={DropdownType.THEME} />
+            <Dropdown type={DropdownType.THEME} name={themeSelected} />
           </div>
 
           <label

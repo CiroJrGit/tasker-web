@@ -7,7 +7,7 @@ import {
   TaskListProps,
   TaskProps,
   NoteProps,
-  // BackgroundProps,
+  BackgroundProps,
   PagesProviderProps,
   PagesContextProps,
 } from '../types/pagesProps'
@@ -30,7 +30,10 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
   const [loadingNotes, setLoadingNotes] = useState(true)
 
   // states backgrounds
-  // const [backgrds, setBackgrds] = useState<BackgroundProps[]>([]);
+  const [backgrounds, setBackgrounds] = useState<BackgroundProps>({
+    defaultBackgrounds: [],
+    selectedBackground: undefined,
+  })
 
   const navigate = useNavigate()
 
@@ -199,13 +202,12 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
   }
 
   // TO-DO: backgrounds
-  // carregar bacgrounds
-  // async function loadBackgrpunds() {
-  //   const authorization = setAuthorization();
+  async function loadBackgrounds() {
+    const authorization = setAuthorization()
 
-  //   const bgResponse = await api.get('/backgrounds', authorization);
-  //   setBackgrds(bgResponse.data);
-  // }
+    const bgResponse = await api.get('/backgrounds', authorization)
+    setBackgrounds(bgResponse.data)
+  }
 
   return (
     <PagesContext.Provider
@@ -240,9 +242,9 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
         handleDeleteNote,
         handleEditNote,
 
-        // backgrds,
-        // setBackgrds,
-        // loadBackgrpunds,
+        backgrounds,
+        setBackgrounds,
+        loadBackgrounds,
       }}
     >
       {children}

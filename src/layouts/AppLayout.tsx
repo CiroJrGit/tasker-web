@@ -1,11 +1,11 @@
-import { useState, ReactNode } from 'react'
+/* eslint-disable prettier/prettier */
+import { useState, ReactNode, useContext, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import clsx from 'clsx'
 
-import Sidebar from '../components/Sidebar'
+import { PagesContext } from '../contexts/pagesContext'
 
-// import IconBack from '../assets/icons/IconBack'
-// import IconEllipsis from '../assets/icons/IconEllipsis'
+import Sidebar from '../components/Sidebar'
 import IconFullScreenOn from '../assets/icons/IconFullScreenOn'
 import IconFullScreenOff from '../assets/icons/IconFullScreenOff'
 
@@ -15,17 +15,23 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   const [fullScreen, setFullScreen] = useState(false)
+  const { backgrounds, loadBackgrounds } = useContext(PagesContext)
+
+  useEffect(() => {
+    loadBackgrounds()
+  }, [])
 
   return (
     <div
-      className="
-        flex justify-center items-center min-h-screen
-        dark:bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-[#373f55] dark:via-[#16181f] dark:to-[#282d41]
-        bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-100 via-slate-300 to-slate-500
-      "
+      className={`
+        flex justify-center items-center min-h-screen bg-cover bg-center
+         ${backgrounds.selectedBackground === 'default-system' ? 'dark:bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-navy-500 dark:via-navy-900 dark:to-navy-700' : ''}
+         ${backgrounds.selectedBackground === 'default-system' ? 'bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-100 via-slate-500 to-slate-300' : ''}
+      `}
+      style={{
+        backgroundImage: backgrounds.selectedBackground !== 'default-system' ? `url(${backgrounds.selectedBackground})` : undefined,
+      }}
     >
-      {/* dark:from-[#373f55] dark:via-[#16181f] dark:to-[#1d202e] */}
-      {/* dark:from-navy-500 dark:via-navy-700 dark:to-navy-900 */}
       <div
         className={clsx(
           'relative grid grid-cols-[278px_1fr] text-gray-500 dark:text-gray-50 dark:bg-gray-950 bg-white-950 transition-all duration-400 ease-in-out overflow-hidden',
@@ -45,24 +51,13 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             <NavLink
               to="/welcome"
               className="
-                p-1.5 rounded-md font-int font-medium dark:text-gray-200 text-white-300
+                absolute left-[300px] p-1.5 rounded-md font-int font-medium dark:text-gray-200 text-white-300
                 dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
             >
               <div className="w-4 h-4"></div>
-              {/* <IconBack width="18" height="18" /> */}
             </NavLink>
-
-            <div
-              className="
-                flex justify-center items-center w-[30px] h-[30px] rounded-md
-                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
-              "
-            >
-              <div className="w-4 h-4"></div>
-              {/* <IconEllipsis width="26" height="26" /> */}
-            </div>
 
             <button
               className="

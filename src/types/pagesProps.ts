@@ -26,13 +26,10 @@ export interface NoteProps {
   deleted: boolean
 }
 
-// TO-DO: backgrounds
-// export interface BackgroundProps {
-//   id: string;
-//   userId: string;
-//   imageURL: string;
-//   selected: boolean;
-// }
+export interface BackgroundProps {
+  defaultBackgrounds: string[]
+  selectedBackground: string | undefined
+}
 
 export interface PagesProviderProps {
   children: ReactNode
@@ -88,7 +85,7 @@ export interface PagesContextProps {
     deleted: boolean | undefined,
   ) => void
 
-  // backgrds: BackgroundProps[];
-  // setBackgrds: Dispatch<SetStateAction<BackgroundProps[]>>;
-  // loadBackgrpunds: () => Promise<void>;
+  backgrounds: BackgroundProps
+  setBackgrounds: Dispatch<SetStateAction<BackgroundProps>>
+  loadBackgrounds: () => Promise<void>
 }
