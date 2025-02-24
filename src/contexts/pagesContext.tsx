@@ -17,6 +17,8 @@ export const PagesContext = createContext<PagesContextProps>(
 )
 
 const PagesProvider = ({ children }: PagesProviderProps) => {
+  const navigate = useNavigate()
+
   // states lista de tarefas
   const [taskLists, setTaskLists] = useState<TaskListProps[]>([])
   const [loadingTaskLists, setLoadingTaskLists] = useState(true)
@@ -29,13 +31,16 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
   const [notes, setNotes] = useState<NoteProps[]>([])
   const [loadingNotes, setLoadingNotes] = useState(true)
 
+  // states background selecionado
+  const [userBackground, setUserBackground] = useState<string | undefined>()
+  // const [loadingUserBackground, setLoadingUserBackground] = useState(true)
+
   // states backgrounds
   const [backgrounds, setBackgrounds] = useState<BackgroundProps>({
     defaultBackgrounds: [],
+    defaultSystemCard: undefined,
     selectedBackground: undefined,
   })
-
-  const navigate = useNavigate()
 
   // carregar listas de tarefas
   async function loadTaskLists() {
@@ -209,6 +214,12 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     setBackgrounds(bgResponse.data)
   }
 
+  async function handleUserBackground(image: string) {
+    const authorization = setAuthorization()
+
+    await api.put('/background', { image }, authorization)
+  }
+
   return (
     <PagesContext.Provider
       value={{
@@ -242,9 +253,12 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
         handleDeleteNote,
         handleEditNote,
 
+        userBackground,
+        setUserBackground,
         backgrounds,
         setBackgrounds,
         loadBackgrounds,
+        handleUserBackground,
       }}
     >
       {children}

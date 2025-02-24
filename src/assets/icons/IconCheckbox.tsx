@@ -1,6 +1,6 @@
 import { IconProps } from '../../types/iconProps'
 
-const IconCheckbox = ({ width, height, color }: IconProps) => {
+const IconCheckbox = ({ width, height, color, radius = '5.25' }: IconProps) => {
   return (
     <svg
       width={width}
@@ -14,7 +14,7 @@ const IconCheckbox = ({ width, height, color }: IconProps) => {
         y="0.75"
         width="20.5"
         height="20.5"
-        rx="5.25"
+        rx={radius}
         className={color}
         strokeWidth="1.5"
       />

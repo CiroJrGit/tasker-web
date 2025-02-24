@@ -58,7 +58,7 @@ export default {
         },
         slate: {
           500: '#8A8C97',
-          300: '#ACADBA',
+          300: '#C0C1CA',
           100: '#DDDDE7 ',
         },
         navy: {

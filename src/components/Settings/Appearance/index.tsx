@@ -1,7 +1,6 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 import { ThemeContext } from '../../../contexts/themeContext'
-import { PagesContext } from '../../../contexts/pagesContext'
 
 import { DropdownType } from '../../../types/dropdownProps'
 import { ThemeLabels } from '../../../types/themeProps'
@@ -10,19 +9,11 @@ import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
 
 import Dropdown from '../../Dropdown'
-import IconPlus from '../../../assets/icons/IconPlus'
+import BackgroundSelection from '../../BackgroundSelection'
 
 const AppearanceTab = () => {
-  const { backgrounds, loadBackgrounds } = useContext(PagesContext)
-
   const { theme } = useContext(ThemeContext)
   const themeSelected = ThemeLabels[theme as keyof typeof ThemeLabels]
-
-  useEffect(() => {
-    if (!backgrounds) {
-      loadBackgrounds()
-    }
-  }, [])
 
   return (
     <>
@@ -43,25 +34,7 @@ const AppearanceTab = () => {
               Imagem de fundo
             </span>
 
-            <div className="grid grid-cols-7 gap-1.5 h-20 ">
-              {backgrounds.defaultBackgrounds.map((background, index) => (
-                <img
-                  className="w-20 h-20 object-cover rounded-[5px]"
-                  key={index}
-                  src={background}
-                  alt="tasker bgs"
-                />
-              ))}
-              <div className="w-20 h-20 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-navy-500 via-navy-900 to-navy-700 rounded"></div>
-              <div className="w-20 h-20 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-100 via-slate-500 to-slate-300 rounded"></div>
-              <div className="flex justify-center items-center aspect-square border-2 border-dashed border-gray-300 rounded">
-                <IconPlus
-                  width="20"
-                  height="20"
-                  color="dark:stroke-gray-300 stroke-gray-300"
-                />
-              </div>
-            </div>
+            <BackgroundSelection />
           </div>
 
           <label

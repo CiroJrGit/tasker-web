@@ -15,21 +15,25 @@ interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   const [fullScreen, setFullScreen] = useState(false)
-  const { backgrounds, loadBackgrounds } = useContext(PagesContext)
+  const { userBackground, setUserBackground, backgrounds, loadBackgrounds } = useContext(PagesContext)
 
   useEffect(() => {
     loadBackgrounds()
   }, [])
 
+  useEffect(() => {
+    setUserBackground(backgrounds.selectedBackground)
+  }, [backgrounds])
+
   return (
     <div
       className={`
         flex justify-center items-center min-h-screen bg-cover bg-center
-         ${backgrounds.selectedBackground === 'default-system' ? 'dark:bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-navy-500 dark:via-navy-900 dark:to-navy-700' : ''}
-         ${backgrounds.selectedBackground === 'default-system' ? 'bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-100 via-slate-500 to-slate-300' : ''}
+         ${userBackground === 'default-system' ? 'dark:bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] dark:from-navy-500 dark:via-navy-900 dark:to-navy-700' : ''}
+         ${userBackground === 'default-system' ? 'bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-100 via-slate-500 to-slate-300' : ''}
       `}
       style={{
-        backgroundImage: backgrounds.selectedBackground !== 'default-system' ? `url(${backgrounds.selectedBackground})` : undefined,
+        backgroundImage: userBackground !== 'default-system' ? `url(${userBackground})` : undefined,
       }}
     >
       <div
@@ -67,11 +71,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               "
               onClick={() => setFullScreen(!fullScreen)}
             >
-              {!fullScreen ? (
-                <IconFullScreenOn width="18" height="18" />
-              ) : (
-                <IconFullScreenOff width="18" height="18" />
-              )}
+              {!fullScreen
+                ? <IconFullScreenOn width="18" height="18" />
+                : <IconFullScreenOff width="18" height="18" />
+              }
             </button>
           </header>
 

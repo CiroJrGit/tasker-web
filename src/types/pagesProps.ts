@@ -28,6 +28,7 @@ export interface NoteProps {
 
 export interface BackgroundProps {
   defaultBackgrounds: string[]
+  defaultSystemCard: string | undefined
   selectedBackground: string | undefined
 }
 
@@ -85,7 +86,10 @@ export interface PagesContextProps {
     deleted: boolean | undefined,
   ) => void
 
+  userBackground: string | undefined
+  setUserBackground: Dispatch<SetStateAction<string | undefined>>
   backgrounds: BackgroundProps
   setBackgrounds: Dispatch<SetStateAction<BackgroundProps>>
   loadBackgrounds: () => Promise<void>
+  handleUserBackground: (background: string) => Promise<void>
 }
