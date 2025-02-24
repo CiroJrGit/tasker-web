@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 
 import { PagesContext } from '../../contexts/pagesContext'
 
-import IconPlus from '../../assets/icons/IconPlus'
+import Upload from '../Upload'
 import IconCheck from '../../assets/icons/IconCheck'
 
 const BackgroundSelection = () => {
@@ -73,13 +73,7 @@ const BackgroundSelection = () => {
         )}
       </button>
 
-      <div className="w-[90px] flex justify-center items-center border-2 border-dashed border-gray-300 rounded">
-        <IconPlus
-          width="20"
-          height="20"
-          color="dark:stroke-gray-300 stroke-gray-300"
-        />
-      </div>
+      <Upload />
     </div>
   )
 }
