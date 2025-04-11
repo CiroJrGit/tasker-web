@@ -91,5 +91,6 @@ export interface PagesContextProps {
   backgrounds: BackgroundProps
   setBackgrounds: Dispatch<SetStateAction<BackgroundProps>>
   loadBackgrounds: () => Promise<void>
-  handleUserBackground: (background: string) => Promise<void>
+  handleBackgroundUser: (background: string) => Promise<void>
+  handleBackgroundUpload: (file: File) => Promise<string | undefined>
 }

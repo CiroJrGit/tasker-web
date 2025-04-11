@@ -11,12 +11,12 @@ const BackgroundSelection = () => {
     setUserBackground,
     backgrounds,
     loadBackgrounds,
-    handleUserBackground,
+    handleBackgroundUser,
   } = useContext(PagesContext)
 
   const handleBackgroundChange = (bgItem: string) => {
     setUserBackground(bgItem)
-    handleUserBackground(bgItem)
+    handleBackgroundUser(bgItem)
   }
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const BackgroundSelection = () => {
                 width="18"
                 height="18"
                 color="stroke-white-950"
-                stroke="1.8"
+                stroke="1.5"
               />
             </div>
           )}
@@ -67,7 +67,7 @@ const BackgroundSelection = () => {
               width="18"
               height="18"
               color="stroke-white-950"
-              stroke="1.8"
+              stroke="1.5"
             />
           </div>
         )}
