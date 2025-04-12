@@ -1,13 +1,13 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect, useContext, createContext } from 'react'
 
 import {
   Theme,
-  ThemeContextProps,
+  ThemeContextType,
   ThemeProviderProps,
-} from '../types/themeProps'
+} from '../types/themeTypes'
 
-export const ThemeContext = createContext<ThemeContextProps>(
-  {} as ThemeContextProps,
+export const ThemeContext = createContext<ThemeContextType>(
+  {} as ThemeContextType,
 )
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
@@ -66,6 +66,14 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
       {children}
     </ThemeContext.Provider>
   )
+}
+
+export const useThemeContext = () => {
+  const context = useContext(ThemeContext)
+  if (!context) {
+    throw new Error('useThemeContext must be used within a ThemeProvider')
+  }
+  return context
 }
 
 export default ThemeProvider

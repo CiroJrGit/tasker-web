@@ -1,18 +1,17 @@
-import { useState, useContext, useEffect, FormEvent } from 'react'
-import { AuthContext } from '../../../contexts/authContext'
+import { useState, useEffect, FormEvent } from 'react'
+import useAuth from '../../../hooks/useAuth'
 
+import { motion } from 'framer-motion'
 import * as Form from '@radix-ui/react-form'
 import Button from '../../../components/Button'
 import IconSpinner from '../../../assets/icons/IconSpinner'
 
-import { motion } from 'framer-motion'
-
 const FormSignIn = () => {
+  const { isLoadingAuth, validateAuth, setValidateAuth, handleSignIn } =
+    useAuth()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const { handleSignIn, loadingAuth, validateAuth, setValidateAuth } =
-    useContext(AuthContext)
 
   const err = {
     from: { y: 10, opacity: 0 },
@@ -147,7 +146,7 @@ const FormSignIn = () => {
             variant="primary"
             size="lg"
             label={
-              loadingAuth ? <IconSpinner width="24" height="24" /> : 'Entrar'
+              isLoadingAuth ? <IconSpinner width="24" height="24" /> : 'Entrar'
             }
           />
         </Form.Submit>

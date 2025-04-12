@@ -1,6 +1,7 @@
 import { ComponentProps, ReactNode } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
+// TO-DO: Refatorar?
 export const button = tv({
   base: 'flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-1.5',
   variants: {

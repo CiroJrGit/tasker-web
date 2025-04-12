@@ -1,24 +1,22 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../contexts/authContext'
-import clsx from 'clsx'
+import useAuth from '../../hooks/useAuth'
 
+import { motion } from 'framer-motion'
 import FormSignIn from './components/FormSignIn'
 import FormSignUp from './components/FormSignUp'
 import LogoSVG from '../../assets/logo'
-import { motion } from 'framer-motion'
+import clsx from 'clsx'
 
 const Auth = () => {
+  const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
+
   const [signIn, setSignIn] = useState(true)
   const [signUp, setSignUp] = useState(false)
-
   const [visibleIn, setVisibleIn] = useState(true)
-  const [visibleUp, setVisibleUp] = useState(false)
-
+  const [visibleOut, setVisibleOut] = useState(false)
   const [loadComponent, setLoadComponent] = useState(false)
-  const { isAuthenticated } = useContext(AuthContext)
-
-  const navigate = useNavigate()
 
   const load = {
     from: { opacity: 0 },
@@ -33,7 +31,7 @@ const Auth = () => {
   const handleSignIn = () => {
     setSignIn(false)
     setSignUp(true)
-    setVisibleUp(true)
+    setVisibleOut(true)
 
     setTimeout(() => {
       setVisibleIn(false)
@@ -46,7 +44,7 @@ const Auth = () => {
     setVisibleIn(true)
 
     setTimeout(() => {
-      setVisibleUp(false)
+      setVisibleOut(false)
     }, 700)
   }
 
@@ -132,7 +130,7 @@ const Auth = () => {
             {/* SignUp */}
             <div className="flex flex-col justify-center w-[560px] min-h-[572px] px-[58px]">
               <div className="flex flex-col gap-24">
-                {visibleUp && (
+                {visibleOut && (
                   <>
                     <FormSignUp />
 

@@ -1,13 +1,11 @@
-import { useContext } from 'react'
-import { ThemeContext } from '../../../contexts/themeContext'
-
-import { ThemeLabels, ThemeOptions } from '../../../types/themeProps'
+import { useThemeContext } from '../../../contexts/themeContext'
+import { ThemeLabels, ThemeOptions } from '../../../types/themeTypes'
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import IconCheck from '../../../assets/icons/IconCheck'
 
 const Theme = () => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useThemeContext()
 
   const handleThemeChange = (value: string) => {
     if (value === 'light' || value === 'dark' || value === 'system') {

@@ -1,12 +1,11 @@
-import { useContext } from 'react'
-import { ThemeContext } from '../contexts/themeContext'
+import useTheme from '../hooks/useTheme'
 
 import * as Switch from '@radix-ui/react-switch'
 import IconMoon from '../assets/icons/IconMoon'
 import IconSun from '../assets/icons/IconSun'
 
 const Toggle = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  // const { theme, toggleTheme } = useTheme()
 
   return (
     <>

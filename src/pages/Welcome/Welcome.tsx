@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/authContext'
+import useAuth from '../../hooks/useAuth'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import ModalWrap from '../../components/ModalWrap'
@@ -9,7 +8,7 @@ import IconNote from '../../assets/icons/IconNote'
 import IconCheckbox from '../../assets/icons/IconCheckbox'
 
 const Welcome = () => {
-  const { user } = useContext(AuthContext)
+  const { user } = useAuth()
   const firstName = user.name?.trim().split(' ')
 
   return (

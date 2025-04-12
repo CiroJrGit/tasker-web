@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { api } from '../lib/api'
+import { api } from '../api/_core/axios'
 // import { setAuthorization } from '../lib/authorization'
 
 import {

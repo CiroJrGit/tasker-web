@@ -1,18 +1,14 @@
-import { useContext } from 'react'
-
-import { ThemeContext } from '../../../contexts/themeContext'
-
+import { useThemeContext } from '../../../contexts/themeContext'
 import { DropdownType } from '../../../types/dropdownProps'
-import { ThemeLabels } from '../../../types/themeProps'
+import { ThemeLabels } from '../../../types/themeTypes'
 
 import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
-
 import Dropdown from '../../Dropdown'
 import BackgroundSelection from '../../BackgroundSelection'
 
 const AppearanceTab = () => {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useThemeContext()
   const themeSelected = ThemeLabels[theme as keyof typeof ThemeLabels]
 
   return (

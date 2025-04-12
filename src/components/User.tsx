@@ -1,11 +1,9 @@
-import { useContext } from 'react'
-import { AuthContext } from '../contexts/authContext'
+import useAuth from '../hooks/useAuth'
 
 import * as Separator from '@radix-ui/react-separator'
 // import * as Dialog from '@radix-ui/react-dialog'
 // import ModalWrap from './ModalWrap'
 // import ModalUser from './ModalUser'
-
 // import IconSettings from '../assets/icons/IconSettings'
 import IconLogout from '../assets/icons/IconLogout'
 import IconCheck from '../assets/icons/IconCheck'
@@ -15,7 +13,7 @@ interface UserProps {
 }
 
 const User = ({ variant }: UserProps) => {
-  const { handleSignOut, user } = useContext(AuthContext)
+  const { user, handleSignOut } = useAuth()
 
   return (
     <>
