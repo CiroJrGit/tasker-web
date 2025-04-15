@@ -1,13 +1,13 @@
-import { Routes, Route } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
+import { Routes, Route } from 'react-router-dom'
+import PrivateRoute from './PrivateRoute'
 
-import AppLayout from '../layouts/AppLayout';
+import AppLayout from '../layouts/AppLayout'
 
-import Auth from '../pages/Auth/Auth';
-import Welcome from '../pages/Welcome/Welcome';
-import TaskList from '../pages/TaskList/TaskList';
-import Note from '../pages/Note/Note';
-import AuthLayout from '../layouts/AuthLayout';
+import Auth from '../pages/Auth/Auth'
+import Welcome from '../pages/Welcome/Welcome'
+import TaskList from '../pages/TaskList/TaskList'
+import Note from '../pages/Note/Note'
+import AuthLayout from '../layouts/AuthLayout'
 
 const AppRoutes = () => {
   return (
@@ -52,7 +52,7 @@ const AppRoutes = () => {
         }
       />
     </Routes>
-  );
-};
+  )
+}
 
-export default AppRoutes;
+export default AppRoutes

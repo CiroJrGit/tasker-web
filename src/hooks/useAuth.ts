@@ -8,11 +8,7 @@ import { User, SignInParams, SignUpParams } from '../types/authTypes'
 import cookies from 'js-cookie'
 import decode from 'jwt-decode'
 
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-} from 'firebase/auth'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth'
 
 const useAuth = () => {
   const navigate = useNavigate()

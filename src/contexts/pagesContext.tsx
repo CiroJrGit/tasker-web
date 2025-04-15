@@ -6,15 +6,13 @@ import { api } from '../api/_core/axios'
 import {
   TaskListProps,
   TaskProps,
-  NoteProps,
+  Note,
   BackgroundProps,
   PagesProviderProps,
   PagesContextProps,
 } from '../types/pagesProps'
 
-export const PagesContext = createContext<PagesContextProps>(
-  {} as PagesContextProps,
-)
+export const PagesContext = createContext<PagesContextProps>({} as PagesContextProps)
 
 const PagesProvider = ({ children }: PagesProviderProps) => {
   const navigate = useNavigate()
@@ -28,7 +26,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
   const [loadingTasks, setLoadingTasks] = useState(true)
 
   // states anotacoes
-  const [notes, setNotes] = useState<NoteProps[]>([])
+  const [notes, setNotes] = useState<Note[]>([])
   const [loadingNotes, setLoadingNotes] = useState(true)
 
   // states background selecionado
@@ -136,11 +134,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
   }
 
   // marcar/desmarcar tarefa como concluida
-  async function handleToggleTask(
-    taskId: string,
-    completed: boolean,
-    listId: string,
-  ) {
+  async function handleToggleTask(taskId: string, completed: boolean, listId: string) {
     // const authorization = setAuthorization()
 
     await api.put(`/tasks/${taskId}/toggle`, { completed })
@@ -148,7 +142,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     loadTasks(listId)
   }
 
-  // carregar anotacoes
+  // carregar anotacoes >CHECK
   async function loadNotes() {
     // const authorization = setAuthorization()
 
@@ -157,17 +151,17 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     setLoadingNotes(false)
   }
 
-  // obter uma anotacao
+  // obter uma anotacao >CHECK
   async function handleGetNote(id: string) {
     // const authorization = setAuthorization()
 
     const noteResponse = await api.get(`/notes/${id}`)
-    const note: NoteProps = noteResponse.data
+    const note: Note = noteResponse.data
 
     return note
   }
 
-  // criar anotacao
+  // criar anotacao >CHECK
   async function handleCreateNote(title: string, color: string) {
     // const authorization = setAuthorization()
 
@@ -178,7 +172,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     navigate(`/notes/${newNoteId}`)
   }
 
-  // deletar anotacao
+  // deletar anotacao >CHECK
   async function handleDeleteNote(id: string) {
     // const authorization = setAuthorization()
 
@@ -187,7 +181,7 @@ const PagesProvider = ({ children }: PagesProviderProps) => {
     loadNotes()
   }
 
-  // editar anotacao
+  // editar anotacao >CHECK
   async function handleEditNote(
     id: string | undefined,
     title: string | undefined,

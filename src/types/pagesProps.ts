@@ -16,12 +16,11 @@ export interface TaskProps {
   completed: boolean
 }
 
-export interface NoteProps {
+export interface Note {
   id: string
-  userId: string
   title: string
   content: string
-  createdAt: Date
+  // createdAt: Date
   color: string
   deleted: boolean
 }
@@ -59,23 +58,15 @@ export interface PagesContextProps {
   loadTasks: (listId: string) => Promise<void>
   handleCreateTask: (desc: string, taskListId: string) => Promise<void>
   handleDeleteTask: (id: string, taskListId: string) => void
-  handleEditTask: (
-    id: string,
-    desc: string,
-    taskListId: string,
-  ) => Promise<void>
-  handleToggleTask: (
-    taskId: string,
-    completed: boolean,
-    listId: string,
-  ) => Promise<void>
+  handleEditTask: (id: string, desc: string, taskListId: string) => Promise<void>
+  handleToggleTask: (taskId: string, completed: boolean, listId: string) => Promise<void>
 
-  notes: NoteProps[]
-  setNotes: Dispatch<SetStateAction<NoteProps[]>>
+  notes: Note[]
+  setNotes: Dispatch<SetStateAction<Note[]>>
   loadingNotes: boolean
   setLoadingNotes: Dispatch<SetStateAction<boolean>>
   loadNotes: () => Promise<void>
-  handleGetNote: (id: string) => Promise<NoteProps>
+  handleGetNote: (id: string) => Promise<Note>
   handleCreateNote: (title: string, color: string) => void
   handleDeleteNote: (id: string) => void
   handleEditNote: (
