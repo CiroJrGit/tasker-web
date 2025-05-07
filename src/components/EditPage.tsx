@@ -1,7 +1,7 @@
-import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { PagesContext } from '../contexts/pagesContext'
-import { TaskListProps, NoteProps } from '../types/pagesProps'
+import { useTaskLists } from '../hooks/useTaskLists'
+import { useNotes } from '../hooks/useNotes'
+import { TaskList, Note } from '../types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
@@ -15,30 +15,22 @@ import IconPin from '../assets/icons/iconPin'
 // import IconUnPin from '../assets/icons/iconUnPin'
 
 interface EditPageProps {
-  page: TaskListProps | NoteProps
+  page: TaskList | Note
   type: string
 }
 
 const EditPage = ({ page, type }: EditPageProps) => {
-  const { handleEditTaskList, handleEditNote } = useContext(PagesContext)
+  const { handleEditTaskList } = useTaskLists()
+  const { handleEditNote } = useNotes()
 
   const navigate = useNavigate()
-  const colors = [
-    '#265EED',
-    '#8029EE',
-    '#EE29B7',
-    '#F4385A',
-    '#EE9329',
-    '#29EE9B',
-  ]
+  const colors = ['#265EED', '#8029EE', '#EE29B7', '#F4385A', '#EE9329', '#29EE9B']
 
   return (
     <>
       <div className="flex flex-col gap-2.5 pt-3.5 pb-3 rounded-lg font-int dark:bg-gray-800 bg-white-900">
         <div className="flex flex-col gap-4 px-3.5">
-          <span className="font-medium text-xs dark:text-gray-100 text-gray-300">
-            Cor de destaque
-          </span>
+          <span className="font-medium text-xs dark:text-gray-100 text-gray-300">Cor de destaque</span>
 
           <div className="flex justify-between pb-2">
             {colors.map((color, index) => (
@@ -60,21 +52,11 @@ const EditPage = ({ page, type }: EditPageProps) => {
                 )}
                 onClick={
                   type === 'tasklist'
-                    ? () =>
-                        // eslint-disable-next-line prettier/prettier
-                        handleEditTaskList(page.id, page.title, color, page.deleted)
-                    : () =>
-                        handleEditNote(page.id, page.title, color, page.deleted)
+                    ? () => handleEditTaskList(page.id, page.title, color, page.deleted)
+                    : () => handleEditNote(page.id, page.title, color, page.deleted)
                 }
               >
-                {color === page.color && (
-                  <IconCheck
-                    width="14"
-                    height="14"
-                    color="stroke-gray-50"
-                    stroke="2.2"
-                  />
-                )}
+                {color === page.color && <IconCheck width="13" height="13" color="stroke-gray-50" stroke="2.2" />}
               </button>
             ))}
           </div>
@@ -98,10 +80,10 @@ const EditPage = ({ page, type }: EditPageProps) => {
                 type="button"
               >
                 <div className="flex justify-center items-center w-5">
-                  <IconEdit width="18" height="18" />
+                  <IconEdit width="17" height="17" />
                 </div>
 
-                <span className="pt-px font-medium text-sm">Renomear</span>
+                <span className="pt-px text-sm">Renomear</span>
               </Dialog.Trigger>
 
               {/* <Modal type="edit" list={list} /> */}
@@ -114,10 +96,10 @@ const EditPage = ({ page, type }: EditPageProps) => {
             "
             >
               <div className="flex justify-center items-center w-5">
-                <IconDuplicate width="18" height="18" />
+                <IconDuplicate width="17" height="17" />
               </div>
 
-              <span className="pt-px font-medium text-sm">Duplicar</span>
+              <span className="pt-px text-sm">Duplicar</span>
             </div>
 
             <div
@@ -127,11 +109,11 @@ const EditPage = ({ page, type }: EditPageProps) => {
             "
             >
               <div className="flex justify-center items-center w-5">
-                <IconPin width="18" height="18" />
+                <IconPin width="17" height="17" />
                 {/* <IconUnPin width="19" height="19" /> */}
               </div>
 
-              <span className="pt-px font-medium text-sm">
+              <span className="pt-px text-sm">
                 Fixar página
                 {/* Desafixar página */}
               </span>
@@ -168,7 +150,7 @@ const EditPage = ({ page, type }: EditPageProps) => {
                 color="dark:stroke-gray-100 stroke-gray-300 group-hover:stroke-red-500"
               />
             </div>
-            <span className="font-medium text-sm">Excluir</span>
+            <span className="text-sm">Excluir</span>
           </button>
         </div>
       </div>

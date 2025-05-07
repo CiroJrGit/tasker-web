@@ -4,7 +4,6 @@ import { GetNotesByIdApiResponse } from './interfaces/response'
 
 const GetNotesByIdApi = async (request: GetNotesByIdApiRequest): Promise<GetNotesByIdApiResponse> => {
   const response = await api.get(`/notes/${request.id}`, {
-    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },

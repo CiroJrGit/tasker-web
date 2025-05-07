@@ -33,15 +33,12 @@ const AppearanceTab = () => {
             <BackgroundSelection />
           </div>
 
-          <label
-            className="flex justify-between items-center gap-5 cursor-pointer"
-            htmlFor="blur-mode"
-          >
+          <label className="flex justify-between items-center gap-5 cursor-pointer" htmlFor="blur-mode">
             <div className="flex flex-col gap-3 w-[352px]">
               <span className="text-sm font-normal font-int leading-3 dark:text-gray-100 text-gray-300">
                 Efeito blur
               </span>
-              <span className="text-2xs font-normal leading-3 dark:text-gray-200 text-white-300">
+              <span className="text-2xs font-normal font-int leading-3 dark:text-gray-200 text-white-300">
                 Ative efeito de blur na imagem de fundo.
               </span>
             </div>
@@ -79,10 +76,8 @@ const AppearanceTab = () => {
         <div className="flex flex-col gap-10">
           <div className="flex justify-between items-center gap-5">
             <div className="flex flex-col gap-3 w-[352px]">
-              <span className="text-sm font-normal font-int leading-3 dark:text-gray-100 text-gray-300">
-                Tema
-              </span>
-              <span className="text-2xs font-normal leading-3 dark:text-gray-200 text-white-300">
+              <span className="text-sm font-normal font-int leading-3 dark:text-gray-100 text-gray-300">Tema</span>
+              <span className="text-2xs font-normal font-int leading-3 dark:text-gray-200 text-white-300">
                 Alterne entre os modos escuro e claro.
               </span>
             </div>
@@ -90,15 +85,12 @@ const AppearanceTab = () => {
             <Dropdown type={DropdownType.THEME} name={themeSelected} />
           </div>
 
-          <label
-            className="flex justify-between items-center gap-5 cursor-pointer"
-            htmlFor="transparent-mode"
-          >
+          <label className="flex justify-between items-center gap-5 cursor-pointer" htmlFor="transparent-mode">
             <div className="flex flex-col gap-3 w-[352px]">
               <span className="text-sm font-normal font-int leading-3 dark:text-gray-100 text-gray-300">
                 Transparência de interface
               </span>
-              <span className="text-2xs font-normal leading-3 dark:text-gray-200 text-white-300">
+              <span className="text-2xs font-normal font-int leading-3 dark:text-gray-200 text-white-300">
                 Ative efeito de transparência na interface do Tasker.
               </span>
             </div>

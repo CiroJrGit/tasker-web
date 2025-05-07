@@ -1,4 +1,4 @@
-import useTheme from '../hooks/useTheme'
+import { useTheme } from '../hooks/useTheme'
 
 import * as Switch from '@radix-ui/react-switch'
 import IconMoon from '../assets/icons/IconMoon'
@@ -20,18 +20,10 @@ const Toggle = () => {
         onCheckedChange={toggleTheme}
       >
         <div className="flex justify-center items-center pl-0.5 w-9 h-8 rounded-md">
-          <IconMoon
-            width="14"
-            height="14"
-            color="dark:fill-gray-950 fill-white-300"
-          />
+          <IconMoon width="14" height="14" color="dark:fill-gray-950 fill-white-300" />
         </div>
         <div className="flex justify-center items-center pr-0.5 w-9 h-8 rounded-md">
-          <IconSun
-            width="15"
-            height="15"
-            color="dark:fill-gray-50 fill-white-950"
-          />
+          <IconSun width="15" height="15" color="dark:fill-gray-50 fill-white-950" />
         </div>
         <Switch.Thumb
           className="

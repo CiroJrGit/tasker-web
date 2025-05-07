@@ -4,7 +4,6 @@ import { GetNotesApiResponse } from './interfaces/response'
 
 const GetNotesApi = async (): Promise<GetNotesApiResponse> => {
   const response = await api.get('/notes', {
-    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },

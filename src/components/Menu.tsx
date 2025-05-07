@@ -22,11 +22,7 @@ const Menu = () => {
           "
         >
           <User variant="sm" />
-          <IconCaret
-            width="11"
-            height="11"
-            color="dark:stroke-gray-400 stroke-white-300"
-          />
+          <IconCaret width="11" height="11" color="dark:stroke-gray-400 stroke-white-300" />
         </Popover.Trigger>
 
         <Popover.Portal>
@@ -47,15 +43,9 @@ const Menu = () => {
             "
           >
             <div className="flex justify-center items-center w-6">
-              <IconSearch
-                width="16"
-                height="16"
-                color="dark:stroke-gray-100 stroke-gray-300"
-              />
+              <IconSearch width="16" height="16" color="dark:stroke-gray-100 stroke-gray-300" />
             </div>
-            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-              Pesquisar
-            </span>
+            <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Pesquisar</span>
           </Dialog.Trigger>
 
           <ModalWrap>
@@ -73,9 +63,7 @@ const Menu = () => {
             <div className="flex justify-center items-center w-6">
               <IconSettings width="18" height="18" />
             </div>
-            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-              Configurações
-            </span>
+            <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Configurações</span>
           </Dialog.Trigger>
 
           <ModalWrap title="Configurações">
@@ -91,15 +79,9 @@ const Menu = () => {
             "
           >
             <div className="flex justify-center items-center w-6">
-              <IconTrash
-                width="17"
-                height="17"
-                color="dark:stroke-gray-100 stroke-gray-300"
-              />
+              <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
             </div>
-            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-              Lixeira
-            </span>
+            <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Lixeira</span>
           </Popover.Trigger>
 
           <Popover.Portal>

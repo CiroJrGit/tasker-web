@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useTaskLists } from '../hooks/useTaskLists'
+import { useNotes } from '../hooks/useNotes'
 import { NavLink } from 'react-router-dom'
-import { PagesContext } from '../contexts/pagesContext'
 import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
@@ -13,14 +14,8 @@ import IconTrash from '../assets/icons/IconTrash'
 import IconEdit from '../assets/icons/IconEdit'
 
 const ModalSearch = () => {
-  const {
-    taskLists,
-    loadTaskLists,
-    notes,
-    loadNotes,
-    handleEditTaskList,
-    handleEditNote,
-  } = useContext(PagesContext)
+  const { taskLists, loadTaskLists, handleEditTaskList } = useTaskLists()
+  const { notes, loadNotes, handleEditNote } = useNotes()
 
   const [search, setSearch] = useState('')
   const lowerSearch = search.toLowerCase()
@@ -119,7 +114,7 @@ const ModalSearch = () => {
                             aria-hidden="true"
                           ></span>
 
-                          <span className="max-w-[172px] font-int font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                          <span className="max-w-[172px] font-int text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                             {list.title}
                           </span>
                         </div>
@@ -201,7 +196,7 @@ const ModalSearch = () => {
                             aria-hidden="true"
                           ></span>
 
-                          <span className="max-w-[172px] font-int font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                          <span className="max-w-[172px] font-int text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                             {note.title}
                           </span>
                         </div>

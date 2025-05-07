@@ -1,20 +1,19 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
+import { useNotes } from '../../hooks/useNotes'
+import { Note } from '../../types/pagesTypes'
 import clsx from 'clsx'
-
-import { PagesContext } from '../../contexts/pagesContext'
-import { NoteProps } from '../../types/pagesProps'
 
 import * as Popover from '@radix-ui/react-popover'
 import EditPage from '../../components/EditPage'
 
 import IconEllipsis from '../../assets/icons/IconEllipsis'
 
-const Note = () => {
-  const { notes, handleGetNote, loadingNotes } = useContext(PagesContext)
+const NotePage = () => {
+  const { notes, handleGetNote } = useNotes()
 
   const { id } = useParams()
-  const [note, setNote] = useState<NoteProps | any>()
+  const [note, setNote] = useState<Note | any>()
 
   useEffect(() => {
     getNote()
@@ -44,9 +43,7 @@ const Note = () => {
               aria-hidden="true"
             ></span>
 
-            <h1 className="font-semibold text-3.5xl dark:text-gray-50 text-gray-500">
-              {note?.title}
-            </h1>
+            <h1 className="font-semibold text-3.5xl dark:text-gray-50 text-gray-500">{note?.title}</h1>
           </div>
 
           <div className="absolute top-0 right-11 p-4">
@@ -78,4 +75,4 @@ const Note = () => {
   )
 }
 
-export default Note
+export default NotePage

@@ -1,5 +1,5 @@
-import { useContext } from 'react'
-import { PagesContext } from '../contexts/pagesContext'
+import { useTaskLists } from '../hooks/useTaskLists'
+import { useNotes } from '../hooks/useNotes'
 import clsx from 'clsx'
 
 import IconBack from '../assets/icons/IconBack'
@@ -7,25 +7,15 @@ import IconTrash from '../assets/icons/IconTrash'
 import IconSearch from '../assets/icons/IconSearch'
 
 const Trash = () => {
-  const {
-    taskLists,
-    handleDeleteTaskList,
-    handleEditTaskList,
-    notes,
-    handleDeleteNote,
-    handleEditNote,
-  } = useContext(PagesContext)
+  const { taskLists, handleEditTaskList, handleDeleteTaskList } = useTaskLists()
+  const { notes, handleEditNote, handleDeleteNote } = useNotes()
 
   return (
     <>
       <div className="flex flex-col gap-6 font-int rounded-lg">
         <div className="px-3.5">
           <div className="absolute top-3.5 left-3 flex justify-center items-center w-6 pt-px">
-            <IconSearch
-              width="14"
-              height="14"
-              color="dark:stroke-gray-300 stroke-white-300"
-            />
+            <IconSearch width="14" height="14" color="dark:stroke-gray-300 stroke-white-300" />
           </div>
 
           <input
@@ -42,9 +32,7 @@ const Trash = () => {
         <div className="flex flex-col gap-6 px-1.5">
           {taskLists.filter((list) => list.deleted === true).length !== 0 && (
             <div className="flex flex-col gap-2">
-              <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
-                Listas
-              </span>
+              <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Listas</span>
 
               <div className="flex flex-col gap-1">
                 {taskLists
@@ -68,21 +56,14 @@ const Trash = () => {
                             aria-hidden="true"
                           ></span>
 
-                          <span className="max-w-[170px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                          <span className="max-w-[170px] text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                             {list.title}
                           </span>
                         </div>
                         <div className="flex gap-2">
                           <button
                             className="rounded-md p-1 dark:hover:bg-gray-400/70 hover:bg-white-500/90 dark:active:bg-gray-400/40 active:bg-white-400/50"
-                            onClick={() =>
-                              handleEditTaskList(
-                                list.id,
-                                list.title,
-                                list.color,
-                                false,
-                              )
-                            }
+                            onClick={() => handleEditTaskList(list.id, list.title, list.color, false)}
                           >
                             <div className="flex justify-center items-center w-4">
                               <IconBack width="15.5" height="13.5" />
@@ -93,11 +74,7 @@ const Trash = () => {
                             onClick={() => handleDeleteTaskList(list.id)}
                           >
                             <div className="flex justify-center items-center w-5">
-                              <IconTrash
-                                width="17"
-                                height="17"
-                                color="dark:stroke-gray-100 stroke-gray-300"
-                              />
+                              <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
                             </div>
                           </button>
                         </div>
@@ -110,9 +87,7 @@ const Trash = () => {
 
           {notes.filter((note) => note.deleted === true).length !== 0 && (
             <div className="flex flex-col gap-2">
-              <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
-                Notas
-              </span>
+              <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Notas</span>
 
               <div className="flex flex-col gap-1">
                 {notes
@@ -136,21 +111,14 @@ const Trash = () => {
                             aria-hidden="true"
                           ></span>
 
-                          <span className="max-w-[170px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                          <span className="max-w-[170px] text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                             {note.title}
                           </span>
                         </div>
                         <div className="flex gap-2">
                           <button
                             className="p-1 rounded-md dark:hover:bg-gray-400/70 hover:bg-white-500/90 dark:active:bg-gray-400/40 active:bg-white-400/50"
-                            onClick={() =>
-                              handleEditNote(
-                                note.id,
-                                note.title,
-                                note.color,
-                                false,
-                              )
-                            }
+                            onClick={() => handleEditNote(note.id, note.title, note.color, false)}
                           >
                             <div className="flex justify-center items-center w-4">
                               <IconBack width="15.5" height="13.5" />
@@ -161,11 +129,7 @@ const Trash = () => {
                             onClick={() => handleDeleteNote(note.id)}
                           >
                             <div className="flex justify-center items-center w-5">
-                              <IconTrash
-                                width="17"
-                                height="17"
-                                color="dark:stroke-gray-100 stroke-gray-300"
-                              />
+                              <IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />
                             </div>
                           </button>
                         </div>

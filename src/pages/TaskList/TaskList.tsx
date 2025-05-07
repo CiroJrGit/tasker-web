@@ -1,23 +1,23 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
+import { useTaskLists } from '../../hooks/useTaskLists'
+import { useTasks } from '../../hooks/useTasks'
+import { TaskList } from '../../types/pagesTypes'
 import clsx from 'clsx'
-
-import { PagesContext } from '../../contexts/pagesContext'
-import { TaskListProps } from '../../types/pagesProps'
 
 import * as Popover from '@radix-ui/react-popover'
 import EditPage from '../../components/EditPage'
 import NewTask from './components/NewTask'
-import Tasks from './components/Tasks'
+import Task from './components/Tasks'
 
 import IconEllipsis from '../../assets/icons/IconEllipsis'
 
-const TaskList = () => {
-  const { taskLists, handleGetTaskList, tasks, loadingTasks, loadTasks } =
-    useContext(PagesContext)
+const TaskListPage = () => {
+  const { taskLists, handleGetTaskList } = useTaskLists()
+  const { tasks, loadingTasks, loadTasks } = useTasks()
 
   const { id } = useParams()
-  const [taskList, setTaskList] = useState<TaskListProps | any>()
+  const [taskList, setTaskList] = useState<TaskList | any>()
 
   useEffect(() => {
     getTaskList()
@@ -51,9 +51,7 @@ const TaskList = () => {
               aria-hidden="true"
             ></span>
 
-            <h1 className="font-semibold text-3.5xl dark:text-gray-50 text-gray-500">
-              {taskList?.title}
-            </h1>
+            <h1 className="font-semibold text-3.5xl dark:text-gray-50 text-gray-500">{taskList?.title}</h1>
           </div>
 
           <div className="absolute top-0 right-11 p-4">
@@ -89,16 +87,10 @@ const TaskList = () => {
 
         {tasks.length === 0 && !loadingTasks && <span>Sem tarefas.</span>}
 
-        {!loadingTasks && (
-          <Tasks
-            tasks={tasks}
-            listColor={taskList?.color}
-            listId={taskList?.id}
-          />
-        )}
+        {!loadingTasks && <Task tasks={tasks} listColor={taskList?.color} listId={taskList?.id} />}
       </div>
     </div>
   )
 }
 
-export default TaskList
+export default TaskListPage

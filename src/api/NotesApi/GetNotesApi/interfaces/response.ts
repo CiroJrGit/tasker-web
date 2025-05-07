@@ -6,6 +6,4 @@ interface NotesItem {
   deleted: boolean
 }
 
-export interface GetNotesApiResponse {
-  notes: NotesItem[]
-}
+export type GetNotesApiResponse = Array<NotesItem>

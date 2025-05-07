@@ -1,4 +1,4 @@
-import useAuth from '../../hooks/useAuth'
+import { useAuth } from '../../hooks/useAuth'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import ModalWrap from '../../components/ModalWrap'
@@ -7,7 +7,7 @@ import ModalNewPage from '../../components/ModalNewPage'
 import IconNote from '../../assets/icons/IconNote'
 import IconCheckbox from '../../assets/icons/IconCheckbox'
 
-const Welcome = () => {
+const WelcomePage = () => {
   const { user } = useAuth()
   const firstName = user.name?.trim().split(' ')
 
@@ -34,15 +34,9 @@ const Welcome = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconCheckbox
-                width="20"
-                height="20"
-                color="dark:stroke-gray-400 stroke-white-400"
-              />
+              <IconCheckbox width="20" height="20" color="dark:stroke-gray-400 stroke-white-400" />
             </div>
-            <span className="pt-px font-medium duration-10">
-              Lista de tarefas
-            </span>
+            <span className="pt-px font-medium duration-10">Lista de tarefas</span>
           </Dialog.Trigger>
 
           <ModalWrap title="Nova página">
@@ -60,15 +54,9 @@ const Welcome = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconNote
-                width="22"
-                height="22"
-                color="dark:stroke-gray-400 stroke-white-400"
-              />
+              <IconNote width="22" height="22" color="dark:stroke-gray-400 stroke-white-400" />
             </div>
-            <span className="pt-px font-medium duration-10">
-              Página de anotações
-            </span>
+            <span className="pt-px font-medium duration-10">Página de anotações</span>
           </Dialog.Trigger>
 
           <ModalWrap title="Nova página">
@@ -80,4 +68,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default WelcomePage

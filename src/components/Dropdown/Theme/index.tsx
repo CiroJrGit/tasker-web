@@ -20,11 +20,7 @@ const Theme = () => {
         sideOffset={6}
         align="end"
       >
-        <DropdownMenu.RadioGroup
-          className="flex flex-col gap-0.5"
-          value={theme}
-          onValueChange={handleThemeChange}
-        >
+        <DropdownMenu.RadioGroup className="flex flex-col gap-0.5" value={theme} onValueChange={handleThemeChange}>
           <DropdownMenu.RadioItem
             className="
               flex justify-between items-center h-[26px] px-3 rounded dark:hover:bg-gray-600 hover:bg-white-500 cursor-pointer
@@ -32,17 +28,10 @@ const Theme = () => {
             "
             value={ThemeOptions.DARK}
           >
-            <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">
-              {ThemeLabels.dark}
-            </span>
+            <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">{ThemeLabels.dark}</span>
 
             <DropdownMenu.ItemIndicator className="flex items-center">
-              <IconCheck
-                width="15"
-                height="15"
-                stroke="2"
-                color="dark:stroke-gray-50 stroke-gray-300"
-              />
+              <IconCheck width="15" height="15" stroke="2" color="dark:stroke-gray-50 stroke-gray-300" />
             </DropdownMenu.ItemIndicator>
           </DropdownMenu.RadioItem>
 
@@ -53,17 +42,10 @@ const Theme = () => {
             "
             value={ThemeOptions.LIGHT}
           >
-            <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">
-              {ThemeLabels.light}
-            </span>
+            <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">{ThemeLabels.light}</span>
 
             <DropdownMenu.ItemIndicator className="flex items-center">
-              <IconCheck
-                width="15"
-                height="15"
-                stroke="2"
-                color="dark:stroke-gray-50 stroke-gray-300"
-              />
+              <IconCheck width="15" height="15" stroke="2" color="dark:stroke-gray-50 stroke-gray-300" />
             </DropdownMenu.ItemIndicator>
           </DropdownMenu.RadioItem>
 
@@ -74,17 +56,10 @@ const Theme = () => {
             "
             value={ThemeOptions.SYSTEM}
           >
-            <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">
-              {ThemeLabels.system}
-            </span>
+            <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">{ThemeLabels.system}</span>
 
             <DropdownMenu.ItemIndicator className="flex items-center">
-              <IconCheck
-                width="15"
-                height="15"
-                stroke="2"
-                color="dark:stroke-gray-50 stroke-gray-300"
-              />
+              <IconCheck width="15" height="15" stroke="2" color="dark:stroke-gray-50 stroke-gray-300" />
             </DropdownMenu.ItemIndicator>
           </DropdownMenu.RadioItem>
         </DropdownMenu.RadioGroup>

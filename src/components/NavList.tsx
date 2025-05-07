@@ -1,11 +1,12 @@
-import { useEffect, useContext } from 'react'
+import { useEffect } from 'react'
+import { useTaskLists } from '../hooks/useTaskLists'
+import { useNotes } from '../hooks/useNotes'
 import { NavLink } from 'react-router-dom'
-import { PagesContext } from '../contexts/pagesContext'
 import clsx from 'clsx'
 
 const NavList = () => {
-  const { taskLists, loadTaskLists, notes, loadNotes } =
-    useContext(PagesContext)
+  const { taskLists, loadTaskLists } = useTaskLists()
+  const { notes, loadNotes } = useNotes()
 
   useEffect(() => {
     loadTaskLists()
@@ -16,9 +17,7 @@ const NavList = () => {
     <nav className="flex flex-col gap-9 font-int">
       {taskLists.filter((list) => list.deleted === false).length !== 0 && (
         <div className="flex flex-col gap-2">
-          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
-            Listas
-          </span>
+          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Listas</span>
 
           <div className="flex flex-col gap-1">
             {taskLists
@@ -50,7 +49,7 @@ const NavList = () => {
                       aria-hidden="true"
                     ></span>
 
-                    <span className="max-w-[168px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                    <span className="max-w-[168px] text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                       {list.title}
                     </span>
                   </div>
@@ -62,9 +61,7 @@ const NavList = () => {
 
       {notes.filter((note) => note.deleted === false).length !== 0 && (
         <div className="flex flex-col gap-2">
-          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
-            Notas
-          </span>
+          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Notas</span>
 
           <div className="flex flex-col gap-0.5 px-px">
             {notes
@@ -96,7 +93,7 @@ const NavList = () => {
                       aria-hidden="true"
                     ></span>
 
-                    <span className="max-w-[172px] font-medium text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+                    <span className="max-w-[172px] text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                       {note.title}
                     </span>
                   </div>

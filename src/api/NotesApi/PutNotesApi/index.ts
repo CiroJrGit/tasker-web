@@ -4,12 +4,10 @@ import { PutNotesApiRequest } from './interfaces/request'
 import { PutNotesApiResponse } from './interfaces/response'
 
 const PutNotesApi = async (request: PutNotesApiRequest): Promise<PutNotesApiResponse> => {
-  const response = await api.put(`/notes/${request.id}`, {
-    method: 'PUT',
+  const response = await api.put(`/notes/${request.id}`, request.data, {
     headers: {
       'Content-Type': 'application/json',
     },
-    data: request,
   })
 
   return response.data

@@ -55,8 +55,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             <NavLink
               to="/welcome"
               className="
-                absolute left-[300px] p-1.5 rounded-md font-int font-medium dark:text-gray-200 text-white-300
-                dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
+                absolute left-[300px] p-1.5 rounded-md dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
             >
@@ -65,8 +64,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
             <button
               className="
-                p-1.5 rounded-md font-int font-medium dark:text-gray-200 text-white-300
-                dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
+                p-1.5 rounded-md dark:hover:bg-gray-800/80 hover:bg-white-800/60 dark:active:bg-gray-800/40 active:bg-white-600/60
                 focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300
               "
               onClick={() => setFullScreen(!fullScreen)}

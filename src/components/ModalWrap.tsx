@@ -23,9 +23,7 @@ const ModalWrap = ({ title, children }: ModalWrapProps) => {
         <Dialog.Content className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col pt-4 pb-5 rounded-lg dark:bg-gray-900 bg-white-900 focus:outline-none">
           {title && (
             <div className="flex flex-col gap-3">
-              <Dialog.Title className=" px-4 font-medium dark:text-gray-50 text-gray-500">
-                {title}
-              </Dialog.Title>
+              <Dialog.Title className=" px-4 font-medium dark:text-gray-50 text-gray-500">{title}</Dialog.Title>
 
               <div className="px-1">
                 <Separator.Root

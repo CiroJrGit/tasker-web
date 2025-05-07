@@ -1,5 +1,6 @@
-import { useState, useContext, useEffect } from 'react'
-import { PagesContext } from '../contexts/pagesContext'
+import { useState, useEffect } from 'react'
+import { useTaskLists } from '../hooks/useTaskLists'
+import { useNotes } from '../hooks/useNotes'
 // import { TaskListProps } from '../types/pagesProps'
 import clsx from 'clsx'
 
@@ -20,20 +21,14 @@ interface ModalNewPageProps {
 }
 
 const ModalNewPage = ({ page }: ModalNewPageProps) => {
-  const { handleCreateTaskList, handleCreateNote } = useContext(PagesContext)
+  const { handleCreateTaskList } = useTaskLists()
+  const { handleCreateNote } = useNotes()
 
   const [title, setTitle] = useState('')
   const [selectedOption, setSelectedOption] = useState<string>(page || '')
   const [selectedColor, setSelectedColor] = useState('#265EED')
 
-  const colors = [
-    '#265EED',
-    '#8029EE',
-    '#EE29B7',
-    '#F4385A',
-    '#EE9329',
-    '#29EE9B',
-  ]
+  const colors = ['#265EED', '#8029EE', '#EE29B7', '#F4385A', '#EE9329', '#29EE9B']
 
   useEffect(() => {
     console.log(page)
@@ -42,11 +37,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
   return (
     <div className="min-w-[472px] mt-8 space-y-8">
       <div className="flex flex-col gap-5">
-        <RadioGroup.Root
-          className="flex gap-3"
-          defaultValue={page}
-          aria-label="Page type"
-        >
+        <RadioGroup.Root className="flex gap-3" defaultValue={page} aria-label="Page type">
           <div className="flex items-center">
             <RadioGroup.Item
               className="hidden peer"
@@ -62,24 +53,13 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               "
               htmlFor="r1"
             >
-              <IconCheckbox
-                width="18"
-                height="18"
-                color="dark:stroke-gray-100/60 stroke-gray-300/75"
-              />
-              <span className="text-sm font-medium duration-10">
-                Lista de tarefas
-              </span>
+              <IconCheckbox width="18" height="18" color="dark:stroke-gray-100/60 stroke-gray-300/75" />
+              <span className="text-sm font-medium duration-10">Lista de tarefas</span>
             </label>
           </div>
 
           <div className="flex items-center">
-            <RadioGroup.Item
-              className="hidden peer"
-              value="notes"
-              id="r2"
-              onClick={() => setSelectedOption('notes')}
-            />
+            <RadioGroup.Item className="hidden peer" value="notes" id="r2" onClick={() => setSelectedOption('notes')} />
             <label
               className="
                 flex items-center gap-2 px-2 py-1.5 rounded-md dark:text-gray-100/70 text-gray-300/90 cursor-pointer
@@ -88,14 +68,8 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               "
               htmlFor="r2"
             >
-              <IconNote
-                width="19"
-                height="19"
-                color="dark:stroke-gray-100/60 stroke-gray-300/80"
-              />
-              <span className="text-sm font-medium duration-10">
-                Página de anotações
-              </span>
+              <IconNote width="19" height="19" color="dark:stroke-gray-100/60 stroke-gray-300/80" />
+              <span className="text-sm font-medium duration-10">Página de anotações</span>
             </label>
           </div>
         </RadioGroup.Root>
@@ -119,11 +93,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                   'bg-main-green': selectedColor === '#29EE9B',
                 })}
               />
-              <IconCaret
-                width="11"
-                height="11"
-                color="dark:stroke-gray-300 stroke-white-300"
-              />
+              <IconCaret width="11" height="11" color="dark:stroke-gray-300 stroke-white-300" />
             </Popover.Trigger>
             <Popover.Portal>
               <Popover.Content className="focus:outline-none">
@@ -142,19 +112,13 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                           'bg-main-yellow': color === '#EE9329',
                           'bg-main-green': color === '#29EE9B',
 
-                          'ring-1 ring-gray-200 ring-offset-2':
-                            color === selectedColor,
+                          'ring-1 ring-gray-200 ring-offset-2': color === selectedColor,
                         },
                       )}
                       onClick={() => setSelectedColor(color)}
                     >
                       {color === selectedColor && (
-                        <IconCheck
-                          width="14"
-                          height="14"
-                          color="stroke-gray-50"
-                          stroke="2.2"
-                        />
+                        <IconCheck width="14" height="14" color="stroke-gray-50" stroke="2.2" />
                       )}
                     </button>
                   ))}

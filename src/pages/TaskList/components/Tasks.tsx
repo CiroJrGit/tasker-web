@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react'
-import { PagesContext } from '../../../contexts/pagesContext'
-import { TaskProps } from '../../../types/pagesProps'
+import { useState } from 'react'
+import { useTasks } from '../../../hooks/useTasks'
+import { Task } from '../../../types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
@@ -11,14 +11,13 @@ import IconEditPen from '../../../assets/icons/IconEditPen'
 import IconCheck from '../../../assets/icons/IconCheck'
 
 interface TaskItemProps {
-  tasks: TaskProps[]
+  tasks: Task[]
   listColor: string
   listId: string
 }
 
-const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
-  const { handleToggleTask, handleDeleteTask, handleEditTask } =
-    useContext(PagesContext)
+const TaskPage = ({ tasks, listColor, listId }: TaskItemProps) => {
+  const { handleToggleTask, handleDeleteTask, handleEditTask } = useTasks()
 
   const [descTask, setDescTask] = useState('')
 
@@ -37,9 +36,7 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
         >
           <Checkbox.Root
             className="flex items-center gap-4 w-full h-10 group focus:outline-none disabled:opacity-30"
-            onCheckedChange={() =>
-              handleToggleTask(task.id, !task.completed, listId)
-            }
+            onCheckedChange={() => handleToggleTask(task.id, !task.completed, listId)}
             checked={task.completed}
           >
             <div
@@ -62,12 +59,7 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
               )}
             >
               <Checkbox.Indicator>
-                <IconCheck
-                  width="12"
-                  height="13"
-                  color="stroke-gray-50"
-                  stroke="2.4"
-                />
+                <IconCheck width="12" height="13" color="stroke-gray-50" stroke="2.4" />
               </Checkbox.Indicator>
             </div>
 
@@ -90,11 +82,7 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
                   dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
                 "
               >
-                <IconEditPen
-                  width="17"
-                  height="17"
-                  color="dark:stroke-gray-300 stroke-white-400"
-                />
+                <IconEditPen width="17" height="17" color="dark:stroke-gray-300 stroke-white-400" />
               </Popover.Trigger>
 
               <Popover.Portal>
@@ -109,15 +97,9 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
                     {/* border dark:border-gray-300 border-white-400 */}
                     <Popover.Close
                       className="mt-1 p-1.5 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60"
-                      onClick={() =>
-                        handleAlternateEdit(task.id, task.desc, listId)
-                      }
+                      onClick={() => handleAlternateEdit(task.id, task.desc, listId)}
                     >
-                      <IconEditPen
-                        width="18"
-                        height="17"
-                        color="dark:stroke-gray-300 stroke-white-400"
-                      />
+                      <IconEditPen width="18" height="17" color="dark:stroke-gray-300 stroke-white-400" />
                     </Popover.Close>
                   </div>
                 </Popover.Content>
@@ -140,4 +122,4 @@ const Tasks = ({ tasks, listColor, listId }: TaskItemProps) => {
   )
 }
 
-export default Tasks
+export default TaskPage

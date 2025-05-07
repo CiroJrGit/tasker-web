@@ -1,5 +1,6 @@
-import { useState, useContext } from 'react'
-import { PagesContext } from '../contexts/pagesContext'
+import { useState } from 'react'
+import { useTaskLists } from '../hooks/useTaskLists'
+import { useNotes } from '../hooks/useNotes'
 import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
@@ -15,29 +16,19 @@ interface ModalNewPageProps {
 }
 
 const ModalNewPage = ({ page }: ModalNewPageProps) => {
-  const { handleCreateTaskList, handleCreateNote } = useContext(PagesContext)
+  const { handleCreateTaskList } = useTaskLists()
+  const { handleCreateNote } = useNotes()
 
   const [title, setTitle] = useState('')
   const [selectedOption, setSelectedOption] = useState<string>(page || '')
   const [selectedColor, setSelectedColor] = useState('#265EED')
 
-  const colors = [
-    '#265EED',
-    '#8029EE',
-    '#EE29B7',
-    '#F4385A',
-    '#EE9329',
-    '#29EE9B',
-  ]
+  const colors = ['#265EED', '#8029EE', '#EE29B7', '#F4385A', '#EE9329', '#29EE9B']
 
   return (
     <div className="flex flex-col gap-18 min-w-[506px] min-h-[324px] mt-5 px-4">
       <div className="flex flex-col gap-8">
-        <RadioGroup.Root
-          className="flex gap-3"
-          defaultValue={page}
-          aria-label="Page type"
-        >
+        <RadioGroup.Root className="flex gap-3" defaultValue={page} aria-label="Page type">
           <div className="flex">
             <RadioGroup.Item
               className="hidden peer"
@@ -66,13 +57,9 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
 
               <div className="flex flex-col gap-px">
                 <span
-                  className={clsx(
-                    'font-medium text-sm dark:text-gray-100 text-gray-300',
-                    {
-                      'dark:text-gray-50 text-gray-500':
-                        selectedOption === 'tasklist',
-                    },
-                  )}
+                  className={clsx('font-medium text-sm dark:text-gray-100 text-gray-300', {
+                    'dark:text-gray-50 text-gray-500': selectedOption === 'tasklist',
+                  })}
                 >
                   Listas
                 </span>
@@ -84,12 +71,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
           </div>
 
           <div className="flex">
-            <RadioGroup.Item
-              className="hidden peer"
-              value="notes"
-              id="r2"
-              onClick={() => setSelectedOption('notes')}
-            />
+            <RadioGroup.Item className="hidden peer" value="notes" id="r2" onClick={() => setSelectedOption('notes')} />
             <label
               className="
                 flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-2xl dark:text-gray-100 text-gray-300 cursor-pointer
@@ -110,13 +92,9 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               />
               <div className="flex flex-col gap-px">
                 <span
-                  className={clsx(
-                    'font-medium text-sm dark:text-gray-100 text-gray-300',
-                    {
-                      'dark:text-gray-50 text-gray-500':
-                        selectedOption === 'notes',
-                    },
-                  )}
+                  className={clsx('font-medium text-sm dark:text-gray-100 text-gray-300', {
+                    'dark:text-gray-50 text-gray-500': selectedOption === 'notes',
+                  })}
                 >
                   Anotações
                 </span>
@@ -130,9 +108,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
 
         <div className="flex flex-col gap-9">
           <div className="flex flex-col gap-3">
-            <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">
-              Título
-            </span>
+            <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">Título</span>
 
             <input
               className="
@@ -146,9 +122,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
           </div>
 
           <div className="flex justify-between items-center gap-3">
-            <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">
-              Cor de destaque
-            </span>
+            <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">Cor de destaque</span>
 
             <div className="flex gap-2.5 pt-0.5">
               {colors.map((color, index) => (
@@ -165,20 +139,12 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                       'bg-main-yellow ring-main-yellow': color === '#EE9329',
                       'bg-main-green ring-main-green': color === '#29EE9B',
 
-                      'ring-[0.8px] ring-offset-[1.3px]':
-                        color === selectedColor,
+                      'ring-[0.8px] ring-offset-[1.3px]': color === selectedColor,
                     },
                   )}
                   onClick={() => setSelectedColor(color)}
                 >
-                  {color === selectedColor && (
-                    <IconCheck
-                      width="13"
-                      height="13"
-                      color="stroke-gray-50"
-                      stroke="2.2"
-                    />
-                  )}
+                  {color === selectedColor && <IconCheck width="13" height="13" color="stroke-gray-50" stroke="2.2" />}
                 </button>
               ))}
             </div>

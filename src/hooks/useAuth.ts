@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../contexts/authContext'
-import { auth } from '../services/firebase'
 import { authService } from '../services/authService'
+import { auth } from '../services/firebase'
 
 import { User, SignInParams, SignUpParams } from '../types/authTypes'
 import cookies from 'js-cookie'
@@ -37,7 +37,7 @@ const useAuth = () => {
         const response = await authService.createUser({
           id: userCredential.user.uid,
           name,
-          email: userCredential.user.email,
+          email: userCredential.user.email || undefined,
         })
 
         const { token } = response
@@ -64,7 +64,7 @@ const useAuth = () => {
 
     await signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        const response = await authService.fetchUser(userCredential.user.uid)
+        const response = await authService.fetchUser({ id: userCredential.user.uid })
 
         const { token } = response
         const { sub, name, email } = decode<User>(token)
@@ -135,4 +135,4 @@ const useAuth = () => {
   }
 }
 
-export default useAuth
+export { useAuth }

@@ -20,9 +20,7 @@ const Sidebar = () => {
             <div className="flex justify-center items-center w-6">
               <IconPlusRounded width="17" height="17" />
             </div>
-            <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
-              Nova página
-            </span>
+            <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Nova página</span>
           </div>
         </Dialog.Trigger>
 
