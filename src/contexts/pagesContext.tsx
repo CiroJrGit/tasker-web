@@ -6,15 +6,12 @@ import { TaskList, Task, Note, Background, PagesProviderProps, PagesContextType 
 export const PagesContext = createContext<PagesContextType>({} as PagesContextType)
 
 const PagesProvider = ({ children }: PagesProviderProps) => {
-  // states lista de tarefas
   const [taskLists, setTaskLists] = useState<TaskList[]>([])
   const [loadingTaskLists, setLoadingTaskLists] = useState(true)
 
-  // states tarefas
   const [tasks, setTasks] = useState<Task[]>([])
   const [loadingTasks, setLoadingTasks] = useState(true)
 
-  // states anotacoes
   const [notes, setNotes] = useState<Note[]>([])
   const [loadingNotes, setLoadingNotes] = useState(true)
 

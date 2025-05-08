@@ -6,6 +6,7 @@ const IconSearch = ({ width, height, color }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 16 16"
+      className="shrink-0"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

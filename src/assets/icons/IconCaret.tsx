@@ -6,6 +6,7 @@ const IconCaret = ({ width, height, color }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 11 7"
+      className="shrink-0"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

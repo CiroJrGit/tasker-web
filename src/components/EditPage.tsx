@@ -10,8 +10,8 @@ import * as Separator from '@radix-ui/react-separator'
 import IconEdit from '../assets/icons/IconEdit'
 import IconTrash from '../assets/icons/IconTrash'
 import IconCheck from '../assets/icons/IconCheck'
-import IconDuplicate from '../assets/icons/duplicate'
-import IconPin from '../assets/icons/iconPin'
+import IconDuplicate from '../assets/icons/IconDuplicate'
+import IconPin from '../assets/icons/IconPin'
 // import IconUnPin from '../assets/icons/iconUnPin'
 
 interface EditPageProps {

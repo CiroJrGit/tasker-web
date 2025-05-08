@@ -6,6 +6,7 @@ const IconCheck = ({ width, height, color, stroke }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 13 10"
+      className="shrink-0"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

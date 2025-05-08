@@ -54,7 +54,9 @@ const User = ({ variant }: UserProps) => {
                   {user.name}
                 </span>
 
-                <span className="font-medium text-xs dark:text-gray-300 text-white-300 text-start">{user.email}</span>
+                <span className="font-int font-medium text-2xs dark:text-gray-300 text-white-300 text-start">
+                  {user.email}
+                </span>
               </div>
             </div>
 

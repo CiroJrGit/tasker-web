@@ -3,7 +3,7 @@ import { useState, ChangeEvent } from 'react'
 // import { PagesContext } from '../../contexts/pagesContext'
 
 import IconCheck from '../../assets/icons/IconCheck'
-import IconUpload from '../../assets/icons/upload'
+import IconUpload from '../../assets/icons/IconUpload'
 
 const Upload = () => {
   const [file, setFile] = useState<File>()
