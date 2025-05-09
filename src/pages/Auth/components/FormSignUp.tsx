@@ -1,11 +1,11 @@
 import { useState, FormEvent } from 'react'
-import { useAuth } from '../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 import { motion } from 'framer-motion'
 
 import * as Form from '@radix-ui/react-form'
-import Button from '../../../components/Button'
+import Button from '@/components/Button'
 
-import IconSpinner from '../../../assets/icons/IconSpinner'
+import IconSpinner from '@/assets/icons/IconSpinner'
 
 const FormSignUp = () => {
   const { isLoadingAuth, handleSignUp } = useAuth()

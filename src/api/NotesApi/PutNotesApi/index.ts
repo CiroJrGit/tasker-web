@@ -1,5 +1,4 @@
-import { api } from '../../_core/axios'
-
+import { api } from '@/api/_core/axios'
 import { PutNotesApiRequest } from './interfaces/request'
 import { PutNotesApiResponse } from './interfaces/response'
 

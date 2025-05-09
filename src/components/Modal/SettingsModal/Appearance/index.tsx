@@ -1,11 +1,11 @@
-import { useThemeContext } from '../../../contexts/themeContext'
-import { DropdownType } from '../../../types/dropdownProps'
-import { ThemeLabels } from '../../../types/themeTypes'
+import { useThemeContext } from '@/contexts/themeContext'
+import { ThemeLabels } from '@/types/themeTypes'
 
 import * as Switch from '@radix-ui/react-switch'
 import * as Separator from '@radix-ui/react-separator'
-import Dropdown from '../../Dropdown'
-import BackgroundSelection from '../../BackgroundSelection'
+// import Dropdown from '@/components/Dropdown/BaseDropdown'
+import BackgroundSelection from '@/components/BackgroundSelection'
+import ThemeDropdown from '@/components/Dropdown/ThemeDropdown'
 
 const AppearanceTab = () => {
   const { theme } = useThemeContext()
@@ -82,7 +82,7 @@ const AppearanceTab = () => {
               </span>
             </div>
 
-            <Dropdown type={DropdownType.THEME} name={themeSelected} />
+            <ThemeDropdown name={themeSelected} />
           </div>
 
           <label className="flex justify-between items-center gap-5 cursor-pointer" htmlFor="transparent-mode">

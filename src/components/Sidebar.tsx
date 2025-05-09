@@ -1,9 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
-
+import NewPageModal from './Modal/NewPageModal'
 import NavList from './NavList'
 import Menu from './Menu'
-import ModalNewPage from './ModalNewPage'
-import ModalWrap from './ModalWrap'
 
 import IconPlusRounded from '../assets/icons/IconPlusRounded'
 
@@ -24,9 +22,7 @@ const Sidebar = () => {
           </div>
         </Dialog.Trigger>
 
-        <ModalWrap title="Nova página">
-          <ModalNewPage />
-        </ModalWrap>
+        <NewPageModal />
       </Dialog.Root>
     </div>
   )

@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconEdit = ({ width, height }: IconProps) => {
   return (

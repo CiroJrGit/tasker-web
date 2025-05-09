@@ -1,4 +1,4 @@
-import { api } from '../../_core/axios'
+import { api } from '@/api/_core/axios'
 import { GetTaskListsByIdApiRequest } from './interfaces/request'
 import { GetTaskListsByIdApiResponse } from './interfaces/response'
 

@@ -1,11 +1,10 @@
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 import * as Dialog from '@radix-ui/react-dialog'
-import ModalWrap from '../../components/ModalWrap'
-import ModalNewPage from '../../components/ModalNewPage'
+import NewPageModal from '@/components/Modal/NewPageModal'
 
-import IconNote from '../../assets/icons/IconNote'
-import IconCheckbox from '../../assets/icons/IconCheckbox'
+import IconCheckbox from '@/assets/icons/IconCheckbox'
+import IconNote from '@/assets/icons/IconNote'
 
 const WelcomePage = () => {
   const { user } = useAuth()
@@ -39,9 +38,7 @@ const WelcomePage = () => {
             <span className="pt-px font-medium duration-10">Lista de tarefas</span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Nova página">
-            <ModalNewPage page="tasklist" />
-          </ModalWrap>
+          <NewPageModal page="tasklist" />
         </Dialog.Root>
 
         <Dialog.Root>
@@ -59,9 +56,7 @@ const WelcomePage = () => {
             <span className="pt-px font-medium duration-10">Página de anotações</span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Nova página">
-            <ModalNewPage page="notes" />
-          </ModalWrap>
+          <NewPageModal page="notes" />
         </Dialog.Root>
       </div>
     </div>

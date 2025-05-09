@@ -1,4 +1,4 @@
-import { api } from '../../_core/axios'
+import { api } from '@/api/_core/axios'
 import { GetAuthenticateRequest } from './interfaces/request'
 import { GetAuthenticateResponse } from './interfaces/response'
 

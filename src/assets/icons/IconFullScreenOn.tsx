@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconFullScreenOn = ({ width, height }: IconProps) => {
   return (

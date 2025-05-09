@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
 import FormSignIn from './components/FormSignIn'
 import FormSignUp from './components/FormSignUp'
-import LogoSVG from '../../assets/logo'
+import LogoSVG from '@/assets/logo'
 
 const AuthPage = () => {
   const navigate = useNavigate()

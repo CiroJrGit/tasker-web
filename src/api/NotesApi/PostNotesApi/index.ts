@@ -1,5 +1,4 @@
-import { api } from '../../_core/axios'
-
+import { api } from '@/api/_core/axios'
 import { PostNotesApiRequest } from './interfaces/request'
 import { PostNotesApiResponse } from './interfaces/response'
 

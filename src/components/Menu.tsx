@@ -1,9 +1,8 @@
 import * as Popover from '@radix-ui/react-popover'
 import * as Dialog from '@radix-ui/react-dialog'
 import User from './User'
-import ModalWrap from './ModalWrap'
-import ModalSearch from './ModalSearch'
-import ModalUser from './Settings/ModalUser'
+import SearchModal from './Modal/SearchModal'
+import SettingsModal from './Modal/SettingsModal'
 
 import IconSearch from '../assets/icons/IconSearch'
 import IconSettings from '../assets/icons/IconSettings'
@@ -48,9 +47,7 @@ const Menu = () => {
             <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Pesquisar</span>
           </Dialog.Trigger>
 
-          <ModalWrap>
-            <ModalSearch />
-          </ModalWrap>
+          <SearchModal />
         </Dialog.Root>
 
         <Dialog.Root>
@@ -66,9 +63,7 @@ const Menu = () => {
             <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Configurações</span>
           </Dialog.Trigger>
 
-          <ModalWrap title="Configurações">
-            <ModalUser />
-          </ModalWrap>
+          <SettingsModal />
         </Dialog.Root>
 
         <Popover.Root>

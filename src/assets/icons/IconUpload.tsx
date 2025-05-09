@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconUpload = ({ width, height, color, stroke }: IconProps) => {
   return (

@@ -1,9 +1,8 @@
 import { useContext, useEffect } from 'react'
-
-import { PagesContext } from '../../contexts/pagesContext'
+import { PagesContext } from '@/contexts/pagesContext'
 
 import Upload from '../Upload'
-import IconCheck from '../../assets/icons/IconCheck'
+import IconCheck from '@/assets/icons/IconCheck'
 
 const BackgroundSelection = () => {
   const { userBackground, setUserBackground, backgrounds, loadBackgrounds, handleBackgroundUser } =

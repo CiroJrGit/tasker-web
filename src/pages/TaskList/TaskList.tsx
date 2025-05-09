@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { useTaskLists } from '../../hooks/useTaskLists'
-import { useTasks } from '../../hooks/useTasks'
-import { TaskList } from '../../types/pagesTypes'
+import { useTaskLists } from '@/hooks/useTaskLists'
+import { useTasks } from '@/hooks/useTasks'
+import { TaskList } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import EditPage from '../../components/EditPage'
+import EditPage from '@/components/EditPage'
 import NewTask from './components/NewTask'
 import Task from './components/Tasks'
 
-import IconEllipsis from '../../assets/icons/IconEllipsis'
+import IconEllipsis from '@/assets/icons/IconEllipsis'
 
 const TaskListPage = () => {
   const { taskLists, handleGetTaskList } = useTaskLists()

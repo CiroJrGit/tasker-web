@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconCheckbox = ({ width, height, color, radius = '5.25' }: IconProps) => {
   return (

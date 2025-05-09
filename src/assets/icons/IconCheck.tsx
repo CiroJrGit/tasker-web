@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconCheck = ({ width, height, color, stroke }: IconProps) => {
   return (

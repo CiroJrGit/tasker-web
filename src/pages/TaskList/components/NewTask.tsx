@@ -1,7 +1,7 @@
 import { useState, KeyboardEvent } from 'react'
-import { useTasks } from '../../../hooks/useTasks'
+import { useTasks } from '@/hooks/useTasks'
 
-import IconPlus from '../../../assets/icons/IconPlus'
+import IconPlus from '@/assets/icons/IconPlus'
 
 interface NewTaskProps {
   listId: string

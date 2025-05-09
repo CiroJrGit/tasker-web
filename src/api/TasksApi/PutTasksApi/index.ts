@@ -1,4 +1,4 @@
-import { api } from '../../_core/axios'
+import { api } from '@/api/_core/axios'
 import { PutTasksApiRequest } from './interfaces/request'
 import { PutTasksApiResponse } from './interfaces/response'
 

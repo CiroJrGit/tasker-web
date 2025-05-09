@@ -1,4 +1,4 @@
-import { api } from '../../_core/axios'
+import { api } from '@/api/_core/axios'
 import { GetNotesApiRequest } from './interfaces/request'
 import { GetNotesApiResponse } from './interfaces/response'
 

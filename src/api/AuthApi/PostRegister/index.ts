@@ -1,4 +1,4 @@
-import { api } from '../../_core/axios'
+import { api } from '@/api/_core/axios'
 import { PostRegisterRequest } from './interfaces/request'
 import { PostRegisterResponse } from './interfaces/response'
 

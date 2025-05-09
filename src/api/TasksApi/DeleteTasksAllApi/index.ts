@@ -1,4 +1,4 @@
-import { api } from '../../_core/axios'
+import { api } from '@/api/_core/axios'
 import { DeleteTasksAllApiRequest } from './interfaces/request'
 import { DeleteTasksAllApiResponse } from './interfaces/response'
 

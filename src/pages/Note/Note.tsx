@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { useNotes } from '../../hooks/useNotes'
-import { Note } from '../../types/pagesTypes'
+import { useNotes } from '@/hooks/useNotes'
+import { Note } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import EditPage from '../../components/EditPage'
+import EditPage from '@/components/EditPage'
 
-import IconEllipsis from '../../assets/icons/IconEllipsis'
+import IconEllipsis from '@/assets/icons/IconEllipsis'
 
 const NotePage = () => {
   const { notes, handleGetNote } = useNotes()

@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { useTasks } from '../../../hooks/useTasks'
-import { Task } from '../../../types/pagesTypes'
+import { useTasks } from '@/hooks/useTasks'
+import { Task } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
 import * as Popover from '@radix-ui/react-popover'
 
-import IconClose from '../../../assets/icons/IconClose'
-import IconEditPen from '../../../assets/icons/IconEditPen'
-import IconCheck from '../../../assets/icons/IconCheck'
+import IconClose from '@/assets/icons/IconClose'
+import IconEditPen from '@/assets/icons/IconEditPen'
+import IconCheck from '@/assets/icons/IconCheck'
 
 interface TaskItemProps {
   tasks: Task[]
