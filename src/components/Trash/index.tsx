@@ -1,10 +1,10 @@
-import { useTaskLists } from '../hooks/useTaskLists'
-import { useNotes } from '../hooks/useNotes'
+import { useTaskLists } from '@/hooks/useTaskLists'
+import { useNotes } from '@/hooks/useNotes'
 import clsx from 'clsx'
 
-import IconBack from '../assets/icons/IconBack'
-import IconTrash from '../assets/icons/IconTrash'
-import IconSearch from '../assets/icons/IconSearch'
+import IconBack from '@/assets/icons/IconBack'
+import IconTrash from '@/assets/icons/IconTrash'
+import IconSearch from '@/assets/icons/IconSearch'
 
 const Trash = () => {
   const { taskLists, handleEditTaskList, handleDeleteTaskList } = useTaskLists()

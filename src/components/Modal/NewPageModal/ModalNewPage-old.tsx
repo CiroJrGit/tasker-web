@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
-import { useTaskLists } from '../hooks/useTaskLists'
-import { useNotes } from '../hooks/useNotes'
+import { useTaskLists } from '@/hooks/useTaskLists'
+import { useNotes } from '@/hooks/useNotes'
 // import { TaskListProps } from '../types/pagesProps'
 import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import * as Popover from '@radix-ui/react-popover'
-import Button from './Button'
+import Button from '@/components/Button'
 
-import IconCheckbox from '../assets/icons/IconCheckbox'
-import IconNote from '../assets/icons/IconNote'
-import IconCaret from '../assets/icons/IconCaret'
-import IconCheck from '../assets/icons/IconCheck'
+import IconCheckbox from '@/assets/icons/IconCheckbox'
+import IconNote from '@/assets/icons/IconNote'
+import IconCaret from '@/assets/icons/IconCaret'
+import IconCheck from '@/assets/icons/IconCheck'
 
 interface ModalNewPageProps {
   // list?: TaskListProps

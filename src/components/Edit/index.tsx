@@ -1,25 +1,25 @@
 import { useNavigate } from 'react-router-dom'
-import { useTaskLists } from '../hooks/useTaskLists'
-import { useNotes } from '../hooks/useNotes'
-import { TaskList, Note } from '../types/pagesTypes'
+import { useTaskLists } from '@/hooks/useTaskLists'
+import { useNotes } from '@/hooks/useNotes'
+import { TaskList, Note } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Separator from '@radix-ui/react-separator'
 
-import IconEdit from '../assets/icons/IconEdit'
-import IconTrash from '../assets/icons/IconTrash'
-import IconCheck from '../assets/icons/IconCheck'
-import IconDuplicate from '../assets/icons/IconDuplicate'
-import IconPin from '../assets/icons/IconPin'
+import IconEdit from '@/assets/icons/IconEdit'
+import IconTrash from '@/assets/icons/IconTrash'
+import IconCheck from '@/assets/icons/IconCheck'
+import IconDuplicate from '@/assets/icons/IconDuplicate'
+import IconPin from '@/assets/icons/IconPin'
 // import IconUnPin from '../assets/icons/iconUnPin'
 
-interface EditPageProps {
+interface EditProps {
   page: TaskList | Note
   type: string
 }
 
-const EditPage = ({ page, type }: EditPageProps) => {
+const Edit = ({ page, type }: EditProps) => {
   const { handleEditTaskList } = useTaskLists()
   const { handleEditNote } = useNotes()
 
@@ -74,9 +74,9 @@ const EditPage = ({ page, type }: EditPageProps) => {
             <Dialog.Root>
               <Dialog.Trigger
                 className="
-                flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-              "
+                  flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
+                  focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
+                "
                 type="button"
               >
                 <div className="flex justify-center items-center w-5">
@@ -91,9 +91,9 @@ const EditPage = ({ page, type }: EditPageProps) => {
 
             <div
               className="
-              flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-            "
+                flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
+                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
+              "
             >
               <div className="flex justify-center items-center w-5">
                 <IconDuplicate width="17" height="17" />
@@ -104,9 +104,9 @@ const EditPage = ({ page, type }: EditPageProps) => {
 
             <div
               className="
-              flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-            "
+                flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
+                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
+              "
             >
               <div className="flex justify-center items-center w-5">
                 <IconPin width="17" height="17" />
@@ -158,4 +158,4 @@ const EditPage = ({ page, type }: EditPageProps) => {
   )
 }
 
-export default EditPage
+export default Edit

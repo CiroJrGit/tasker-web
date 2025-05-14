@@ -1,12 +1,12 @@
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 import * as Separator from '@radix-ui/react-separator'
 // import * as Dialog from '@radix-ui/react-dialog'
 // import ModalWrap from './ModalWrap'
 // import ModalUser from './ModalUser'
 // import IconSettings from '../assets/icons/IconSettings'
-import IconLogout from '../assets/icons/IconLogout'
-import IconCheck from '../assets/icons/IconCheck'
+import IconLogout from '@/assets/icons/IconLogout'
+import IconCheck from '@/assets/icons/IconCheck'
 
 interface UserProps {
   variant: string

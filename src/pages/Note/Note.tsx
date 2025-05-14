@@ -5,7 +5,7 @@ import { Note } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import EditPage from '@/components/EditPage'
+import Edit from '@/components/Edit'
 
 import IconEllipsis from '@/assets/icons/IconEllipsis'
 
@@ -61,7 +61,7 @@ const NotePage = () => {
               <Popover.Portal>
                 <Popover.Content className="relative top-2.5 right-[146px] focus:outline-none">
                   <div className="absolute w-[200px] drop-shadow-md">
-                    <EditPage page={note} type="note" />
+                    <Edit page={note} type="note" />
                   </div>
                 </Popover.Content>
               </Popover.Portal>

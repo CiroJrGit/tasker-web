@@ -6,7 +6,7 @@ import { TaskList } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import EditPage from '@/components/EditPage'
+import Edit from '@/components/Edit'
 import NewTask from './components/NewTask'
 import Task from './components/Tasks'
 
@@ -69,7 +69,7 @@ const TaskListPage = () => {
               <Popover.Portal>
                 <Popover.Content className="relative top-2.5 right-[146px] focus:outline-none">
                   <div className="absolute w-[200px] drop-shadow-md">
-                    <EditPage page={taskList} type="tasklist" />
+                    <Edit page={taskList} type="tasklist" />
                   </div>
                 </Popover.Content>
               </Popover.Portal>

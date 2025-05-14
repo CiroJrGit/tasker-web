@@ -1,4 +1,4 @@
-import { ButtonProps, button } from '../types/buttonProps'
+import { ButtonProps, button } from '@/types/buttonProps'
 
 // import * as Dialog from '@radix-ui/react-dialog';
 

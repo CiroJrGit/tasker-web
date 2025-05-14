@@ -5,8 +5,8 @@ import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import Button from '@/components/Button'
 import BaseModal from '../BaseModal'
+import Button from '@/components/Button'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
 import IconNote from '@/assets/icons/IconNote'

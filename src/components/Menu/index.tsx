@@ -1,14 +1,14 @@
 import * as Popover from '@radix-ui/react-popover'
 import * as Dialog from '@radix-ui/react-dialog'
-import User from './User'
-import SearchModal from './Modal/SearchModal'
-import SettingsModal from './Modal/SettingsModal'
+import User from '../User'
+import SearchModal from '../Modal/SearchModal'
+import SettingsModal from '../Modal/SettingsModal'
 
-import IconSearch from '../assets/icons/IconSearch'
-import IconSettings from '../assets/icons/IconSettings'
-import IconTrash from '../assets/icons/IconTrash'
-import IconCaret from '../assets/icons/IconCaret'
-import Trash from './Trash'
+import IconSearch from '@/assets/icons/IconSearch'
+import IconSettings from '@/assets/icons/IconSettings'
+import IconTrash from '@/assets/icons/IconTrash'
+import IconCaret from '@/assets/icons/IconCaret'
+import Trash from '../Trash'
 
 const Menu = () => {
   return (

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { useTaskLists } from '../hooks/useTaskLists'
-import { useNotes } from '../hooks/useNotes'
+import { useTaskLists } from '@/hooks/useTaskLists'
+import { useNotes } from '@/hooks/useNotes'
 import { NavLink } from 'react-router-dom'
 import clsx from 'clsx'
 
