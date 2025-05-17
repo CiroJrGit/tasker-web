@@ -1,18 +1,18 @@
-import { useState, useContext, FormEvent } from 'react'
-import { AuthContext } from '../../../contexts/authContext'
-
-import * as Form from '@radix-ui/react-form'
-import Button from '../../../components/Button'
-import IconSpinner from '../../../assets/icons/IconSpinner'
-
+import { useState, FormEvent } from 'react'
+import { useAuth } from '@/hooks/useAuth'
 import { motion } from 'framer-motion'
 
+import * as Form from '@radix-ui/react-form'
+import Button from '@/components/Button'
+
+import IconSpinner from '@/assets/icons/IconSpinner'
+
 const FormSignUp = () => {
+  const { isLoadingAuth, handleSignUp } = useAuth()
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const { handleSignUp, loadingAuth } = useContext(AuthContext)
 
   const err = {
     from: { y: 10, opacity: 0 },
@@ -32,20 +32,10 @@ const FormSignUp = () => {
           <Form.Field name="name">
             <div className="flex flex-col gap-2">
               <Form.Label className="flex justify-between w-full">
-                <span className="dark:text-gray-200 text-sm font-medium">
-                  Nome
-                </span>
+                <span className="dark:text-gray-200 text-sm font-medium">Nome</span>
 
-                <Form.Message
-                  className="text-xs dark:text-red-500 text-red-700"
-                  match="valueMissing"
-                >
-                  <motion.span
-                    className="inline-block"
-                    variants={err}
-                    initial="from"
-                    animate="to"
-                  >
+                <Form.Message className="text-xs dark:text-red-500 text-red-700" match="valueMissing">
+                  <motion.span className="inline-block" variants={err} initial="from" animate="to">
                     Por favor insira um nome
                   </motion.span>
                 </Form.Message>
@@ -71,33 +61,15 @@ const FormSignUp = () => {
           <Form.Field name="email">
             <div className="flex flex-col gap-2">
               <Form.Label className="flex justify-between w-full">
-                <span className="dark:text-gray-200 text-sm font-medium">
-                  E-mail
-                </span>
+                <span className="dark:text-gray-200 text-sm font-medium">E-mail</span>
 
-                <Form.Message
-                  className="text-xs dark:text-red-500 text-red-700"
-                  match="valueMissing"
-                >
-                  <motion.span
-                    className="inline-block"
-                    variants={err}
-                    initial="from"
-                    animate="to"
-                  >
+                <Form.Message className="text-xs dark:text-red-500 text-red-700" match="valueMissing">
+                  <motion.span className="inline-block" variants={err} initial="from" animate="to">
                     Por favor insira um e-mail
                   </motion.span>
                 </Form.Message>
-                <Form.Message
-                  className="text-xs dark:text-red-500 text-red-700"
-                  match="typeMismatch"
-                >
-                  <motion.span
-                    className="inline-block"
-                    variants={err}
-                    initial="from"
-                    animate="to"
-                  >
+                <Form.Message className="text-xs dark:text-red-500 text-red-700" match="typeMismatch">
+                  <motion.span className="inline-block" variants={err} initial="from" animate="to">
                     Insira um e-mail válido
                   </motion.span>
                 </Form.Message>
@@ -123,33 +95,15 @@ const FormSignUp = () => {
           <Form.Field name="password">
             <div className="flex flex-col gap-2 mb-8">
               <Form.Label className="flex justify-between w-full">
-                <span className="dark:text-gray-200 text-sm font-medium">
-                  Senha
-                </span>
+                <span className="dark:text-gray-200 text-sm font-medium">Senha</span>
 
-                <Form.Message
-                  className="text-xs dark:text-red-500 text-red-700"
-                  match="valueMissing"
-                >
-                  <motion.span
-                    className="inline-block"
-                    variants={err}
-                    initial="from"
-                    animate="to"
-                  >
+                <Form.Message className="text-xs dark:text-red-500 text-red-700" match="valueMissing">
+                  <motion.span className="inline-block" variants={err} initial="from" animate="to">
                     Por favor insira uma senha
                   </motion.span>
                 </Form.Message>
-                <Form.Message
-                  className="text-xs dark:text-red-500 text-red-700"
-                  match="patternMismatch"
-                >
-                  <motion.span
-                    className="inline-block"
-                    variants={err}
-                    initial="from"
-                    animate="to"
-                  >
+                <Form.Message className="text-xs dark:text-red-500 text-red-700" match="patternMismatch">
+                  <motion.span className="inline-block" variants={err} initial="from" animate="to">
                     Mínimo de 8 caracteres e ao menos uma letra
                   </motion.span>
                 </Form.Message>
@@ -178,13 +132,7 @@ const FormSignUp = () => {
           <Button
             variant="primary"
             size="lg"
-            label={
-              loadingAuth ? (
-                <IconSpinner width="32" height="32" />
-              ) : (
-                'Criar conta'
-              )
-            }
+            label={isLoadingAuth ? <IconSpinner width="32" height="32" /> : 'Criar conta'}
           />
         </Form.Submit>
       </Form.Root>

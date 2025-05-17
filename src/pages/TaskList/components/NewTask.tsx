@@ -1,14 +1,14 @@
-import { useState, useContext, KeyboardEvent } from 'react'
-import { PagesContext } from '../../../contexts/pagesContext'
+import { useState, KeyboardEvent } from 'react'
+import { useTasks } from '@/hooks/useTasks'
 
-import IconPlus from '../../../assets/icons/IconPlus'
+import IconPlus from '@/assets/icons/IconPlus'
 
 interface NewTaskProps {
   listId: string
 }
 
 const NewTask = ({ listId }: NewTaskProps) => {
-  const { handleCreateTask } = useContext(PagesContext)
+  const { handleCreateTask } = useTasks()
   const [desc, setDesc] = useState('')
 
   function handleInputEnter(event: KeyboardEvent) {
@@ -44,11 +44,7 @@ const NewTask = ({ listId }: NewTaskProps) => {
         <IconPlus
           width="16"
           height="16"
-          color={
-            desc
-              ? 'dark:stroke-gray-50 stroke-gray-500'
-              : 'dark:stroke-gray-300 stroke-white-300'
-          }
+          color={desc ? 'dark:stroke-gray-50 stroke-gray-500' : 'dark:stroke-gray-300 stroke-white-300'}
         />
       </button>
     </>

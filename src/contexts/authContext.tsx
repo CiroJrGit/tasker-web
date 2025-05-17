@@ -1,159 +1,39 @@
-import { useState, useEffect, createContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../services/firebase';
-import { api } from '../lib/api';
-import cookies from 'js-cookie';
-import decode from 'jwt-decode';
+import { useState, createContext, useContext } from 'react'
+import { User, AuthProviderProps, AuthContextType } from '../types/authTypes'
+import cookies from 'js-cookie'
 
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-} from 'firebase/auth';
-
-import {
-  SignInProps,
-  SignUpProps,
-  UserProps,
-  AuthProviderProps,
-  AuthContextProps,
-} from '../types/authProps';
-
-export const AuthContext = createContext<AuthContextProps>(
-  {} as AuthContextProps,
-);
+export const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<UserProps>({});
-  const [loadingAuth, setLoadingAuth] = useState(false); //    loading de retorno do backend (spinner botão entrar)
-  const [validateAuth, setValidateAuth] = useState(false); //  loading ao tentar logar (validação email e senha incorretos)
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    !!cookies.get('token'),
-  );
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    function loadCookie() {
-      const token = cookies.get('token');
-
-      if (token) {
-        setUser(decode<UserProps>(token));
-      }
-    }
-
-    loadCookie();
-  }, []);
-
-  // Salvando cookie de sessão
-  function handleSessionCookie(token: string) {
-    cookies.set('token', token, { expires: 30 });
-    setIsAuthenticated(true);
-  }
-
-  // Cadastrando usuario
-  async function handleSignUp({ name, email, password }: SignUpProps) {
-    setLoadingAuth(true);
-
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
-        const registerResponse = await api.post('/register', {
-          id: userCredential.user.uid,
-          name,
-          email: userCredential.user.email,
-        });
-
-        const { token } = registerResponse.data;
-
-        setUser(decode(token));
-        handleSessionCookie(token);
-        setLoadingAuth(false);
-        navigate('/welcome');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        console.log(errorCode);
-        console.log(errorMessage);
-
-        setLoadingAuth(false);
-      });
-  }
-
-  // Logando usuario
-  async function handleSignIn({ email, password }: SignInProps) {
-    setLoadingAuth(true);
-    setValidateAuth(false);
-
-    await signInWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
-        const loginResponse = await api.get(
-          `/authenticate/${userCredential.user.uid}`,
-        );
-
-        const { token } = loginResponse.data;
-        const { sub, name, email } = decode<UserProps>(token);
-
-        const newUser: UserProps = {
-          sub,
-          name,
-          email,
-        };
-
-        setUser(newUser);
-        handleSessionCookie(token);
-        setLoadingAuth(false);
-        navigate('/welcome'); // irá mudar
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        console.log(errorCode);
-        console.log(errorMessage);
-
-        setValidateAuth(true);
-        setLoadingAuth(false);
-      });
-  }
-
-  // Deslogando usuario
-  async function handleSignOut() {
-    await signOut(auth)
-      .then(() => {
-        cookies.remove('token');
-
-        setUser({});
-        setIsAuthenticated(false);
-        navigate('/');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        console.log(errorCode);
-        console.log(errorMessage);
-      });
-  }
+  const [user, setUser] = useState<User>({})
+  const [isLoadingAuth, setIsLoadingAuth] = useState<boolean>(false)
+  const [validateAuth, setValidateAuth] = useState<boolean>(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(!!cookies.get('token'))
 
   return (
     <AuthContext.Provider
       value={{
         user,
-        loadingAuth,
+        isLoadingAuth,
         validateAuth,
         isAuthenticated,
-        handleSignIn,
-        handleSignUp,
-        handleSignOut,
         setUser,
+        setIsLoadingAuth,
         setValidateAuth,
+        setIsAuthenticated,
       }}
     >
       {children}
     </AuthContext.Provider>
-  );
-};
+  )
+}
 
-export default AuthProvider;
+export const useAuthContext = () => {
+  const context = useContext(AuthContext)
+  if (!context) {
+    throw new Error('useAuthContext must be used within an AuthProvider')
+  }
+  return context
+}
+
+export default AuthProvider

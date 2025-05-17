@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconSun = ({ width, height, color }: IconProps) => {
   return (
@@ -6,6 +6,7 @@ const IconSun = ({ width, height, color }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 18 18"
+      className="shrink-0"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

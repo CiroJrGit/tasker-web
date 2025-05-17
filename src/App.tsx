@@ -1,11 +1,11 @@
-import './styles/global.css'
-
 import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from './routes'
 
 import AuthProvider from './contexts/authContext'
 import PagesProvider from './contexts/pagesContext'
 import ThemeProvider from './contexts/themeContext'
+
+import './styles/global.css'
 
 const App = () => {
   return (

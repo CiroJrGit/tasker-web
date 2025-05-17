@@ -1,9 +1,9 @@
-import { useState, useContext, ChangeEvent } from 'react'
+import { useState, ChangeEvent } from 'react'
 
-// import { PagesContext } from '../../contexts/pagesContext'
+// import { PagesContext } from '@/contexts/pagesContext'
 
-import IconCheck from '../../assets/icons/IconCheck'
-import IconUpload from '../../assets/icons/upload'
+import IconCheck from '@/assets/icons/IconCheck'
+import IconUpload from '@/assets/icons/IconUpload'
 
 const Upload = () => {
   const [file, setFile] = useState<File>()
@@ -50,20 +50,9 @@ const Upload = () => {
             height="20"
             color="dark:stroke-gray-300 stroke-gray-300"
             /> */}
-            <IconUpload
-              width="20"
-              height="20"
-              color="dark:stroke-gray-300 stroke-white-300"
-              stroke="1.5"
-            />
+            <IconUpload width="20" height="20" color="dark:stroke-gray-300 stroke-white-300" stroke="1.5" />
           </label>
-          <input
-            type="file"
-            id="upload-image"
-            className="hidden"
-            accept="image/*"
-            onChange={handleFileChange}
-          />
+          <input type="file" id="upload-image" className="hidden" accept="image/*" onChange={handleFileChange} />
         </div>
       )}
 
@@ -85,21 +74,11 @@ const Upload = () => {
             `}
           >
             <div className="absolute bottom-0 right-0 flex justify-center items-center w-6 h-6 pt-0.5 my-1 mx-[5px] rounded-[5px] hover:bg-gray-200/70 group-hover:hidden">
-              <IconCheck
-                width="18"
-                height="18"
-                color="stroke-white-950"
-                stroke="1.5"
-              />
+              <IconCheck width="18" height="18" color="stroke-white-950" stroke="1.5" />
             </div>
 
             <div className="absolute bottom-0 right-0 hidden justify-center items-center w-[26px] h-[26px] my-1 mx-1.5 rounded-[5px] hover:bg-gray-200/70 group-hover:flex">
-              <IconUpload
-                width="17"
-                height="17"
-                color="stroke-white-950"
-                stroke="1.5"
-              />
+              <IconUpload width="17" height="17" color="stroke-white-950" stroke="1.5" />
             </div>
           </div>
 

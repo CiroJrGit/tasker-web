@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconTrash = ({ width, height, color }: IconProps) => {
   return (
@@ -6,15 +6,11 @@ const IconTrash = ({ width, height, color }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 18 18"
+      className="shrink-0"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M16.3701 3.99976H1.62988"
-        className={color}
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
+      <path d="M16.3701 3.99976H1.62988" className={color} strokeWidth="1.4" strokeLinecap="round" />
       <path
         d="M14.9247 6.0835L14.5258 11.8327C14.3723 14.0451 14.2956 15.1514 13.5456 15.8257C12.7956 16.5001 11.642 16.5001 9.33494 16.5001H8.66444C6.3573 16.5001 5.20375 16.5001 4.45373 15.8257C3.70371 15.1514 3.62698 14.0451 3.47351 11.8327L3.07471 6.0835"
         className={color}

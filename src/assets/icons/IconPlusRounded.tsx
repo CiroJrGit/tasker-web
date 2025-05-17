@@ -1,4 +1,4 @@
-import { IconProps } from '../../types/iconProps'
+import { IconProps } from '@/types/iconProps'
 
 const IconPlusRounded = ({ width, height }: IconProps) => {
   return (
@@ -6,6 +6,7 @@ const IconPlusRounded = ({ width, height }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 16 17"
+      className="shrink-0"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

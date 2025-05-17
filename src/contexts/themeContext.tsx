@@ -1,24 +1,13 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect, useContext, createContext } from 'react'
+import { Theme, ThemeContextType, ThemeProviderProps } from '../types/themeTypes'
 
-import {
-  Theme,
-  ThemeContextProps,
-  ThemeProviderProps,
-} from '../types/themeProps'
-
-export const ThemeContext = createContext<ThemeContextProps>(
-  {} as ThemeContextProps,
-)
+export const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType)
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState(
-    (localStorage.getItem('tasker-userTheme') as Theme) || 'system',
-  )
+  const [theme, setTheme] = useState((localStorage.getItem('tasker-userTheme') as Theme) || 'system')
 
   const getSystemTheme = (): Theme => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
   const applyTheme = (theme: Theme) => {
@@ -61,11 +50,15 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }
   }, [theme])
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+}
+
+export const useThemeContext = () => {
+  const context = useContext(ThemeContext)
+  if (!context) {
+    throw new Error('useThemeContext must be used within a ThemeProvider')
+  }
+  return context
 }
 
 export default ThemeProvider
