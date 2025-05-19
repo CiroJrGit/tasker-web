@@ -5,7 +5,7 @@ import { Note } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import Edit from '@/components/Edit'
+import Edit from '@/components/Popover/Edit'
 
 import IconEllipsis from '@/assets/icons/IconEllipsis'
 

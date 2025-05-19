@@ -4,8 +4,8 @@ import { useNotes } from '@/hooks/useNotes'
 import { TaskList, Note } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
-import * as Dialog from '@radix-ui/react-dialog'
 import * as Separator from '@radix-ui/react-separator'
+import MenuItem from '@/components/Buttons/MenuItem'
 
 import IconEdit from '@/assets/icons/IconEdit'
 import IconTrash from '@/assets/icons/IconTrash'
@@ -16,7 +16,7 @@ import IconPin from '@/assets/icons/IconPin'
 
 interface EditProps {
   page: TaskList | Note
-  type: string
+  type: 'tasklist' | 'note'
 }
 
 const Edit = ({ page, type }: EditProps) => {
@@ -71,53 +71,31 @@ const Edit = ({ page, type }: EditProps) => {
 
         <div className="flex flex-col gap-2.5 px-1.5 dark:text-gray-100 text-gray-300">
           <div className="flex flex-col gap-1">
-            <Dialog.Root>
-              <Dialog.Trigger
-                className="
-                  flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-                  focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-                "
-                type="button"
-              >
-                <div className="flex justify-center items-center w-5">
-                  <IconEdit width="17" height="17" />
-                </div>
+            <MenuItem
+              as="button-trigger"
+              variant="popover"
+              icon={<IconEdit width="17" height="17" />}
+              label="Renomear"
+              onClick={() => console.log('Renomear')}
+            />
 
-                <span className="pt-px text-sm">Renomear</span>
-              </Dialog.Trigger>
+            <MenuItem
+              as="button-trigger"
+              variant="popover"
+              icon={<IconDuplicate width="17" height="17" />}
+              label="Duplicar"
+              onClick={() => console.log('Duplicar')}
+            />
 
-              {/* <Modal type="edit" list={list} /> */}
-            </Dialog.Root>
-
-            <div
-              className="
-                flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-              "
-            >
-              <div className="flex justify-center items-center w-5">
-                <IconDuplicate width="17" height="17" />
-              </div>
-
-              <span className="pt-px text-sm">Duplicar</span>
-            </div>
-
-            <div
-              className="
-                flex items-center gap-2.5 h-8 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70
-                focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-              "
-            >
-              <div className="flex justify-center items-center w-5">
-                <IconPin width="17" height="17" />
-                {/* <IconUnPin width="19" height="19" /> */}
-              </div>
-
-              <span className="pt-px text-sm">
-                Fixar página
-                {/* Desafixar página */}
-              </span>
-            </div>
+            <MenuItem
+              as="button-trigger"
+              variant="popover"
+              icon={<IconPin width="17" height="17" />}
+              // icon={<IconUnPin width="19" height="19" />}
+              label="Fixar página"
+              // label="Desafixar página"
+              onClick={() => console.log('Fixar página')}
+            />
           </div>
 
           <Separator.Root
@@ -125,12 +103,17 @@ const Edit = ({ page, type }: EditProps) => {
             decorative
           />
 
-          <button
-            className="
-              flex items-center gap-2.5 h-8 px-2 rounded-md group duration-0
-              dark:active:bg-gray-500/25 active:bg-white-600/70 dark:hover:bg-gray-600/90 hover:bg-white-700/75 hover:text-red-500
-              focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
-            "
+          <MenuItem
+            as="button-trigger"
+            variant="popover"
+            icon={
+              <IconTrash
+                width="17"
+                height="17"
+                color="dark:stroke-gray-100 stroke-gray-300 group-hover:stroke-red-500"
+              />
+            }
+            label="Mover para lixeira"
             onClick={
               type === 'tasklist'
                 ? () => {
@@ -142,16 +125,8 @@ const Edit = ({ page, type }: EditProps) => {
                     navigate('/welcome')
                   }
             }
-          >
-            <div className="flex justify-center items-center w-5 pb-px">
-              <IconTrash
-                width="17"
-                height="17"
-                color="dark:stroke-gray-100 stroke-gray-300 group-hover:stroke-red-500"
-              />
-            </div>
-            <span className="text-sm">Excluir</span>
-          </button>
+            danger
+          />
         </div>
       </div>
     </>

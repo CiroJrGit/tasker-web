@@ -29,6 +29,9 @@ export default {
         18: '4.5rem',
         20.5: '5.375rem',
       },
+      borderRadius: {
+        '2sm': '0.313rem',
+      },
       ringWidth: {
         1.5: '1.5px',
       },

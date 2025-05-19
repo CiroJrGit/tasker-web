@@ -2,7 +2,7 @@ import { useAuth } from '@/hooks/useAuth'
 
 import * as Popover from '@radix-ui/react-popover'
 import * as Separator from '@radix-ui/react-separator'
-import UserCard from '../UserCard'
+import UserCard from '@/components/UserCard'
 
 import IconLogout from '@/assets/icons/IconLogout'
 import IconCheck from '@/assets/icons/IconCheck'

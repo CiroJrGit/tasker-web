@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
-
 import * as Popover from '@radix-ui/react-popover'
 import UserCard from '../UserCard'
-import MenuButton from '../MenuButton'
-import AccountPopover from '../AccountPopover'
+import MenuItem from '../Buttons/MenuItem'
+import AccountPopover from '../Popover/AccountPopover'
 import SearchModal from '../Modal/SearchModal'
 import SettingsModal from '../Modal/SettingsModal'
-import Trash from '../Trash'
+import Trash from '../Popover/Trash'
 
 import IconSearch from '@/assets/icons/IconSearch'
 import IconSettings from '@/assets/icons/IconSettings'
@@ -32,29 +31,32 @@ const Menu = () => {
       </Popover.Root>
       
       <div className="flex flex-col gap-1">
-        <MenuButton
+        <MenuItem
+          as='dialog-trigger'
+          variant='menu'
           icon={<IconSearch width="16" height="16" color="dark:stroke-gray-100 stroke-gray-300" />}
           label="Pesquisar"
-          triggerType="dialog"
         >
           <SearchModal />
-        </MenuButton>
+        </MenuItem>
 
-        <MenuButton
+        <MenuItem
+          as='dialog-trigger'
+          variant='menu'
           icon={<IconSettings width="18" height="18" />}
           label="Configurações"
-          triggerType="dialog"
         >
           <SettingsModal />
-        </MenuButton>
+        </MenuItem>
 
-        <MenuButton
+        <MenuItem
+          as='popover-trigger'
+          variant='menu'
           icon={<IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />}
           label="Lixeira"
-          triggerType="popover"
         >
           <Trash />
-        </MenuButton>
+        </MenuItem>
       </div>
     </nav>
   )

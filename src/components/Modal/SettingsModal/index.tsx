@@ -3,7 +3,7 @@ import { useAuthContext } from '@/contexts/authContext'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Tabs from '@radix-ui/react-tabs'
 
-import Button from '@/components/Button'
+import Button from '@/components/Buttons/Button'
 import BaseModal from '../BaseModal'
 import ProfileTab from './Profile'
 import AppearanceTab from './Appearance'

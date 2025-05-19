@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import * as Popover from '@radix-ui/react-popover'
-import Button from '@/components/Button'
+import Button from '@/components/Buttons/Button'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
 import IconNote from '@/assets/icons/IconNote'
@@ -16,7 +16,7 @@ import IconCheck from '@/assets/icons/IconCheck'
 
 interface ModalNewPageProps {
   // list?: TaskListProps
-  // type?: string
+  // type?: 'new' | 'edit'
   page?: string
 }
 

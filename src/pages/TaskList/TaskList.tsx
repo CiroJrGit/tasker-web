@@ -6,7 +6,7 @@ import { TaskList } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Popover from '@radix-ui/react-popover'
-import Edit from '@/components/Edit'
+import Edit from '@/components/Popover/Edit'
 import NewTask from './components/NewTask'
 import Task from './components/Tasks'
 

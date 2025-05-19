@@ -3,7 +3,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { motion } from 'framer-motion'
 
 import * as Form from '@radix-ui/react-form'
-import Button from '@/components/Button'
+import Button from '@/components/Buttons/Button'
 
 import IconSpinner from '@/assets/icons/IconSpinner'
 
