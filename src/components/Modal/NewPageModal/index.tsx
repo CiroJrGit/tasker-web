@@ -5,8 +5,8 @@ import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
+import MainButton from '@/components/Buttons/MainButton'
 import BaseModal from '../BaseModal'
-import Button from '@/components/Buttons/Button'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
 import IconNote from '@/assets/icons/IconNote'
@@ -30,7 +30,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
     <BaseModal title="Nova página">
       <div className="flex flex-col gap-18 min-w-[506px] min-h-[324px] mt-5 px-4">
         <div className="flex flex-col gap-8">
-          <RadioGroup.Root className="flex gap-3" defaultValue={page} aria-label="Page type">
+          <RadioGroup.Root className="flex gap-2.5" defaultValue={page} aria-label="Page type">
             <div className="flex">
               <RadioGroup.Item
                 className="hidden peer"
@@ -40,7 +40,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
               />
               <label
                 className="
-                  flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-2xl dark:text-gray-100 text-gray-300 cursor-pointer
+                  flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-1xl dark:text-gray-100 text-gray-300 cursor-pointer
                   dark:hover:bg-gray-800 hover:bg-white-800 border dark:border-gray-500 border-gray-100
                   peer-aria-checked:dark:bg-gray-700 peer-aria-checked:bg-white-700
                   peer-aria-checked:dark:border-gray-100 peer-aria-checked:border-gray-300
@@ -66,7 +66,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
                     Listas
                   </span>
                   <span className="text-xs font-medium dark:text-gray-300 text-white-300">
-                    Crie e conclua lista de tarefas
+                    Crie e conclua suas tarefas
                   </span>
                 </div>
               </label>
@@ -81,7 +81,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
               />
               <label
                 className="
-                  flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-2xl dark:text-gray-100 text-gray-300 cursor-pointer
+                  flex flex-col gap-3 min-w-52 px-3 py-3.5 rounded-1xl dark:text-gray-100 text-gray-300 cursor-pointer
                   dark:hover:bg-gray-800 hover:bg-white-800 border dark:border-gray-500 border-gray-100
                   peer-aria-checked:dark:bg-gray-700 peer-aria-checked:bg-white-700
                   peer-aria-checked:dark:border-gray-100 peer-aria-checked:border-gray-300
@@ -163,7 +163,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
 
         <div className="flex justify-end gap-3">
           <Dialog.Close asChild>
-            <Button
+            <MainButton
               variant="primary"
               size="md"
               label="Criar"
@@ -177,7 +177,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
           </Dialog.Close>
 
           <Dialog.Close asChild>
-            <Button variant="secondary" size="md" label="Cancelar" />
+            <MainButton variant="secondary" size="md" label="Cancelar" />
           </Dialog.Close>
         </div>
       </div>

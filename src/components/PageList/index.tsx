@@ -29,7 +29,7 @@ const PageList = () => {
                   className="relative rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                 >
                   <PageItem
-                    variant="menu"
+                    variant="active"
                     color={list.color}
                     title={list.title}
                     onPrimaryAction={() => console.log('Editar ' + list.title)}
@@ -55,7 +55,7 @@ const PageList = () => {
                   className="relative rounded-m focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group"
                 >
                   <PageItem
-                    variant="menu"
+                    variant="active"
                     color={note.color}
                     title={note.title}
                     onPrimaryAction={() => console.log('Editar ' + note.title)}

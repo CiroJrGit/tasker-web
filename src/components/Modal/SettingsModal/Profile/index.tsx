@@ -1,5 +1,5 @@
 import * as Separator from '@radix-ui/react-separator'
-import Button from '@/components/Buttons/Button'
+import MainButton from '@/components/Buttons/MainButton'
 
 interface ProfileProps {
   name?: string
@@ -72,7 +72,7 @@ const ProfileTab = ({ name, email }: ProfileProps) => {
             </div>
 
             <div>
-              <Button variant="secondary" size="sm" label="Alterar" />
+              <MainButton variant="secondary" size="sm" label="Alterar" />
             </div>
           </div>
 
@@ -85,7 +85,7 @@ const ProfileTab = ({ name, email }: ProfileProps) => {
             </div>
 
             <div>
-              <Button variant="secondary" size="sm" label="Alterar" />
+              <MainButton variant="secondary" size="sm" label="Alterar" />
             </div>
           </div>
         </div>

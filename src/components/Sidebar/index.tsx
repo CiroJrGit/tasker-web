@@ -17,6 +17,7 @@ const Sidebar = () => {
         variant="menu"
         icon={<IconPlusRounded width="17" height="17" />}
         label="Nova página"
+        size="lg"
       >
         <NewPageModal />
       </MenuItem>

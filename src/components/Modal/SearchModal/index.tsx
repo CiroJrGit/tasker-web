@@ -107,7 +107,7 @@ const SearchModal = () => {
                       >
                         <Dialog.Close asChild>
                           <PageItem
-                            variant='search'
+                            variant='active'
                             color={list.color}
                             title={list.title}
                             onPrimaryAction={() => console.log('Editar ' + list.title)}
@@ -145,7 +145,7 @@ const SearchModal = () => {
                       >
                         <Dialog.Close asChild>
                           <PageItem
-                            variant='search'
+                            variant='active'
                             color={note.color}
                             title={note.title}
                             onPrimaryAction={() => console.log('Editar ' + note.title)}

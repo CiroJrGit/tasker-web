@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import * as Popover from '@radix-ui/react-popover'
-import Button from '@/components/Buttons/Button'
+import MainButton from '@/components/Buttons/MainButton'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
 import IconNote from '@/assets/icons/IconNote'
@@ -142,7 +142,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
 
       <div className="flex justify-end gap-3">
         <Dialog.Close asChild>
-          <Button
+          <MainButton
             variant="primary"
             size="md"
             label="Criar"
@@ -156,7 +156,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
         </Dialog.Close>
 
         <Dialog.Close asChild>
-          <Button variant="secondary" size="md" label="Cancelar" />
+          <MainButton variant="secondary" size="md" label="Cancelar" />
         </Dialog.Close>
       </div>
     </div>

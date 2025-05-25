@@ -3,7 +3,7 @@ import { useAuthContext } from '@/contexts/authContext'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Tabs from '@radix-ui/react-tabs'
 
-import Button from '@/components/Buttons/Button'
+import MainButton from '@/components/Buttons/MainButton'
 import BaseModal from '../BaseModal'
 import ProfileTab from './Profile'
 import AppearanceTab from './Appearance'
@@ -58,7 +58,7 @@ const SettingsModal = () => {
 
         <div className="flex justify-end gap-3 px-6">
           <Dialog.Close asChild>
-            <Button
+            <MainButton
               variant="primary"
               size="md"
               label="Salvar"
@@ -68,7 +68,7 @@ const SettingsModal = () => {
           </Dialog.Close>
 
           <Dialog.Close asChild>
-            <Button variant="secondary" size="md" label="Cancelar" />
+            <MainButton variant="secondary" size="md" label="Cancelar" />
           </Dialog.Close>
         </div>
       </div>

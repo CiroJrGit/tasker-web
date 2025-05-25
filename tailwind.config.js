@@ -31,6 +31,7 @@ export default {
       },
       borderRadius: {
         '2sm': '0.313rem',
+        '1xl': '0.875rem',
       },
       ringWidth: {
         1.5: '1.5px',

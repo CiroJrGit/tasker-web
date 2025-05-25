@@ -3,7 +3,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { motion } from 'framer-motion'
 
 import * as Form from '@radix-ui/react-form'
-import Button from '@/components/Buttons/Button'
+import MainButton from '@/components/Buttons/MainButton'
 
 import IconSpinner from '@/assets/icons/IconSpinner'
 
@@ -129,7 +129,7 @@ const FormSignUp = () => {
         </div>
 
         <Form.Submit asChild>
-          <Button
+          <MainButton
             variant="primary"
             size="lg"
             label={isLoadingAuth ? <IconSpinner width="32" height="32" /> : 'Criar conta'}
