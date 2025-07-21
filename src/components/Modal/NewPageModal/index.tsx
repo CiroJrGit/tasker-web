@@ -52,8 +52,8 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
                   height="20"
                   color={
                     selectedOption === 'tasklist'
-                      ? 'dark:stroke-gray-100 stroke-gray-400'
-                      : 'dark:stroke-gray-500 stroke-white-300'
+                      ? 'dark:text-gray-100 text-gray-400'
+                      : 'dark:text-gray-500 text-white-300'
                   }
                 />
 
@@ -93,8 +93,8 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
                   height="21"
                   color={
                     selectedOption === 'notes'
-                      ? 'dark:stroke-gray-100 stroke-gray-400'
-                      : 'dark:stroke-gray-500 stroke-white-300'
+                      ? 'dark:text-gray-100 text-gray-400'
+                      : 'dark:text-gray-500 text-white-300'
                   }
                 />
                 <div className="flex flex-col gap-px">
@@ -151,9 +151,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
                     )}
                     onClick={() => setSelectedColor(color)}
                   >
-                    {color === selectedColor && (
-                      <IconCheck width="13" height="13" color="stroke-gray-50" stroke="2.2" />
-                    )}
+                    {color === selectedColor && <IconCheck width="13" height="13" color="text-gray-50" stroke="2.2" />}
                   </button>
                 ))}
               </div>

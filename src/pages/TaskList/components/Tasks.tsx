@@ -59,7 +59,7 @@ const TaskPage = ({ tasks, listColor, listId }: TaskItemProps) => {
               )}
             >
               <Checkbox.Indicator>
-                <IconCheck width="12" height="13" color="stroke-gray-50" stroke="2.4" />
+                <IconCheck width="12" height="13" color="text-gray-50" stroke="2.4" />
               </Checkbox.Indicator>
             </div>
 
@@ -82,7 +82,7 @@ const TaskPage = ({ tasks, listColor, listId }: TaskItemProps) => {
                   dark:focus-visible:ring-offset-gray-600 focus-visible:ring-offset-white-700 opacity-0 group-hover:opacity-100
                 "
               >
-                <IconEditPen width="17" height="17" color="dark:stroke-gray-300 stroke-white-400" />
+                <IconEditPen width="17" height="17" color="dark:text-gray-300 text-white-400" />
               </Popover.Trigger>
 
               <Popover.Portal>
@@ -99,7 +99,7 @@ const TaskPage = ({ tasks, listColor, listId }: TaskItemProps) => {
                       className="mt-1 p-1.5 rounded-lg dark:active:bg-gray-500/30 active:bg-white-600 dark:hover:bg-gray-500/50 hover:bg-white-600/60"
                       onClick={() => handleAlternateEdit(task.id, task.desc, listId)}
                     >
-                      <IconEditPen width="18" height="17" color="dark:stroke-gray-300 stroke-white-400" />
+                      <IconEditPen width="18" height="17" color="dark:text-gray-300 text-white-400" />
                     </Popover.Close>
                   </div>
                 </Popover.Content>
@@ -113,7 +113,7 @@ const TaskPage = ({ tasks, listColor, listId }: TaskItemProps) => {
               "
               onClick={() => handleDeleteTask(task.id, listId)}
             >
-              <IconClose width="13" height="14" />
+              <IconClose width="13" height="14" color="dark:text-gray-300 text-white-400" />
             </button>
           </div>
         </div>

@@ -6,13 +6,13 @@ const IconCheck = ({ width, height, color, stroke }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 13 10"
-      className="shrink-0"
+      className={`shrink-0 ${color}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M11 1.5L4.8125 7.6875L2 4.875"
-        className={color}
+        stroke="currentColor"
         strokeWidth={stroke}
         strokeLinecap="round"
         strokeLinejoin="round"

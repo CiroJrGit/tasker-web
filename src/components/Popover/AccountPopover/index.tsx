@@ -23,7 +23,7 @@ const AccountPopover = () => {
             >
               <UserCard variant="md" />
               <div className="flex justify-center items-center px-1">
-                <IconCheck width="21" height="21" color="dark:stroke-gray-300 stroke-white-300" stroke="1.4" />
+                <IconCheck width="21" height="21" color="dark:text-gray-300 text-white-300" stroke="1.4" />
               </div>
             </div>
             <div className="px-1">
@@ -38,7 +38,7 @@ const AccountPopover = () => {
               <Dialog.Trigger className="rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300">
                 <div className="flex flex-row items-center gap-2 h-8 mx-1 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-600/70 dark:active:bg-gray-500/30 active:bg-white-600">
                   <div className="flex justify-center items-center w-6">
-                    <IconSettings width="19" height="19" />
+                    <IconSettings width="19" height="19" color="dark:text-gray-100 text-gray-300" />
                   </div>
                   <span className="flex items-center font-int font-medium text-sm dark:text-gray-100 text-gray-300">
                     Configurações
@@ -57,7 +57,7 @@ const AccountPopover = () => {
               >
                 <div className="flex flex-row items-center gap-2 h-8 mx-2 px-2 rounded-md dark:hover:bg-gray-600/90 hover:bg-white-700/75 dark:active:bg-gray-500/25 active:bg-white-600/70">
                   <div className="flex justify-center items-center w-6">
-                    <IconLogout width="16" height="16" />
+                    <IconLogout width="16" height="16" color="dark:text-gray-100 text-gray-300" />
                   </div>
                   <span className="flex items-center font-int text-sm dark:text-gray-100 text-gray-300">Sair</span>
                 </div>

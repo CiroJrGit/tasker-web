@@ -70,8 +70,8 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               onClick={() => setFullScreen(!fullScreen)}
             >
               {!fullScreen
-                ? <IconFullScreenOn width="18" height="18" />
-                : <IconFullScreenOff width="18" height="18" />
+                ? <IconFullScreenOn width="18" height="18" color="dark:text-gray-400 text-gray-300" />
+                : <IconFullScreenOff width="18" height="18" color="dark:text-gray-400 text-gray-300" />
               }
             </button>
           </header>

@@ -44,7 +44,7 @@ const NewTask = ({ listId }: NewTaskProps) => {
         <IconPlus
           width="16"
           height="16"
-          color={desc ? 'dark:stroke-gray-50 stroke-gray-500' : 'dark:stroke-gray-300 stroke-white-300'}
+          color={desc ? 'dark:text-gray-50 text-gray-500' : 'dark:text-gray-300 text-white-300'}
         />
       </button>
     </>

@@ -56,7 +56,7 @@ const Edit = ({ page, type }: EditProps) => {
                     : () => handleEditNote(page.id, page.title, color, page.deleted)
                 }
               >
-                {color === page.color && <IconCheck width="13" height="13" color="stroke-gray-50" stroke="2.2" />}
+                {color === page.color && <IconCheck width="13" height="13" color="text-gray-50" stroke="2.2" />}
               </button>
             ))}
           </div>
@@ -74,7 +74,7 @@ const Edit = ({ page, type }: EditProps) => {
             <MenuItem
               as="button-trigger"
               variant="popover"
-              icon={<IconEdit width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />}
+              icon={<IconEdit width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
               label="Renomear"
               onClick={() => console.log('Renomear')}
             />
@@ -82,7 +82,7 @@ const Edit = ({ page, type }: EditProps) => {
             <MenuItem
               as="button-trigger"
               variant="popover"
-              icon={<IconDuplicate width="17" height="17" />}
+              icon={<IconDuplicate width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
               label="Duplicar"
               onClick={() => console.log('Duplicar')}
             />
@@ -90,10 +90,10 @@ const Edit = ({ page, type }: EditProps) => {
             <MenuItem
               as="button-trigger"
               variant="popover"
-              icon={<IconPin width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />}
+              icon={<IconPin width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
               label="Fixar página"
               onClick={() => console.log('Fixar página')}
-              // icon={<IconUnPin width="19" height="19" />}
+              // icon={<IconUnPin width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
               // label="Desafixar página"
             />
           </div>
@@ -106,7 +106,7 @@ const Edit = ({ page, type }: EditProps) => {
           <MenuItem
             as="button-trigger"
             variant="popover"
-            icon={<IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />}
+            icon={<IconTrash width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
             label="Mover para lixeira"
             onClick={
               type === 'tasklist'

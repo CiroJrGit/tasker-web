@@ -37,7 +37,7 @@ const ThemeDropdown = ({ name }: ThemeDropdownProps) => {
               <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">{ThemeLabels.dark}</span>
 
               <DropdownMenu.ItemIndicator className="flex items-center">
-                <IconCheck width="15" height="15" stroke="2" color="dark:stroke-gray-50 stroke-gray-300" />
+                <IconCheck width="15" height="15" stroke="2" color="dark:text-gray-50 text-gray-300" />
               </DropdownMenu.ItemIndicator>
             </DropdownMenu.RadioItem>
 
@@ -51,7 +51,7 @@ const ThemeDropdown = ({ name }: ThemeDropdownProps) => {
               <span className="font-normal font-int text-sm dark:text-gray-100 text-gray-300">{ThemeLabels.light}</span>
 
               <DropdownMenu.ItemIndicator className="flex items-center">
-                <IconCheck width="15" height="15" stroke="2" color="dark:stroke-gray-50 stroke-gray-300" />
+                <IconCheck width="15" height="15" stroke="2" color="dark:text-gray-50 text-gray-300" />
               </DropdownMenu.ItemIndicator>
             </DropdownMenu.RadioItem>
 
@@ -67,7 +67,7 @@ const ThemeDropdown = ({ name }: ThemeDropdownProps) => {
               </span>
 
               <DropdownMenu.ItemIndicator className="flex items-center">
-                <IconCheck width="15" height="15" stroke="2" color="dark:stroke-gray-50 stroke-gray-300" />
+                <IconCheck width="15" height="15" stroke="2" color="dark:text-gray-50 text-gray-300" />
               </DropdownMenu.ItemIndicator>
             </DropdownMenu.RadioItem>
           </DropdownMenu.RadioGroup>

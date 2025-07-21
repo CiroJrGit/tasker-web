@@ -34,7 +34,7 @@ const BackgroundSelection = () => {
         >
           {bgItem === userBackground && (
             <div className="flex justify-end items-end w-full h-full py-1.5 px-2 rounded-md bg-gray-300 bg-opacity-40">
-              <IconCheck width="18" height="18" color="stroke-white-950" stroke="1.5" />
+              <IconCheck width="18" height="18" color="text-white-950" stroke="1.5" />
             </div>
           )}
         </button>
@@ -52,7 +52,7 @@ const BackgroundSelection = () => {
       >
         {userBackground === 'default-system' && (
           <div className="flex justify-end items-end w-full h-full py-1.5 px-2 rounded-md bg-gray-300 bg-opacity-40">
-            <IconCheck width="18" height="18" color="stroke-white-950" stroke="1.5" />
+            <IconCheck width="18" height="18" color="text-white-950" stroke="1.5" />
           </div>
         )}
       </button>

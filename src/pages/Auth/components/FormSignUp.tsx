@@ -132,7 +132,7 @@ const FormSignUp = () => {
           <MainButton
             variant="primary"
             size="lg"
-            label={isLoadingAuth ? <IconSpinner width="32" height="32" /> : 'Criar conta'}
+            label={isLoadingAuth ? <IconSpinner width="32" height="32" color="text-gray-50" /> : 'Criar conta'}
           />
         </Form.Submit>
       </Form.Root>

@@ -15,7 +15,7 @@ const Sidebar = () => {
       <MenuItem
         as="dialog-trigger"
         variant="menu"
-        icon={<IconPlusRounded width="17" height="17" />}
+        icon={<IconPlusRounded width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
         label="Nova página"
         size="lg"
       >

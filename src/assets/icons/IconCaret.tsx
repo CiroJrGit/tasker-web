@@ -6,13 +6,13 @@ const IconCaret = ({ width, height, color }: IconProps) => {
       width={width}
       height={height}
       viewBox="0 0 11 7"
-      className="shrink-0"
+      className={`shrink-0 ${color}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M1 1.625L5.5 5.375L10 1.625"
-        className={color}
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -57,11 +57,7 @@ const SearchModal = () => {
           <Dialog.Title className="relative flex flex-col gap-3">
             <div className="px-4">
               <div className="absolute top-0.5 left-3 flex justify-center items-center w-6 pt-px">
-                <IconSearch
-                  width="16"
-                  height="16"
-                  color="dark:stroke-gray-300 stroke-white-300"
-                />
+                <IconSearch width="16" height="16" color="dark:text-gray-300 text-white-300" />
               </div>
               <input
                 className="

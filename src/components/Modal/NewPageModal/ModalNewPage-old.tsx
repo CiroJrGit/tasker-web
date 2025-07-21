@@ -53,7 +53,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               "
               htmlFor="r1"
             >
-              <IconCheckbox width="18" height="18" color="dark:stroke-gray-100/60 stroke-gray-300/75" />
+              <IconCheckbox width="18" height="18" color="dark:text-gray-100/60 text-gray-300/75" />
               <span className="text-sm font-medium duration-10">Lista de tarefas</span>
             </label>
           </div>
@@ -68,7 +68,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
               "
               htmlFor="r2"
             >
-              <IconNote width="19" height="19" color="dark:stroke-gray-100/60 stroke-gray-300/80" />
+              <IconNote width="19" height="19" color="dark:text-gray-100/60 text-gray-300/80" />
               <span className="text-sm font-medium duration-10">Página de anotações</span>
             </label>
           </div>
@@ -93,7 +93,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                   'bg-main-green': selectedColor === '#29EE9B',
                 })}
               />
-              <IconCaret width="11" height="11" color="dark:stroke-gray-300 stroke-white-300" />
+              <IconCaret width="11" height="11" color="dark:text-gray-300 text-white-300" />
             </Popover.Trigger>
             <Popover.Portal>
               <Popover.Content className="focus:outline-none">
@@ -118,7 +118,7 @@ const ModalNewPage = ({ page }: ModalNewPageProps) => {
                       onClick={() => setSelectedColor(color)}
                     >
                       {color === selectedColor && (
-                        <IconCheck width="14" height="14" color="stroke-gray-50" stroke="2.2" />
+                        <IconCheck width="14" height="14" color="text-gray-50" stroke="2.2" />
                       )}
                     </button>
                   ))}

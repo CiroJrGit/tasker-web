@@ -20,7 +20,7 @@ const BaseDropdown = ({ name, children }: DropdownProps) => {
       >
         <span className="pb-px font-normal font-int text-sm dark:text-gray-100 text-gray-300">{name}</span>
 
-        <IconCaret width="10" height="10" color="dark:stroke-gray-300 stroke-white-300" />
+        <IconCaret width="10" height="10" color="dark:text-gray-300 text-white-300" />
       </DropdownMenu.Trigger>
 
       {children}

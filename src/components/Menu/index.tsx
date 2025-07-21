@@ -24,7 +24,7 @@ const Menu = () => {
           "
         >
           <UserCard variant="sm" />
-          <IconCaret width="11" height="11" color="dark:stroke-gray-400 stroke-white-300" />
+          <IconCaret width="11" height="11" color="dark:text-gray-400 text-white-300" />
         </Popover.Trigger>
 
         <AccountPopover />
@@ -34,7 +34,7 @@ const Menu = () => {
         <MenuItem
           as='dialog-trigger'
           variant='menu'
-          icon={<IconSearch width="16" height="16" color="dark:stroke-gray-100 stroke-gray-300" />}
+          icon={<IconSearch width="16" height="16" color="dark:text-gray-100 text-gray-300" />}
           label="Pesquisar"
         >
           <SearchModal />
@@ -43,7 +43,7 @@ const Menu = () => {
         <MenuItem
           as='dialog-trigger'
           variant='menu'
-          icon={<IconSettings width="18" height="18" />}
+          icon={<IconSettings width="18" height="18" color="dark:text-gray-100 text-gray-300" />}
           label="Configurações"
         >
           <SettingsModal />
@@ -52,7 +52,7 @@ const Menu = () => {
         <MenuItem
           as='popover-trigger'
           variant='menu'
-          icon={<IconTrash width="17" height="17" color="dark:stroke-gray-100 stroke-gray-300" />}
+          icon={<IconTrash width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
           label="Lixeira"
         >
           <Trash />

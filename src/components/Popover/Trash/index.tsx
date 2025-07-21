@@ -17,7 +17,7 @@ const Trash = () => {
           <div className="flex flex-col gap-6 rounded-lg">
             <div className="px-3.5">
               <div className="absolute top-3.5 left-3 flex justify-center items-center w-6 pt-px">
-                <IconSearch width="14" height="14" color="dark:stroke-gray-300 stroke-white-300" />
+                <IconSearch width="14" height="14" color="dark:text-gray-300 text-white-300" />
               </div>
 
               <input

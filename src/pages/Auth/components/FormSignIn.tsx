@@ -117,7 +117,7 @@ const FormSignIn = () => {
           <MainButton
             variant="primary"
             size="lg"
-            label={isLoadingAuth ? <IconSpinner width="24" height="24" /> : 'Entrar'}
+            label={isLoadingAuth ? <IconSpinner width="24" height="24" color="text-gray-50" /> : 'Entrar'}
           />
         </Form.Submit>
       </Form.Root>

@@ -63,7 +63,7 @@ const TaskListPage = () => {
                   focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-400
                 "
               >
-                <IconEllipsis width="20" height="20" />
+                <IconEllipsis width="20" height="20" color="dark:text-gray-400 text-gray-300" />
               </Popover.Trigger>
 
               <Popover.Portal>

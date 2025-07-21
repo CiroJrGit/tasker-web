@@ -8,7 +8,7 @@ import React from 'react'
 const MenuItem = ({ as, variant, icon, label, size, danger, children, ...props }: MenuItemProps) => {
   const iconItem = React.isValidElement(icon)
     ? React.cloneElement(icon as React.ReactElement<React.HTMLAttributes<HTMLElement>>, {
-        color: danger ? `${icon.props.color ?? ''} group-hover:stroke-red-500`.trim() : icon.props.color,
+        color: danger ? `${icon.props.color ?? ''} group-hover:text-red-500`.trim() : icon.props.color,
       })
     : icon
 

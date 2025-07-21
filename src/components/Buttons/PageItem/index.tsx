@@ -46,8 +46,8 @@ const PageItem = forwardRef<HTMLDivElement, PageItemProps>(
               >
                 <div className="flex justify-center items-center w-5">
                   {variant === 'trash'
-                    ? (<IconBack width="14" height="14" />)
-                    : (<IconEdit width="16" height="16" color="dark:stroke-gray-100 stroke-gray-300" />)
+                    ? (<IconBack width="14" height="14" color="dark:text-gray-100 text-gray-300" />)
+                    : (<IconEdit width="16" height="16" color="dark:text-gray-100 text-gray-300" />)
                   }
                 </div>
               </button>
@@ -57,7 +57,7 @@ const PageItem = forwardRef<HTMLDivElement, PageItemProps>(
                 onClick={onSecondaryAction}
               >
                 <div className="flex justify-center items-center w-5">
-                  <IconTrash width="16" height="16" color="dark:stroke-gray-100 stroke-gray-300" />
+                  <IconTrash width="16" height="16" color="dark:text-gray-100 text-gray-300" />
                 </div>
               </button>
             </div>

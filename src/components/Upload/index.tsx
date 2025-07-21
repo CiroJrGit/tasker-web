@@ -48,9 +48,9 @@ const Upload = () => {
             {/* <IconPlus
             width="20"
             height="20"
-            color="dark:stroke-gray-300 stroke-gray-300"
+            color="dark:text-gray-300 text-gray-300"
             /> */}
-            <IconUpload width="20" height="20" color="dark:stroke-gray-300 stroke-white-300" stroke="1.5" />
+            <IconUpload width="20" height="20" color="dark:text-gray-300 text-white-300" stroke="1.5" />
           </label>
           <input type="file" id="upload-image" className="hidden" accept="image/*" onChange={handleFileChange} />
         </div>
@@ -74,11 +74,11 @@ const Upload = () => {
             `}
           >
             <div className="absolute bottom-0 right-0 flex justify-center items-center w-6 h-6 pt-0.5 my-1 mx-[5px] rounded-[5px] hover:bg-gray-200/70 group-hover:hidden">
-              <IconCheck width="18" height="18" color="stroke-white-950" stroke="1.5" />
+              <IconCheck width="18" height="18" color="text-white-950" stroke="1.5" />
             </div>
 
             <div className="absolute bottom-0 right-0 hidden justify-center items-center w-[26px] h-[26px] my-1 mx-1.5 rounded-[5px] hover:bg-gray-200/70 group-hover:flex">
-              <IconUpload width="17" height="17" color="stroke-white-950" stroke="1.5" />
+              <IconUpload width="17" height="17" color="text-white-950" stroke="1.5" />
             </div>
           </div>
 
@@ -100,12 +100,7 @@ const Upload = () => {
             </div>
 
             <div className="hidden justify-center items-center w-6 h-6 rounded-[5px] dark:hover:bg-gray-300/60 group-hover:flex">
-              <IconUpload
-                width="18"
-                height="18"
-                color="stroke-white-950"
-                stroke="1.3"
-              />
+              <IconUpload width="18" height="18" color="text-white-950" stroke="1.3" />
             </div>
           </div>
 

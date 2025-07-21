@@ -33,7 +33,7 @@ const WelcomePage = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconCheckbox width="20" height="20" color="dark:stroke-gray-400 stroke-white-400" />
+              <IconCheckbox width="20" height="20" color="dark:text-gray-400 text-white-400" />
             </div>
             <span className="pt-px font-medium duration-10">Lista de tarefas</span>
           </Dialog.Trigger>
@@ -51,7 +51,7 @@ const WelcomePage = () => {
             type="button"
           >
             <div className="flex justify-center items-center w-6">
-              <IconNote width="22" height="22" color="dark:stroke-gray-400 stroke-white-400" />
+              <IconNote width="22" height="22" color="dark:text-gray-400 text-white-400" />
             </div>
             <span className="pt-px font-medium duration-10">Página de anotações</span>
           </Dialog.Trigger>
