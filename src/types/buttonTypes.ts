@@ -38,7 +38,7 @@ export interface MainButtonProps extends MainButtonComponentProps, MainButtonVar
 
 // MenuItem component
 export const menuItem = tv({
-  base: 'flex items-center gap-2 px-2 rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group',
+  base: 'flex items-center gap-2 px-2.5 rounded-md focus:outline-none focus-visible:ring-1.5 dark:focus-visible:ring-gray-300 focus-visible:ring-white-300 group',
   variants: {
     as: {
       'dialog-trigger': 'dialog-trigger',
@@ -52,12 +52,18 @@ export const menuItem = tv({
     size: {
       lg: 'h-10',
       md: 'h-8',
+    },
+    weight: {
+      normal: 'font-normal',
+      medium: 'font-medium',
+      bold: 'font-bold',
     }
   },
   defaultVariants: {
     as: 'button-trigger',
     variant: 'menu',
-    size: 'md'
+    size: 'md',
+    weight: 'normal'
   },
 })
 
@@ -73,14 +79,14 @@ export interface MenuItemProps extends MenuItemComponentProps, MenuItemVariants,
 
 // PageItem component
 export const pageItem = tv({
-  base: 'flex justify-between items-center h-8 px-3 font-int rounded-md',
+  base: 'flex justify-between items-center h-8 px-3 rounded-md',
   variants: {
     variant: {
       active: `
         dark:hover:bg-gray-700 hover:bg-white-700/75 dark:active:bg-gray-700/70 active:bg-white-600/75
         dark:group-[.active]:bg-gray-700 group-[.active]:bg-white-700/70 dark:group-[.active]:active:bg-gray-700/70 group-[.active]:active:bg-white-600/75
       `,
-      trash: `dark:hover:bg-gray-600/95 hover:bg-white-700/75 cursor-pointer`,
+      trash: `dark:hover:bg-gray-600/80 hover:bg-white-700/75 cursor-pointer`,
     },
   },
   defaultVariants: {
@@ -105,7 +111,7 @@ export const pageItemButton = tv({
   variants: {
     action: {
       active: 'dark:hover:bg-gray-500/70 hover:bg-white-500/90 dark:active:bg-gray-500/40 active:bg-white-400/60',
-      trash: 'dark:hover:bg-gray-400/60 hover:bg-white-500/90 dark:active:bg-gray-400/35 active:bg-white-400/50',
+      trash: 'dark:hover:bg-gray-400/40 hover:bg-white-500/60 dark:active:bg-gray-400/30 active:bg-white-400/40',
     },
   },
   defaultVariants: {

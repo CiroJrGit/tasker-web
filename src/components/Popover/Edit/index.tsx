@@ -5,8 +5,9 @@ import { TaskList, Note } from '@/types/pagesTypes'
 import clsx from 'clsx'
 
 import * as Separator from '@radix-ui/react-separator'
-import MenuItem from '@/components/Buttons/MenuItem'
+import MenuItem from '@/components/Button/MenuItem'
 
+import IconLink from '@/assets/icons/IconLink'
 import IconEdit from '@/assets/icons/IconEdit'
 import IconTrash from '@/assets/icons/IconTrash'
 import IconCheck from '@/assets/icons/IconCheck'
@@ -28,9 +29,9 @@ const Edit = ({ page, type }: EditProps) => {
 
   return (
     <>
-      <div className="flex flex-col gap-2.5 pt-3.5 pb-3 rounded-lg font-int dark:bg-gray-800 bg-white-900">
+      <div className="flex flex-col gap-2.5 pt-3.5 pb-3 rounded-lg dark:bg-gray-800 bg-white-900">
         <div className="flex flex-col gap-4 px-3.5">
-          <span className="font-medium text-xs dark:text-gray-100 text-gray-300">Cor de destaque</span>
+          <span className="font-medium text-2xs dark:text-gray-100 text-gray-300">Cor de destaque</span>
 
           <div className="flex justify-between pb-2">
             {colors.map((color, index) => (
@@ -71,6 +72,14 @@ const Edit = ({ page, type }: EditProps) => {
 
         <div className="flex flex-col gap-2.5 px-1.5 dark:text-gray-100 text-gray-300">
           <div className="flex flex-col gap-1">
+            <MenuItem
+              as="button-trigger"
+              variant="popover"
+              icon={<IconLink width="18" height="18" color="dark:text-gray-100 text-gray-300" />}
+              label="Copiar link"
+              onClick={() => console.log('Renomear')}
+            />
+
             <MenuItem
               as="button-trigger"
               variant="popover"

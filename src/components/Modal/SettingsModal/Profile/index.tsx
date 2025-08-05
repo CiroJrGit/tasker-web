@@ -1,5 +1,5 @@
 import * as Separator from '@radix-ui/react-separator'
-import MainButton from '@/components/Buttons/MainButton'
+import MainButton from '@/components/Button/MainButton'
 
 interface ProfileProps {
   name?: string

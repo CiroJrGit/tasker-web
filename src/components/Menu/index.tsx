@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import * as Popover from '@radix-ui/react-popover'
 import UserCard from '../UserCard'
-import MenuItem from '../Buttons/MenuItem'
+import MenuItem from '../Button/MenuItem'
 import AccountPopover from '../Popover/AccountPopover'
 import SearchModal from '../Modal/SearchModal'
 import SettingsModal from '../Modal/SettingsModal'
@@ -14,7 +14,7 @@ import IconCaret from '@/assets/icons/IconCaret'
 
 const Menu = () => {
   return (
-    <nav className="flex flex-col gap-3">
+    <nav className="flex flex-col gap-2">
       {/* TO-DO: AccountButton? */}
       <Popover.Root>
         <Popover.Trigger
@@ -30,12 +30,13 @@ const Menu = () => {
         <AccountPopover />
       </Popover.Root>
       
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-0.75">
         <MenuItem
           as='dialog-trigger'
           variant='menu'
           icon={<IconSearch width="16" height="16" color="dark:text-gray-100 text-gray-300" />}
           label="Pesquisar"
+          weight='medium'
         >
           <SearchModal />
         </MenuItem>
@@ -45,6 +46,7 @@ const Menu = () => {
           variant='menu'
           icon={<IconSettings width="18" height="18" color="dark:text-gray-100 text-gray-300" />}
           label="Configurações"
+          weight='medium'
         >
           <SettingsModal />
         </MenuItem>
@@ -54,6 +56,7 @@ const Menu = () => {
           variant='menu'
           icon={<IconTrash width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
           label="Lixeira"
+          weight='medium'
         >
           <Trash />
         </MenuItem>

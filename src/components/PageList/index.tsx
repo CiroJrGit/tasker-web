@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useTaskLists } from '@/hooks/useTaskLists'
 import { useNotes } from '@/hooks/useNotes'
 import { NavLink } from 'react-router-dom'
-import PageItem from '../Buttons/PageItem'
+import PageItem from '../Button/PageItem'
 
 const PageList = () => {
   const { taskLists, loadTaskLists, handleEditTaskList } = useTaskLists()
@@ -17,9 +17,9 @@ const PageList = () => {
     <nav className="flex flex-col gap-9">
       {taskLists.filter((list) => list.deleted === false).length !== 0 && (
         <div className="flex flex-col gap-2">
-          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Listas</span>
+          <span className="px-2 text-xs font-title font-semibold dark:text-gray-300 text-white-400">Listas</span>
 
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-0.75">
             {taskLists
               .filter((list) => list.deleted === false)
               .map((list) => (
@@ -43,9 +43,9 @@ const PageList = () => {
 
       {notes.filter((note) => note.deleted === false).length !== 0 && (
         <div className="flex flex-col gap-2">
-          <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Notas</span>
+          <span className="px-2 text-xs font-title font-semibold dark:text-gray-300 text-white-400">Notas</span>
 
-          <div className="flex flex-col gap-0.5 px-px">
+          <div className="flex flex-col gap-0.75">
             {notes
               .filter((note) => note.deleted === false)
               .map((note, index) => (

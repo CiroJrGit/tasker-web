@@ -1,5 +1,5 @@
 import Menu from '../Menu'
-import MenuItem from '../Buttons/MenuItem'
+import MenuItem from '../Button/MenuItem'
 import PageList from '../PageList'
 import NewPageModal from '../Modal/NewPageModal'
 
@@ -18,6 +18,7 @@ const Sidebar = () => {
         icon={<IconPlusRounded width="17" height="17" color="dark:text-gray-100 text-gray-300" />}
         label="Nova página"
         size="lg"
+        weight="medium"
       >
         <NewPageModal />
       </MenuItem>

@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import MainButton from '@/components/Buttons/MainButton'
+import MainButton from '@/components/Button/MainButton'
 import BaseModal from '../BaseModal'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
@@ -21,7 +21,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
   const { handleCreateNote } = useNotes()
 
   const [titlePage, setTitlePage] = useState('')
-  const [selectedOption, setSelectedOption] = useState<string>(page || '')
+  const [selectedOption, setSelectedOption] = useState<string | undefined>(page)
   const [selectedColor, setSelectedColor] = useState('#265EED')
 
   const colors = ['#265EED', '#8029EE', '#EE29B7', '#F4385A', '#EE9329', '#29EE9B']
@@ -59,7 +59,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
 
                 <div className="flex flex-col gap-px">
                   <span
-                    className={clsx('font-medium text-sm dark:text-gray-100 text-gray-300', {
+                    className={clsx('font-title font-medium text-sm dark:text-gray-100 text-gray-300', {
                       'dark:text-gray-50 text-gray-500': selectedOption === 'tasklist',
                     })}
                   >
@@ -99,7 +99,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
                 />
                 <div className="flex flex-col gap-px">
                   <span
-                    className={clsx('font-medium text-sm dark:text-gray-100 text-gray-300', {
+                    className={clsx('font-title font-medium text-sm dark:text-gray-100 text-gray-300', {
                       'dark:text-gray-50 text-gray-500': selectedOption === 'notes',
                     })}
                   >
@@ -115,7 +115,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
 
           <div className="flex flex-col gap-9">
             <div className="flex flex-col gap-3">
-              <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">Título</span>
+              <span className="text-sm font-medium dark:text-gray-100 text-gray-300">Título</span>
 
               <input
                 className="
@@ -129,7 +129,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
             </div>
 
             <div className="flex justify-between items-center gap-3">
-              <span className="text-sm font-medium font-int dark:text-gray-100 text-gray-300">Cor de destaque</span>
+              <span className="text-sm font-medium dark:text-gray-100 text-gray-300">Cor de destaque</span>
 
               <div className="flex gap-2.5 pt-0.5">
                 {colors.map((color, index) => (
@@ -151,7 +151,7 @@ const NewPageModal = ({ page }: NewPageModalProps) => {
                     )}
                     onClick={() => setSelectedColor(color)}
                   >
-                    {color === selectedColor && <IconCheck width="13" height="13" color="text-gray-50" stroke="2.2" />}
+                    {color === selectedColor && <IconCheck width="15" height="15" color="text-gray-50" stroke="1.7" />}
                   </button>
                 ))}
               </div>

@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import * as Popover from '@radix-ui/react-popover'
-import MainButton from '@/components/Buttons/MainButton'
+import MainButton from '@/components/Button/MainButton'
 
 import IconCheckbox from '@/assets/icons/IconCheckbox'
 import IconNote from '@/assets/icons/IconNote'

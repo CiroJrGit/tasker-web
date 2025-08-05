@@ -2,7 +2,7 @@ import { useTaskLists } from '@/hooks/useTaskLists'
 import { useNotes } from '@/hooks/useNotes'
 
 import * as Popover from '@radix-ui/react-popover'
-import PageItem from '../../Buttons/PageItem'
+import PageItem from '../../Button/PageItem'
 
 import IconSearch from '@/assets/icons/IconSearch'
 
@@ -22,7 +22,7 @@ const Trash = () => {
 
               <input
                 className="
-                  w-full h-8 pl-7 font-int rounded-md text-sm dark:text-gray-50 text-gray-500
+                  w-full h-8 pl-6 font-title font-medium rounded-md text-2xs dark:text-gray-50 text-gray-500
                   dark:placeholder:text-gray-200 placeholder:text-white-300 dark:bg-gray-800 bg-white-900 focus:outline-none
                 "
                 type="text"
@@ -31,12 +31,14 @@ const Trash = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-6 px-1.5">
+            <div className="flex flex-col gap-5 px-1.5">
               {taskLists.filter((list) => list.deleted === true).length !== 0 && (
                 <div className="flex flex-col gap-2">
-                  <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Listas</span>
+                  <span className="px-2 font-title font-semibold text-xs dark:text-gray-300 text-white-400">
+                    Listas
+                  </span>
 
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-0.75">
                     {taskLists
                       .filter((list) => list.deleted === true)
                       .map((list) => (
@@ -56,9 +58,9 @@ const Trash = () => {
 
               {notes.filter((note) => note.deleted === true).length !== 0 && (
                 <div className="flex flex-col gap-2">
-                  <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">Notas</span>
+                  <span className="px-2 font-title font-semibold text-xs dark:text-gray-300 text-white-400">Notas</span>
 
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-0.75">
                     {notes
                       .filter((note) => note.deleted === true)
                       .map((note) => (

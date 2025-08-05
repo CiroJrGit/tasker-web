@@ -33,21 +33,21 @@ const PageItem = forwardRef<HTMLDivElement, PageItemProps>(
               aria-hidden="true"
             ></span>
 
-            <span className="max-w-[148px] text-sm dark:text-gray-100 text-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
+            <span className="max-w-[148px] text-sm dark:text-gray-100 text-gray-400 whitespace-nowrap overflow-hidden text-ellipsis">
               {title}
             </span>
           </div>
 
           {showActions && (
-            <div className={'flex gap-2'}>
+            <div className={'flex gap-1.5'}>
               <button
                 className={pageItemButton({ action: variant })}
                 onClick={onPrimaryAction}
               >
                 <div className="flex justify-center items-center w-5">
                   {variant === 'trash'
-                    ? (<IconBack width="14" height="14" color="dark:text-gray-100 text-gray-300" />)
-                    : (<IconEdit width="16" height="16" color="dark:text-gray-100 text-gray-300" />)
+                    ? (<IconBack width="14" height="14" color="dark:text-gray-200 text-gray-200" />)
+                    : (<IconEdit width="14" height="14" color="dark:text-gray-200 text-gray-200" />)
                   }
                 </div>
               </button>
@@ -56,8 +56,8 @@ const PageItem = forwardRef<HTMLDivElement, PageItemProps>(
                 className={pageItemButton({ action: variant })}
                 onClick={onSecondaryAction}
               >
-                <div className="flex justify-center items-center w-5">
-                  <IconTrash width="16" height="16" color="dark:text-gray-100 text-gray-300" />
+                <div className="flex justify-center items-center w-5 pt-px">
+                  <IconTrash width="15" height="15" color="dark:text-gray-200 text-gray-200" />
                 </div>
               </button>
             </div>

@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Separator from '@radix-ui/react-separator'
 import BaseModal from '../BaseModal'
-import PageItem from '@/components/Buttons/PageItem'
+import PageItem from '@/components/Button/PageItem'
 
 import IconSearch from '@/assets/icons/IconSearch'
 
@@ -56,12 +56,12 @@ const SearchModal = () => {
         <div className="flex flex-col gap-7">
           <Dialog.Title className="relative flex flex-col gap-3">
             <div className="px-4">
-              <div className="absolute top-0.5 left-3 flex justify-center items-center w-6 pt-px">
+              <div className="absolute top-0.5 left-3 flex justify-center items-center w-6 pt-0.5">
                 <IconSearch width="16" height="16" color="dark:text-gray-300 text-white-300" />
               </div>
               <input
                 className="
-                  w-full h-6 pr-5 pl-7 rounded-md dark:text-gray-50 text-gray-500
+                  w-full h-6 pr-5 pl-7 font-title rounded-md dark:text-gray-50 text-gray-500 placeholder:font-medium
                   dark:placeholder:text-gray-300 placeholder:text-white-300 dark:bg-gray-900 bg-white-900 focus:outline-none 
                 "
                 type="text"
@@ -81,7 +81,7 @@ const SearchModal = () => {
           <div className="flex flex-col gap-7 px-1.5">
             {taskLists.length !== 0 && (
               <div className="flex flex-col gap-3">
-                <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
+                <span className="px-2 font-title font-semibold text-xs dark:text-gray-300 text-white-400">
                   Listas
                 </span>
 
@@ -119,7 +119,7 @@ const SearchModal = () => {
 
             {notes.length !== 0 && (
               <div className="flex flex-col gap-3">
-                <span className="px-2 font-semibold text-xs dark:text-gray-300 text-white-400">
+                <span className="px-2 font-title font-semibold text-xs dark:text-gray-300 text-white-400">
                   Notas
                 </span>
 

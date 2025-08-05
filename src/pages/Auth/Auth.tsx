@@ -63,10 +63,10 @@ const AuthPage = () => {
       {loadComponent && (
         <motion.div
           className={clsx(
-            'relative flex flex-col items-center w-[560px] my-auto pt-18 rounded-lg dark:bg-gray-900 bg-white-900 drop-shadow-lg transition-all duration-600 ease-in-out overflow-hidden',
+            'relative flex flex-col items-center w-[550px] my-auto pt-18 rounded-lg dark:bg-gray-900 bg-white-900 drop-shadow-lg transition-all duration-600 ease-in-out overflow-hidden',
             {
-              'min-h-[762px]': signIn,
-              'min-h-[862px]': signUp,
+              'min-h-[732px]': signIn,
+              'min-h-[802px]': signUp,
             },
           )}
           variants={load}
@@ -93,12 +93,12 @@ const AuthPage = () => {
 
           <div
             className={clsx('absolute bottom-0 flex items-center transition-all duration-600 ease-in-out', {
-              'translate-x-1/4 py-8': signIn,
-              '-translate-x-1/4 py-16': signUp,
+              'translate-x-1/4 py-11': signIn,
+              '-translate-x-1/4 py-24': signUp,
             })}
           >
             {/* SignIn */}
-            <div className="flex flex-col justify-end w-[560px] min-h-[432px] px-[58px]">
+            <div className="flex flex-col justify-end w-[550px] min-h-[432px] px-[58px]">
               <div className="flex flex-col gap-20">
                 {visibleIn && (
                   <>
@@ -119,8 +119,8 @@ const AuthPage = () => {
             </div>
 
             {/* SignUp */}
-            <div className="flex flex-col justify-center w-[560px] min-h-[572px] px-[58px]">
-              <div className="flex flex-col gap-24">
+            <div className="flex flex-col justify-end w-[550px] min-h-[572px] px-[58px]">
+              <div className="flex flex-col gap-20">
                 {visibleOut && (
                   <>
                     <FormSignUp />
